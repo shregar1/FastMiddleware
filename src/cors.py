@@ -25,7 +25,7 @@ class CORSMiddleware(StarletteCORSMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from fastmvc_middleware import CORSMiddleware
+        from src import CORSMiddleware
         
         app = FastAPI()
         
@@ -84,4 +84,3 @@ class CORSMiddleware(StarletteCORSMiddleware):
             expose_headers=expose_headers,
             max_age=max_age,
         )
-

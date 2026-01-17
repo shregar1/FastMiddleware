@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-01-17
+
+### Added
+
+- **CompressionMiddleware**: GZip compression for responses with configurable thresholds
+- **TrustedHostMiddleware**: Host header validation to prevent host header attacks
+- **ErrorHandlerMiddleware**: Consistent error response formatting with exception handling
+- **HealthCheckMiddleware**: Built-in health, readiness, and liveness endpoints
+- **IdempotencyMiddleware**: Idempotency key support for safe request retries
+- **CacheMiddleware**: HTTP caching with ETag generation and conditional requests
+- **MetricsMiddleware**: Prometheus-compatible metrics collection and endpoint
+- **MaintenanceMiddleware**: Maintenance mode with IP/path/token bypass options
+
+### Changed
+
+- Updated version to 0.2.0
+- Expanded test suite with 100+ tests
+
 ## [0.1.0] - 2026-01-17
 
 ### Added
@@ -38,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standard security headers (OWASP recommended)
 - Context variables for async-safe request tracking
 
-[Unreleased]: https://github.com/hyyre/fastmvc-middleware/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/hyyre/fastmvc-middleware/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/hyyre/fastmvc-middleware/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/hyyre/fastmvc-middleware/releases/tag/v0.1.0
 

@@ -11,7 +11,7 @@ from typing import Callable, Awaitable, Set
 from starlette.requests import Request
 from starlette.responses import Response
 
-from fastmvc_middleware.base import FastMVCMiddleware
+from src.base import FastMVCMiddleware
 
 
 logger = logging.getLogger("fastmvc.middleware")
@@ -37,7 +37,7 @@ class LoggingMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from fastmvc_middleware import LoggingMiddleware
+        from src import LoggingMiddleware
         import logging
         
         app = FastAPI()
@@ -161,4 +161,3 @@ class LoggingMiddleware(FastMVCMiddleware):
         )
         
         return response
-

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fastmvc-middleware"
-version = "0.1.0"
+version = "0.2.0"
 description = "Production-ready middleware collection for FastAPI/Starlette applications"
 readme = "README.md"
 license = "MIT"
@@ -56,6 +56,8 @@ dev = [
     "mypy>=1.0.0",
     "ruff>=0.1.0",
     "pyjwt>=2.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
 ]
 
 [project.urls]
@@ -67,16 +69,17 @@ Changelog = "https://github.com/hyyre/fastmvc-middleware/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/fastmvc_middleware",
+    "/src",
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["fastmvc_middleware"]
+packages = ["src"]
+sources = ["."]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-addopts = "-v --cov=fastmvc_middleware --cov-report=term-missing"
+addopts = "-v --cov=src --cov-report=term-missing"
 
 [tool.mypy]
 python_version = "3.10"
@@ -105,10 +108,10 @@ ignore = [
 ]
 
 [tool.ruff.isort]
-known-first-party = ["fastmvc_middleware"]
+known-first-party = ["src"]
 
 [tool.coverage.run]
-source = ["fastmvc_middleware"]
+source = ["src"]
 branch = true
 
 [tool.coverage.report]

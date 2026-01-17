@@ -7,7 +7,7 @@ import re
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from fastmvc_middleware import TimingMiddleware
+from src import TimingMiddleware
 
 
 @pytest.fixture

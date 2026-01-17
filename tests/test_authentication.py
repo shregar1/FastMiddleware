@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI, Request
 from starlette.testclient import TestClient
 
-from fastmvc_middleware import (
+from src import (
     AuthenticationMiddleware,
     AuthConfig,
     APIKeyAuthBackend,

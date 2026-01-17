@@ -39,7 +39,7 @@ pip install fastmvc-middleware[all]
 
 ```python
 from fastapi import FastAPI
-from fastmvc_middleware import (
+from src import (
     CORSMiddleware,
     SecurityHeadersMiddleware,
     LoggingMiddleware,
@@ -73,7 +73,7 @@ async def root():
 Adds comprehensive security headers to protect against common web vulnerabilities.
 
 ```python
-from fastmvc_middleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+from src import SecurityHeadersMiddleware, SecurityHeadersConfig
 
 # Using individual parameters
 app.add_middleware(
@@ -111,7 +111,7 @@ app.add_middleware(SecurityHeadersMiddleware, config=config)
 Protects your API from abuse with configurable rate limiting.
 
 ```python
-from fastmvc_middleware import RateLimitMiddleware, RateLimitConfig
+from src import RateLimitMiddleware, RateLimitConfig
 
 # Basic usage - 60 requests per minute
 app.add_middleware(RateLimitMiddleware)
@@ -152,7 +152,7 @@ app.add_middleware(RateLimitMiddleware, config=config)
 Pluggable authentication with support for JWT tokens and API keys.
 
 ```python
-from fastmvc_middleware import (
+from src import (
     AuthenticationMiddleware,
     AuthConfig,
     JWTAuthBackend,
@@ -205,7 +205,7 @@ backend = APIKeyAuthBackend(validator=validate_api_key)
 Structured request/response logging with configurable verbosity.
 
 ```python
-from fastmvc_middleware import LoggingMiddleware
+from src import LoggingMiddleware
 import logging
 
 app.add_middleware(
@@ -230,7 +230,7 @@ app.add_middleware(
 Adds request processing time to response headers.
 
 ```python
-from fastmvc_middleware import TimingMiddleware
+from src import TimingMiddleware
 
 app.add_middleware(
     TimingMiddleware,
@@ -249,7 +249,7 @@ app.add_middleware(
 Generates unique request identifiers for distributed tracing.
 
 ```python
-from fastmvc_middleware import RequestIDMiddleware
+from src import RequestIDMiddleware
 
 app.add_middleware(
     RequestIDMiddleware,
@@ -273,7 +273,7 @@ async def root(request: Request):
 Provides async-safe context variables accessible from anywhere in your code.
 
 ```python
-from fastmvc_middleware import (
+from src import (
     RequestContextMiddleware,
     get_request_id,
     get_request_context,
@@ -309,7 +309,7 @@ async def my_service_function():
 Cross-origin resource sharing with sensible defaults.
 
 ```python
-from fastmvc_middleware import CORSMiddleware
+from src import CORSMiddleware
 
 # Specific origins (production)
 app.add_middleware(
@@ -363,7 +363,7 @@ app.add_middleware(CORSMiddleware, allow_origins=["..."])
 ### Production Configuration
 
 ```python
-from fastmvc_middleware import (
+from src import (
     SecurityHeadersMiddleware,
     RateLimitMiddleware,
     RateLimitConfig,
@@ -422,7 +422,7 @@ app.add_middleware(
 Extend `FastMVCMiddleware` to create your own middleware:
 
 ```python
-from fastmvc_middleware import FastMVCMiddleware
+from src import FastMVCMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 

@@ -10,7 +10,7 @@ from typing import Callable, Awaitable, Set
 from starlette.requests import Request
 from starlette.responses import Response
 
-from fastmvc_middleware.base import FastMVCMiddleware
+from src.base import FastMVCMiddleware
 
 
 @dataclass
@@ -39,7 +39,7 @@ class SecurityHeadersConfig:
     
     Example:
         ```python
-        from fastmvc_middleware import SecurityHeadersConfig
+        from src import SecurityHeadersConfig
         
         config = SecurityHeadersConfig(
             enable_hsts=True,
@@ -106,7 +106,7 @@ class SecurityHeadersMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from fastmvc_middleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+        from src import SecurityHeadersMiddleware, SecurityHeadersConfig
         
         app = FastAPI()
         

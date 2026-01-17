@@ -109,7 +109,7 @@ from typing import Callable, Awaitable, Set
 from starlette.requests import Request
 from starlette.responses import Response
 
-from fastmvc_middleware.base import FastMVCMiddleware
+from src.base import FastMVCMiddleware
 
 
 class MyNewMiddleware(FastMVCMiddleware):
@@ -123,7 +123,7 @@ class MyNewMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from fastmvc_middleware import MyNewMiddleware
+        from src import MyNewMiddleware
         
         app = FastAPI()
         app.add_middleware(MyNewMiddleware, option="value")

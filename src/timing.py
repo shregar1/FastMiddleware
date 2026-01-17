@@ -10,7 +10,7 @@ from typing import Callable, Awaitable, Set
 from starlette.requests import Request
 from starlette.responses import Response
 
-from fastmvc_middleware.base import FastMVCMiddleware
+from src.base import FastMVCMiddleware
 
 
 class TimingMiddleware(FastMVCMiddleware):
@@ -29,7 +29,7 @@ class TimingMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from fastmvc_middleware import TimingMiddleware
+        from src import TimingMiddleware
         
         app = FastAPI()
         
@@ -100,4 +100,3 @@ class TimingMiddleware(FastMVCMiddleware):
         response.headers[self.header_name] = time_value
         
         return response
-

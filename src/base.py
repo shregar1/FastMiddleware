@@ -25,7 +25,7 @@ class FastMVCMiddleware(BaseHTTPMiddleware, ABC):
     
     Example:
         ```python
-        from fastmvc_middleware import FastMVCMiddleware
+        from src import FastMVCMiddleware
         
         class MyMiddleware(FastMVCMiddleware):
             async def dispatch(self, request, call_next):
@@ -109,4 +109,3 @@ class FastMVCMiddleware(BaseHTTPMiddleware, ABC):
             The HTTP response.
         """
         pass
-

@@ -7,7 +7,7 @@ import uuid
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from fastmvc_middleware import RequestIDMiddleware
+from src import RequestIDMiddleware
 
 
 @pytest.fixture
