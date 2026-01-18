@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _timings: ContextVar[list[dict] | None] = ContextVar("server_timings", default=None)
@@ -20,13 +20,17 @@ _timings: ContextVar[list[dict] | None] = ContextVar("server_timings", default=N
 
 def add_timing(name: str, duration: float | None = None, description: str = "") -> None:
     """Add a timing entry."""
-    entry = {"name": name}
+    entry: dict[str, str | float] = {"name": name}
     if duration is not None:
         entry["dur"] = duration
     if description:
         entry["desc"] = description
 
-    _timings.get().append(entry)
+    timings = _timings.get()
+    if timings is None:
+        timings = []
+        _timings.set(timings)
+    timings.append(entry)
 
 
 class ServerTimingContext:
@@ -74,7 +78,7 @@ class ServerTimingMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ServerTimingMiddleware, timing
+        from fastmiddleware import ServerTimingMiddleware, timing
 
         app.add_middleware(ServerTimingMiddleware)
 

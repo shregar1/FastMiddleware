@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -39,7 +39,7 @@ class NoCacheMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import NoCacheMiddleware
+        from fastmiddleware import NoCacheMiddleware
 
         app.add_middleware(
             NoCacheMiddleware,

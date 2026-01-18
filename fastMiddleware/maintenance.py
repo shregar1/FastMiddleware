@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -30,7 +30,7 @@ class MaintenanceConfig:
 
     Example:
         ```python
-        from FastMiddleware import MaintenanceConfig
+        from fastmiddleware import MaintenanceConfig
 
         config = MaintenanceConfig(
             enabled=True,
@@ -71,7 +71,7 @@ class MaintenanceMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import MaintenanceMiddleware, MaintenanceConfig
+        from fastmiddleware import MaintenanceMiddleware, MaintenanceConfig
 
         app = FastAPI()
 

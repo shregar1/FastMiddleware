@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -58,7 +58,7 @@ class HoneypotMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import HoneypotMiddleware
+        from fastmiddleware import HoneypotMiddleware
 
         app.add_middleware(
             HoneypotMiddleware,

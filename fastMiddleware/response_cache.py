@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -61,7 +61,7 @@ class ResponseCacheMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ResponseCacheMiddleware
+        from fastmiddleware import ResponseCacheMiddleware
 
         app.add_middleware(
             ResponseCacheMiddleware,

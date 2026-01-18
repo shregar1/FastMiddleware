@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _sampled_ctx: ContextVar[bool] = ContextVar("is_sampled", default=False)
@@ -50,7 +50,7 @@ class RequestSamplerMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import RequestSamplerMiddleware, is_sampled
+        from fastmiddleware import RequestSamplerMiddleware, is_sampled
 
         app.add_middleware(
             RequestSamplerMiddleware,

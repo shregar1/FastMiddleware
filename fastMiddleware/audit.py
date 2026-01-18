@@ -15,7 +15,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -69,7 +69,7 @@ class AuditConfig:
 
     Example:
         ```python
-        from FastMiddleware import AuditConfig
+        from fastmiddleware import AuditConfig
 
         config = AuditConfig(
             log_all_requests=True,
@@ -136,7 +136,7 @@ class AuditMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import AuditMiddleware, AuditConfig
+        from fastmiddleware import AuditMiddleware, AuditConfig
 
         app = FastAPI()
 

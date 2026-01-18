@@ -12,7 +12,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -32,7 +32,7 @@ class CacheConfig:
 
     Example:
         ```python
-        from FastMiddleware import CacheConfig
+        from fastmiddleware import CacheConfig
 
         config = CacheConfig(
             default_max_age=3600,
@@ -75,7 +75,7 @@ class CacheMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import CacheMiddleware, CacheConfig
+        from fastmiddleware import CacheMiddleware, CacheConfig
 
         app = FastAPI()
 

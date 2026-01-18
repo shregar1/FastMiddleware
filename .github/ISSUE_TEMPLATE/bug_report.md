@@ -37,7 +37,7 @@ What actually happened.
 ## Code Example
 
 ```python
-from fastMiddleware import ...
+from fastmiddleware import ...
 
 app.add_middleware(...)
 ```

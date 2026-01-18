@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -31,7 +31,7 @@ class QuotaConfig:
 
     Example:
         ```python
-        from FastMiddleware import QuotaConfig
+        from fastmiddleware import QuotaConfig
 
         config = QuotaConfig(
             default_quota=1000,  # 1000 requests per day
@@ -65,7 +65,7 @@ class QuotaMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import QuotaMiddleware, QuotaConfig
+        from fastmiddleware import QuotaMiddleware, QuotaConfig
 
         app = FastAPI()
 

@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -28,7 +28,7 @@ class ETagConfig:
 
     Example:
         ```python
-        from FastMiddleware import ETagConfig
+        from fastmiddleware import ETagConfig
 
         config = ETagConfig(
             weak_etag=False,
@@ -60,7 +60,7 @@ class ETagMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import ETagMiddleware
+        from fastmiddleware import ETagMiddleware
 
         app = FastAPI()
 

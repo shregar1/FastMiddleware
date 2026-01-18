@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -27,7 +27,7 @@ class HeaderTransformConfig:
 
     Example:
         ```python
-        from FastMiddleware import HeaderTransformConfig
+        from fastmiddleware import HeaderTransformConfig
 
         config = HeaderTransformConfig(
             add_response_headers={
@@ -62,7 +62,7 @@ class HeaderTransformMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import HeaderTransformMiddleware
+        from fastmiddleware import HeaderTransformMiddleware
 
         app = FastAPI()
 

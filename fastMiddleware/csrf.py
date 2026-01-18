@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -33,7 +33,7 @@ class CSRFConfig:
 
     Example:
         ```python
-        from FastMiddleware import CSRFConfig
+        from fastmiddleware import CSRFConfig
 
         config = CSRFConfig(
             secret="your-secret-key",
@@ -72,7 +72,7 @@ class CSRFMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import CSRFMiddleware, CSRFConfig
+        from fastmiddleware import CSRFMiddleware, CSRFConfig
 
         app = FastAPI()
 

@@ -12,7 +12,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variable for geo data
@@ -28,7 +28,7 @@ def get_geo_data() -> dict[str, Any] | None:
 
     Example:
         ```python
-        from FastMiddleware import get_geo_data
+        from fastmiddleware import get_geo_data
 
         @app.get("/")
         async def root():
@@ -54,7 +54,7 @@ class GeoIPConfig:
 
     Example:
         ```python
-        from FastMiddleware import GeoIPConfig
+        from fastmiddleware import GeoIPConfig
 
         # Trust Cloudflare headers
         config = GeoIPConfig(
@@ -102,7 +102,7 @@ class GeoIPMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI, Request
-        from FastMiddleware import GeoIPMiddleware, get_geo_data
+        from fastmiddleware import GeoIPMiddleware, get_geo_data
 
         app = FastAPI()
 

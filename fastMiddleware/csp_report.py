@@ -13,7 +13,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -45,7 +45,7 @@ class CSPReportMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import CSPReportMiddleware
+        from fastmiddleware import CSPReportMiddleware
 
         csp_reporter = CSPReportMiddleware(
             app,

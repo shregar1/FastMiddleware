@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -63,7 +63,7 @@ class PathRewriteMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import PathRewriteMiddleware, RewriteRule
+        from fastmiddleware import PathRewriteMiddleware, RewriteRule
 
         app.add_middleware(
             PathRewriteMiddleware,

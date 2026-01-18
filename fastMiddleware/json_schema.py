@@ -12,7 +12,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -35,7 +35,7 @@ class JSONSchemaMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import JSONSchemaMiddleware
+        from fastmiddleware import JSONSchemaMiddleware
 
         user_schema = {
             "type": "object",

@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -42,7 +42,7 @@ class ReplayPreventionMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ReplayPreventionMiddleware
+        from fastmiddleware import ReplayPreventionMiddleware
 
         app.add_middleware(
             ReplayPreventionMiddleware,

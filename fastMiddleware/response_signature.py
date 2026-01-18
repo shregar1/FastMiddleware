@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -45,7 +45,7 @@ class ResponseSignatureMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ResponseSignatureMiddleware
+        from fastmiddleware import ResponseSignatureMiddleware
 
         app.add_middleware(
             ResponseSignatureMiddleware,

@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variable for locale
@@ -27,7 +27,7 @@ def get_locale() -> str | None:
 
     Example:
         ```python
-        from FastMiddleware import get_locale
+        from fastmiddleware import get_locale
 
         @app.get("/")
         async def root():
@@ -53,7 +53,7 @@ class LocaleConfig:
 
     Example:
         ```python
-        from FastMiddleware import LocaleConfig
+        from fastmiddleware import LocaleConfig
 
         config = LocaleConfig(
             default_locale="en-US",
@@ -93,7 +93,7 @@ class LocaleMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import LocaleMiddleware, get_locale
+        from fastmiddleware import LocaleMiddleware, get_locale
 
         app = FastAPI()
 

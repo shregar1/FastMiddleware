@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response, StreamingResponse
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -39,7 +39,7 @@ class BandwidthMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import BandwidthMiddleware
+        from fastmiddleware import BandwidthMiddleware
 
         app.add_middleware(
             BandwidthMiddleware,

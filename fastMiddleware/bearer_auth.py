@@ -11,7 +11,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -41,7 +41,7 @@ class BearerAuthMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import BearerAuthMiddleware
+        from fastmiddleware import BearerAuthMiddleware
 
         app.add_middleware(
             BearerAuthMiddleware,

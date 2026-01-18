@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _language_ctx: ContextVar[str | None] = ContextVar("language", default=None)
@@ -47,7 +47,7 @@ class AcceptLanguageMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import AcceptLanguageMiddleware, get_language
+        from fastmiddleware import AcceptLanguageMiddleware, get_language
 
         app.add_middleware(
             AcceptLanguageMiddleware,

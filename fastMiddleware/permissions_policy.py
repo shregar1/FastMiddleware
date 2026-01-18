@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -56,7 +56,7 @@ class PermissionsPolicyMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import PermissionsPolicyMiddleware
+        from fastmiddleware import PermissionsPolicyMiddleware
 
         app.add_middleware(
             PermissionsPolicyMiddleware,

@@ -11,7 +11,7 @@ from datetime import datetime
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -37,7 +37,7 @@ class DeprecationConfig:
 
     Example:
         ```python
-        from FastMiddleware import DeprecationConfig, DeprecationInfo
+        from fastmiddleware import DeprecationConfig, DeprecationInfo
 
         config = DeprecationConfig(
             deprecated_paths={
@@ -74,7 +74,7 @@ class DeprecationMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import DeprecationMiddleware, DeprecationInfo
+        from fastmiddleware import DeprecationMiddleware, DeprecationInfo
 
         app = FastAPI()
 

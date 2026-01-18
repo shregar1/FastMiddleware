@@ -12,7 +12,7 @@ from enum import Enum
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 class BotAction(Enum):
@@ -38,7 +38,7 @@ class BotConfig:
 
     Example:
         ```python
-        from FastMiddleware import BotConfig, BotAction
+        from fastmiddleware import BotConfig, BotAction
 
         config = BotConfig(
             action=BotAction.TAG,  # Just mark bots, don't block
@@ -106,7 +106,7 @@ class BotDetectionMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import BotDetectionMiddleware, BotAction
+        from fastmiddleware import BotDetectionMiddleware, BotAction
 
         app = FastAPI()
 

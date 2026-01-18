@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -30,7 +30,7 @@ class WebhookConfig:
 
     Example:
         ```python
-        from FastMiddleware import WebhookConfig
+        from fastmiddleware import WebhookConfig
 
         # GitHub webhook
         config = WebhookConfig(
@@ -72,7 +72,7 @@ class WebhookMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import WebhookMiddleware, WebhookConfig
+        from fastmiddleware import WebhookMiddleware, WebhookConfig
 
         app = FastAPI()
 

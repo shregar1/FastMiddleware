@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -38,7 +38,7 @@ class ConditionalRequestMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ConditionalRequestMiddleware
+        from fastmiddleware import ConditionalRequestMiddleware
 
         app.add_middleware(ConditionalRequestMiddleware)
 

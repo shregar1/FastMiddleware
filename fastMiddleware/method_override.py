@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -40,7 +40,7 @@ class MethodOverrideMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import MethodOverrideMiddleware
+        from fastmiddleware import MethodOverrideMiddleware
 
         app.add_middleware(MethodOverrideMiddleware)
 

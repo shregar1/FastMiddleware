@@ -14,7 +14,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -33,7 +33,7 @@ class SessionConfig:
 
     Example:
         ```python
-        from FastMiddleware import SessionConfig
+        from fastmiddleware import SessionConfig
 
         config = SessionConfig(
             max_age=86400,  # 24 hours
@@ -201,7 +201,7 @@ class SessionMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI, Request
-        from FastMiddleware import SessionMiddleware, SessionConfig
+        from fastmiddleware import SessionMiddleware, SessionConfig
 
         app = FastAPI()
 

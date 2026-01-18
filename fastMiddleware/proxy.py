@@ -11,7 +11,7 @@ import httpx
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -49,7 +49,7 @@ class ProxyMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ProxyMiddleware, ProxyRoute
+        from fastmiddleware import ProxyMiddleware, ProxyRoute
 
         app.add_middleware(
             ProxyMiddleware,

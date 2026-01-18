@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -42,7 +42,7 @@ class APIVersionHeaderMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import APIVersionHeaderMiddleware
+        from fastmiddleware import APIVersionHeaderMiddleware
 
         app.add_middleware(
             APIVersionHeaderMiddleware,

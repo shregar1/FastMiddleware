@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -38,7 +38,7 @@ class XFFTrustMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import XFFTrustMiddleware
+        from fastmiddleware import XFFTrustMiddleware
 
         app.add_middleware(
             XFFTrustMiddleware,

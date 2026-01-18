@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variable for feature flags
@@ -27,7 +27,7 @@ def get_feature_flags() -> dict[str, bool]:
 
     Example:
         ```python
-        from FastMiddleware import get_feature_flags, is_feature_enabled
+        from fastmiddleware import get_feature_flags, is_feature_enabled
 
         @app.get("/")
         async def root():
@@ -65,7 +65,7 @@ class FeatureFlagConfig:
 
     Example:
         ```python
-        from FastMiddleware import FeatureFlagConfig
+        from fastmiddleware import FeatureFlagConfig
 
         config = FeatureFlagConfig(
             flags={
@@ -102,7 +102,7 @@ class FeatureFlagMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import FeatureFlagMiddleware, is_feature_enabled
+        from fastmiddleware import FeatureFlagMiddleware, is_feature_enabled
 
         app = FastAPI()
 

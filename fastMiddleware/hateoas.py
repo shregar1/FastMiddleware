@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -55,7 +55,7 @@ class HATEOASMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import HATEOASMiddleware, Link
+        from fastmiddleware import HATEOASMiddleware, Link
 
         app.add_middleware(
             HATEOASMiddleware,

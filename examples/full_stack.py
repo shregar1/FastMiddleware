@@ -205,11 +205,11 @@ async def protected_endpoint(request: Request):
     """Protected endpoint that requires authentication."""
     # Access auth data from middleware
     auth = request.state.auth
-    
+
     # Access request context
     request_id = get_request_id()
     ctx = get_request_context()
-    
+
     return {
         "message": "You are authenticated!",
         "auth": auth,
@@ -232,7 +232,7 @@ async def create_item(item: Item, request: Request):
     """Create a new item (protected)."""
     global item_counter
     item_counter += 1
-    
+
     item_response = ItemResponse(
         id=item_counter,
         name=item.name,
@@ -240,7 +240,7 @@ async def create_item(item: Item, request: Request):
         price=item.price,
         created_at=datetime.utcnow(),
     )
-    
+
     items_db[item_counter] = item_response
     return item_response
 
@@ -258,7 +258,7 @@ async def delete_item(item_id: int, request: Request):
     """Delete an item by ID (protected)."""
     if item_id not in items_db:
         raise HTTPException(status_code=404, detail="Item not found")
-    
+
     del items_db[item_id]
     return {"deleted": item_id}
 
@@ -278,7 +278,7 @@ async def debug_headers(request: Request):
 
 if __name__ == "__main__":
     import uvicorn
-    
+
     print("Starting server...")
     print(f"Allowed origins: {ALLOWED_ORIGINS}")
     print(f"Rate limit: {RATE_LIMIT_PER_MINUTE} requests/minute")
@@ -286,6 +286,6 @@ if __name__ == "__main__":
     print("\nTest with:")
     print('  curl http://localhost:8000/public')
     print('  curl -H "Authorization: Bearer demo-api-key-1" http://localhost:8000/protected')
-    
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
 

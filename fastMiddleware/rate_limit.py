@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -37,7 +37,7 @@ class RateLimitConfig:
 
     Example:
         ```python
-        from FastMiddleware import RateLimitConfig
+        from fastmiddleware import RateLimitConfig
 
         # 100 requests per minute
         config = RateLimitConfig(requests_per_minute=100)
@@ -67,7 +67,7 @@ class RateLimitStore(ABC):
 
     Example:
         ```python
-        from FastMiddleware import RateLimitStore
+        from fastmiddleware import RateLimitStore
 
         class RedisRateLimitStore(RateLimitStore):
             def __init__(self, redis_client):
@@ -202,7 +202,7 @@ class RateLimitMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import RateLimitMiddleware, RateLimitConfig
+        from fastmiddleware import RateLimitMiddleware, RateLimitConfig
 
         app = FastAPI()
 

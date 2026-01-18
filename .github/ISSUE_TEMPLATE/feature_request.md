@@ -20,7 +20,7 @@ Describe the solution you'd like:
 
 ```python
 # Example API design
-from fastMiddleware import NewMiddleware
+from fastmiddleware import NewMiddleware
 
 app.add_middleware(
     NewMiddleware,

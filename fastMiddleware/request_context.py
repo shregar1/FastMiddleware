@@ -13,7 +13,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variables for async-safe access to request data
@@ -35,7 +35,7 @@ def get_request_id() -> str | None:
 
     Example:
         ```python
-        from FastMiddleware import get_request_id
+        from fastmiddleware import get_request_id
 
         async def my_function():
             request_id = get_request_id()
@@ -57,7 +57,7 @@ def get_request_context() -> dict[str, Any]:
 
     Example:
         ```python
-        from FastMiddleware import get_request_context
+        from fastmiddleware import get_request_context
 
         async def my_function():
             ctx = get_request_context()
@@ -101,7 +101,7 @@ class RequestContextMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import RequestContextMiddleware, get_request_id
+        from fastmiddleware import RequestContextMiddleware, get_request_id
 
         app = FastAPI()
         app.add_middleware(RequestContextMiddleware)
@@ -114,7 +114,7 @@ class RequestContextMiddleware(FastMVCMiddleware):
 
         # In a service or utility function
         async def log_something():
-            from FastMiddleware import get_request_context
+            from fastmiddleware import get_request_context
             ctx = get_request_context()
             logger.info(f"Request {ctx['request_id']} from {ctx['client_ip']}")
         ```

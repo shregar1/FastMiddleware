@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -58,7 +58,7 @@ class ResponseTimeMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ResponseTimeMiddleware, ResponseTimeSLA
+        from fastmiddleware import ResponseTimeMiddleware, ResponseTimeSLA
 
         app.add_middleware(
             ResponseTimeMiddleware,

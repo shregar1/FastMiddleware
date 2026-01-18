@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variable for correlation ID
@@ -28,7 +28,7 @@ def get_correlation_id() -> str | None:
 
     Example:
         ```python
-        from FastMiddleware import get_correlation_id
+        from fastmiddleware import get_correlation_id
 
         @app.get("/")
         async def root():
@@ -53,7 +53,7 @@ class CorrelationConfig:
 
     Example:
         ```python
-        from FastMiddleware import CorrelationConfig
+        from fastmiddleware import CorrelationConfig
 
         config = CorrelationConfig(
             header_name="X-Correlation-ID",
@@ -85,7 +85,7 @@ class CorrelationMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import CorrelationMiddleware, get_correlation_id
+        from fastmiddleware import CorrelationMiddleware, get_correlation_id
 
         app = FastAPI()
         app.add_middleware(CorrelationMiddleware)
@@ -106,7 +106,7 @@ class CorrelationMiddleware(FastMVCMiddleware):
     Logging Integration:
         ```python
         import logging
-        from FastMiddleware import get_correlation_id
+        from fastmiddleware import get_correlation_id
 
         class CorrelationFilter(logging.Filter):
             def filter(self, record):

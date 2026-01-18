@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -33,7 +33,7 @@ class LoadSheddingConfig:
 
     Example:
         ```python
-        from FastMiddleware import LoadSheddingConfig
+        from fastmiddleware import LoadSheddingConfig
 
         config = LoadSheddingConfig(
             max_concurrent=100,
@@ -68,7 +68,7 @@ class LoadSheddingMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import LoadSheddingMiddleware
+        from fastmiddleware import LoadSheddingMiddleware
 
         app = FastAPI()
 

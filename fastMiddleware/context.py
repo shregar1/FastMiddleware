@@ -12,7 +12,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _context: ContextVar[dict[str, Any] | None] = ContextVar("request_context", default=None)
@@ -20,18 +20,22 @@ _context: ContextVar[dict[str, Any] | None] = ContextVar("request_context", defa
 
 def get_context() -> dict[str, Any]:
     """Get current request context."""
-    return _context.get() or {}
+    ctx = _context.get()
+    if ctx is None:
+        ctx = {}
+        _context.set(ctx)
+    return ctx
 
 
 def set_context_value(key: str, value: Any) -> None:
     """Set a value in the current request context."""
-    ctx = _context.get()
+    ctx = get_context()
     ctx[key] = value
 
 
 def get_context_value(key: str, default: Any = None) -> Any:
     """Get a value from the current request context."""
-    return _context.get().get(key, default)
+    return get_context().get(key, default)
 
 
 @dataclass
@@ -59,7 +63,7 @@ class ContextMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ContextMiddleware, get_context_value
+        from fastmiddleware import ContextMiddleware, get_context_value
 
         app.add_middleware(
             ContextMiddleware,

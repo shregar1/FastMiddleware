@@ -13,7 +13,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _hints_ctx: ContextVar[dict[str, Any] | None] = ContextVar("client_hints", default=None)
@@ -58,7 +58,7 @@ class ClientHintsMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ClientHintsMiddleware, get_client_hints
+        from fastmiddleware import ClientHintsMiddleware, get_client_hints
 
         app.add_middleware(
             ClientHintsMiddleware,

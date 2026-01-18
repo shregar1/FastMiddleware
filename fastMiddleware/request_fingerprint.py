@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 _fingerprint_ctx: ContextVar[str | None] = ContextVar("fingerprint", default=None)
@@ -58,7 +58,7 @@ class RequestFingerprintMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import RequestFingerprintMiddleware, get_fingerprint
+        from fastmiddleware import RequestFingerprintMiddleware, get_fingerprint
 
         app.add_middleware(RequestFingerprintMiddleware)
 

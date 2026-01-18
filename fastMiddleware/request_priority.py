@@ -11,7 +11,7 @@ from enum import IntEnum
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 class Priority(IntEnum):
@@ -51,7 +51,7 @@ class RequestPriorityMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import RequestPriorityMiddleware, Priority
+        from fastmiddleware import RequestPriorityMiddleware, Priority
 
         app.add_middleware(
             RequestPriorityMiddleware,

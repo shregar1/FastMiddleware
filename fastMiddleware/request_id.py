@@ -10,7 +10,7 @@ from collections.abc import Awaitable, Callable
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 class RequestIDMiddleware(FastMVCMiddleware):
@@ -32,7 +32,7 @@ class RequestIDMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI, Request
-        from FastMiddleware import RequestIDMiddleware
+        from fastmiddleware import RequestIDMiddleware
 
         app = FastAPI()
         app.add_middleware(RequestIDMiddleware)

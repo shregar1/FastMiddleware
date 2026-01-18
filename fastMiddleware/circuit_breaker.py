@@ -13,7 +13,7 @@ from enum import Enum
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 class CircuitState(Enum):
@@ -39,7 +39,7 @@ class CircuitBreakerConfig:
 
     Example:
         ```python
-        from FastMiddleware import CircuitBreakerConfig
+        from fastmiddleware import CircuitBreakerConfig
 
         config = CircuitBreakerConfig(
             failure_threshold=5,
@@ -90,7 +90,7 @@ class CircuitBreakerMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig
+        from fastmiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig
 
         app = FastAPI()
 

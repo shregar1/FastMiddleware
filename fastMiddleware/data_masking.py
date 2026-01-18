@@ -13,7 +13,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -58,7 +58,7 @@ class DataMaskingConfig:
 
     Example:
         ```python
-        from FastMiddleware import DataMaskingConfig, MaskingRule
+        from fastmiddleware import DataMaskingConfig, MaskingRule
 
         config = DataMaskingConfig(
             fields={"password", "ssn", "credit_card"},
@@ -115,7 +115,7 @@ class DataMaskingMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import DataMaskingMiddleware
+        from fastmiddleware import DataMaskingMiddleware
 
         app = FastAPI()
 

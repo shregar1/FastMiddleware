@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import RedirectResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -37,7 +37,7 @@ class RedirectConfig:
 
     Example:
         ```python
-        from FastMiddleware import RedirectConfig, RedirectRule
+        from fastmiddleware import RedirectConfig, RedirectRule
 
         config = RedirectConfig(
             rules=[
@@ -73,7 +73,7 @@ class RedirectMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import RedirectMiddleware, RedirectRule
+        from fastmiddleware import RedirectMiddleware, RedirectRule
 
         app = FastAPI()
 

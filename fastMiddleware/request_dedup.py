@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -44,7 +44,7 @@ class RequestDedupMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import RequestDedupMiddleware
+        from fastmiddleware import RequestDedupMiddleware
 
         app.add_middleware(
             RequestDedupMiddleware,

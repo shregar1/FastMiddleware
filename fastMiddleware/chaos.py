@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -54,7 +54,7 @@ class ChaosMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import ChaosMiddleware
+        from fastmiddleware import ChaosMiddleware
 
         # Only enable in testing environments!
         app.add_middleware(

@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from starlette.requests import Request
 from starlette.responses import Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -47,7 +47,7 @@ class EarlyHintsMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import EarlyHintsMiddleware, EarlyHint
+        from fastmiddleware import EarlyHintsMiddleware, EarlyHint
 
         app.add_middleware(
             EarlyHintsMiddleware,

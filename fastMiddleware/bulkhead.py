@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 @dataclass
@@ -47,7 +47,7 @@ class BulkheadMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import BulkheadMiddleware
+        from fastmiddleware import BulkheadMiddleware
 
         app.add_middleware(
             BulkheadMiddleware,

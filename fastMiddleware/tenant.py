@@ -12,7 +12,7 @@ from typing import Any
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from FastMiddleware.base import FastMVCMiddleware
+from fastmiddleware.base import FastMVCMiddleware
 
 
 # Context variable for tenant
@@ -28,7 +28,7 @@ def get_tenant() -> dict[str, Any] | None:
 
     Example:
         ```python
-        from FastMiddleware import get_tenant
+        from fastmiddleware import get_tenant
 
         @app.get("/data")
         async def get_data():
@@ -61,7 +61,7 @@ class TenantConfig:
 
     Example:
         ```python
-        from FastMiddleware import TenantConfig
+        from fastmiddleware import TenantConfig
 
         # Header-based
         config = TenantConfig(
@@ -109,7 +109,7 @@ class TenantMiddleware(FastMVCMiddleware):
     Example:
         ```python
         from fastapi import FastAPI
-        from FastMiddleware import TenantMiddleware, get_tenant
+        from fastmiddleware import TenantMiddleware, get_tenant
 
         app = FastAPI()
 
