@@ -13,9 +13,10 @@ This document describes how to publish the `fastmvc-middleware` package to PyPI.
    - TestPyPI: https://test.pypi.org/manage/account/token/
 
 3. **Install Build Tools**:
-   ```bash
-   pip install build twine
-   ```
+
+```bash
+pip install build twine
+```
 
 ## Configuration
 
