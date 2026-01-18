@@ -85,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated version to 0.5.0
-- Renamed package from `src` to `FastMiddleware`
+- Renamed package from `src` to `fastmiddleware`
 - Expanded test suite to 316 tests
 - Improved documentation with examples for all middlewares
 

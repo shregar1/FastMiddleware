@@ -306,7 +306,7 @@ def cors_headers() -> dict:
 @pytest.fixture
 def rate_limit_config():
     """Return a rate limit configuration for testing."""
-    from FastMiddleware import RateLimitConfig
+    from fastmiddleware import RateLimitConfig
 
     return RateLimitConfig(
         requests_per_minute=10,

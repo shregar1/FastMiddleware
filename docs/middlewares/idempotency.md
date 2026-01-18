@@ -5,14 +5,14 @@ Provides idempotency key support for safe request retries, preventing duplicate 
 ## Installation
 
 ```python
-from FastMiddleware import IdempotencyMiddleware, IdempotencyConfig, InMemoryIdempotencyStore
+from fastmiddleware import IdempotencyMiddleware, IdempotencyConfig, InMemoryIdempotencyStore
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import IdempotencyMiddleware
+from fastmiddleware import IdempotencyMiddleware
 
 app = FastAPI()
 app.add_middleware(IdempotencyMiddleware)

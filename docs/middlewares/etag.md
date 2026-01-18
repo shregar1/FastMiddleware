@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ETagMiddleware
+from fastmiddleware import ETagMiddleware
 
 app = FastAPI()
 
@@ -68,7 +68,7 @@ app.add_middleware(
 ### With Conditional Requests
 
 ```python
-from FastMiddleware import ETagMiddleware, ConditionalRequestMiddleware
+from fastmiddleware import ETagMiddleware, ConditionalRequestMiddleware
 
 app.add_middleware(ETagMiddleware)
 app.add_middleware(ConditionalRequestMiddleware)
@@ -83,7 +83,7 @@ app.add_middleware(ConditionalRequestMiddleware)
 ### Exclude Paths
 
 ```python
-from FastMiddleware import ETagMiddleware, ETagConfig
+from fastmiddleware import ETagMiddleware, ETagConfig
 
 config = ETagConfig(
     weak=True,

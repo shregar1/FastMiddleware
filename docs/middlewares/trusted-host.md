@@ -5,14 +5,14 @@ Validates the HTTP Host header to prevent host header attacks, DNS rebinding, an
 ## Installation
 
 ```python
-from FastMiddleware import TrustedHostMiddleware, TrustedHostConfig
+from fastmiddleware import TrustedHostMiddleware, TrustedHostConfig
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import TrustedHostMiddleware
+from fastmiddleware import TrustedHostMiddleware
 
 app = FastAPI()
 

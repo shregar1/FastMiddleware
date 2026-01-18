@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import GracefulShutdownMiddleware
+from fastmiddleware import GracefulShutdownMiddleware
 
 app = FastAPI()
 
@@ -75,7 +75,7 @@ spec:
 ## Health Check During Shutdown
 
 ```python
-from FastMiddleware import HealthCheckMiddleware
+from fastmiddleware import HealthCheckMiddleware
 
 # Health returns unhealthy during shutdown
 @app.get("/health")

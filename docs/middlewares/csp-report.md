@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import CSPReportMiddleware
+from fastmiddleware import CSPReportMiddleware
 
 app = FastAPI()
 
@@ -38,7 +38,7 @@ csp_reporter = CSPReportMiddleware(
 ### Basic CSP Reporting
 
 ```python
-from FastMiddleware import CSPReportMiddleware, SecurityHeadersMiddleware
+from fastmiddleware import CSPReportMiddleware, SecurityHeadersMiddleware
 
 # Set up CSP with report-uri
 app.add_middleware(

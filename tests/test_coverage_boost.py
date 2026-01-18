@@ -26,14 +26,14 @@ class TestBaseMiddlewareCoverage:
 
     @pytest.fixture
     def app_with_base(self) -> FastAPI:
-        from FastMiddleware import RequestIDMiddleware
+        from fastmiddleware import RequestIDMiddleware
 
         app = FastAPI()
         app.add_middleware(RequestIDMiddleware)
 
         @app.get("/")
         async def root(request: Request):
-            from FastMiddleware.base import FastMVCMiddleware
+            from fastmiddleware.base import FastMVCMiddleware
 
             # Create a mock middleware to test get_client_ip
             class TestMiddleware(FastMVCMiddleware):
@@ -48,14 +48,14 @@ class TestBaseMiddlewareCoverage:
 
     def test_x_forwarded_for_header(self):
         """Test get_client_ip with X-Forwarded-For."""
-        from FastMiddleware import RequestIDMiddleware
+        from fastmiddleware import RequestIDMiddleware
 
         app = FastAPI()
         app.add_middleware(RequestIDMiddleware)
 
         @app.get("/ip")
         async def get_ip(request: Request):
-            from FastMiddleware.base import FastMVCMiddleware
+            from fastmiddleware.base import FastMVCMiddleware
 
             class TestMid(FastMVCMiddleware):
                 async def dispatch(self, r, c):
@@ -70,14 +70,14 @@ class TestBaseMiddlewareCoverage:
 
     def test_x_real_ip_header(self):
         """Test get_client_ip with X-Real-IP."""
-        from FastMiddleware import RequestIDMiddleware
+        from fastmiddleware import RequestIDMiddleware
 
         app = FastAPI()
         app.add_middleware(RequestIDMiddleware)
 
         @app.get("/ip")
         async def get_ip(request: Request):
-            from FastMiddleware.base import FastMVCMiddleware
+            from fastmiddleware.base import FastMVCMiddleware
 
             class TestMid(FastMVCMiddleware):
                 async def dispatch(self, r, c):
@@ -101,7 +101,7 @@ class TestSecurityHeadersCoverage:
 
     def test_all_override_parameters(self):
         """Test all individual parameter overrides."""
-        from FastMiddleware import SecurityHeadersMiddleware
+        from fastmiddleware import SecurityHeadersMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -136,7 +136,7 @@ class TestSecurityHeadersCoverage:
 
     def test_no_x_content_type_options(self):
         """Test with x_content_type_options disabled."""
-        from FastMiddleware import SecurityHeadersConfig, SecurityHeadersMiddleware
+        from fastmiddleware import SecurityHeadersConfig, SecurityHeadersMiddleware
 
         app = FastAPI()
         config = SecurityHeadersConfig(
@@ -159,7 +159,7 @@ class TestSecurityHeadersCoverage:
 
     def test_hsts_without_subdomains(self):
         """Test HSTS header without subdomains."""
-        from FastMiddleware import SecurityHeadersConfig
+        from fastmiddleware import SecurityHeadersConfig
 
         config = SecurityHeadersConfig(
             enable_hsts=True,
@@ -173,7 +173,7 @@ class TestSecurityHeadersCoverage:
 
     def test_excluded_path_skips_headers(self):
         """Test that excluded paths skip header addition."""
-        from FastMiddleware import SecurityHeadersMiddleware
+        from fastmiddleware import SecurityHeadersMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -203,7 +203,7 @@ class TestAuthenticationCoverage:
         """Test JWT with audience and issuer validation."""
         import jwt
 
-        from FastMiddleware import JWTAuthBackend
+        from fastmiddleware import JWTAuthBackend
 
         secret = "test-secret"
         backend = JWTAuthBackend(
@@ -238,7 +238,7 @@ class TestAuthenticationCoverage:
         """Test JWT with expired token."""
         import jwt
 
-        from FastMiddleware import JWTAuthBackend
+        from fastmiddleware import JWTAuthBackend
 
         secret = "test-secret"
         backend = JWTAuthBackend(secret=secret)
@@ -260,7 +260,7 @@ class TestAuthenticationCoverage:
     @pytest.mark.asyncio
     async def test_jwt_invalid_token(self):
         """Test JWT with invalid token."""
-        from FastMiddleware import JWTAuthBackend
+        from fastmiddleware import JWTAuthBackend
 
         backend = JWTAuthBackend(secret="test-secret")
         request = Mock()
@@ -278,7 +278,7 @@ class TestCacheCoverage:
 
     def test_path_rules_with_no_store(self):
         """Test path rules with no_store option."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -299,7 +299,7 @@ class TestCacheCoverage:
 
     def test_path_rules_with_no_cache(self):
         """Test path rules with no_cache option."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -320,7 +320,7 @@ class TestCacheCoverage:
 
     def test_path_rules_with_must_revalidate(self):
         """Test path rules with must_revalidate option."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -341,7 +341,7 @@ class TestCacheCoverage:
 
     def test_override_parameters(self):
         """Test individual parameter overrides."""
-        from FastMiddleware import CacheMiddleware
+        from fastmiddleware import CacheMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -372,7 +372,7 @@ class TestRateLimitCoverage:
     @pytest.mark.asyncio
     async def test_rate_limit_cleanup(self):
         """Test rate limit store cleanup."""
-        from FastMiddleware import InMemoryRateLimitStore
+        from fastmiddleware import InMemoryRateLimitStore
 
         store = InMemoryRateLimitStore()
 
@@ -386,7 +386,7 @@ class TestRateLimitCoverage:
     @pytest.mark.asyncio
     async def test_rate_limit_exceeded(self):
         """Test rate limit exceeded scenario."""
-        from FastMiddleware import InMemoryRateLimitStore
+        from fastmiddleware import InMemoryRateLimitStore
 
         store = InMemoryRateLimitStore()
 
@@ -403,7 +403,7 @@ class TestRateLimitCoverage:
     @pytest.mark.asyncio
     async def test_cleanup_removes_empty_buckets(self):
         """Test that cleanup removes empty buckets."""
-        from FastMiddleware import InMemoryRateLimitStore
+        from fastmiddleware import InMemoryRateLimitStore
 
         store = InMemoryRateLimitStore()
 
@@ -427,7 +427,7 @@ class TestHealthCoverage:
 
     def test_override_parameters(self):
         """Test individual parameter overrides."""
-        from FastMiddleware import HealthCheckMiddleware
+        from fastmiddleware import HealthCheckMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -458,7 +458,7 @@ class TestIdempotencyCoverage:
     @pytest.mark.asyncio
     async def test_store_operations(self):
         """Test idempotency store operations."""
-        from FastMiddleware import InMemoryIdempotencyStore
+        from fastmiddleware import InMemoryIdempotencyStore
 
         store = InMemoryIdempotencyStore()
 
@@ -477,7 +477,7 @@ class TestIdempotencyCoverage:
     @pytest.mark.asyncio
     async def test_cleanup(self):
         """Test idempotency store cleanup."""
-        from FastMiddleware import InMemoryIdempotencyStore
+        from fastmiddleware import InMemoryIdempotencyStore
 
         store = InMemoryIdempotencyStore()
 
@@ -501,7 +501,7 @@ class TestMaintenanceCoverage:
 
     def test_override_parameters(self):
         """Test individual parameter overrides."""
-        from FastMiddleware import MaintenanceMiddleware
+        from fastmiddleware import MaintenanceMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -533,7 +533,7 @@ class TestLoggingCoverage:
 
     def test_log_with_request_headers(self):
         """Test logging with request headers."""
-        from FastMiddleware import LoggingMiddleware
+        from fastmiddleware import LoggingMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -552,7 +552,7 @@ class TestLoggingCoverage:
 
     def test_exclude_path(self):
         """Test excluded paths are not logged."""
-        from FastMiddleware import LoggingMiddleware
+        from fastmiddleware import LoggingMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -579,7 +579,7 @@ class TestCompressionCoverage:
 
     def test_override_parameters(self):
         """Test individual parameter overrides."""
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -598,7 +598,7 @@ class TestCompressionCoverage:
 
     def test_non_compressible_type(self):
         """Test that non-compressible types are not compressed."""
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(CompressionMiddleware, minimum_size=10)
@@ -627,7 +627,7 @@ class TestMetricsCoverage:
 
     def test_override_parameters(self):
         """Test individual parameter overrides."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -647,7 +647,7 @@ class TestMetricsCoverage:
 
     def test_error_response_metrics(self):
         """Test that error responses are tracked."""
-        from FastMiddleware import MetricsMiddleware
+        from fastmiddleware import MetricsMiddleware
 
         app = FastAPI()
         app.add_middleware(MetricsMiddleware)
@@ -674,7 +674,7 @@ class TestTrustedHostCoverage:
 
     def test_trusted_host_basic(self):
         """Test trusted host basic functionality."""
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -703,7 +703,7 @@ class TestErrorHandlerCoverage:
         """Test that HTTPException is passed through."""
         from fastapi import HTTPException
 
-        from FastMiddleware import ErrorHandlerMiddleware
+        from fastmiddleware import ErrorHandlerMiddleware
 
         app = FastAPI()
         app.add_middleware(ErrorHandlerMiddleware)
@@ -727,7 +727,7 @@ class TestAuthMiddlewareFullCoverage:
 
     def test_auth_with_exclude_paths_and_methods(self):
         """Test auth with exclude paths and methods."""
-        from FastMiddleware import APIKeyAuthBackend, AuthConfig, AuthenticationMiddleware
+        from fastmiddleware import APIKeyAuthBackend, AuthConfig, AuthenticationMiddleware
 
         app = FastAPI()
         backend = APIKeyAuthBackend(valid_keys={"test-key"})
@@ -759,7 +759,7 @@ class TestAuthMiddlewareFullCoverage:
 
     def test_wrong_auth_scheme(self):
         """Test wrong auth scheme returns 401."""
-        from FastMiddleware import APIKeyAuthBackend, AuthConfig, AuthenticationMiddleware
+        from fastmiddleware import APIKeyAuthBackend, AuthConfig, AuthenticationMiddleware
 
         app = FastAPI()
         backend = APIKeyAuthBackend(valid_keys={"test-key"})
@@ -781,7 +781,7 @@ class TestTrustedHostWwwRedirect:
 
     def test_www_redirect(self):
         """Test www redirect to primary host."""
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -806,7 +806,7 @@ class TestMetricsFullCoverage:
 
     def test_metrics_with_all_features(self):
         """Test metrics with all features enabled."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -845,7 +845,7 @@ class TestCompressionEdgeCases:
         """Test that streaming responses are not compressed."""
         from starlette.responses import StreamingResponse
 
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(CompressionMiddleware, minimum_size=10)
@@ -864,7 +864,7 @@ class TestCompressionEdgeCases:
 
     def test_compression_not_beneficial(self):
         """Test when compression doesn't reduce size."""
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(CompressionMiddleware, minimum_size=10)
@@ -887,7 +887,7 @@ class TestCacheEdgeCases:
 
     def test_cache_with_path_no_store(self):
         """Test cache with path-specific no_store rule."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -912,7 +912,7 @@ class TestRateLimitHourly:
 
     def test_hourly_rate_limit(self):
         """Test that hourly rate limit is enforced."""
-        from FastMiddleware import RateLimitConfig, RateLimitMiddleware
+        from fastmiddleware import RateLimitConfig, RateLimitMiddleware
 
         app = FastAPI()
         config = RateLimitConfig(
@@ -942,7 +942,7 @@ class TestMaintenanceWithBypass:
 
     def test_maintenance_bypass_with_token(self):
         """Test bypassing maintenance with token."""
-        from FastMiddleware import MaintenanceConfig, MaintenanceMiddleware
+        from fastmiddleware import MaintenanceConfig, MaintenanceMiddleware
 
         app = FastAPI()
         config = MaintenanceConfig(
@@ -967,7 +967,7 @@ class TestMaintenanceWithBypass:
 
     def test_maintenance_allowed_path(self):
         """Test allowed paths during maintenance."""
-        from FastMiddleware import MaintenanceMiddleware
+        from fastmiddleware import MaintenanceMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -994,7 +994,7 @@ class TestMaintenanceWithBypass:
 
     def test_maintenance_allowed_ip(self):
         """Test allowed IPs during maintenance."""
-        from FastMiddleware import MaintenanceMiddleware
+        from fastmiddleware import MaintenanceMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1019,7 +1019,7 @@ class TestLoggingExcludeMethod:
 
     def test_exclude_method(self):
         """Test that excluded methods skip logging."""
-        from FastMiddleware import LoggingMiddleware
+        from fastmiddleware import LoggingMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1041,7 +1041,7 @@ class TestSecurityRemoveServerHeader:
 
     def test_remove_server_header(self):
         """Test removing server header."""
-        from FastMiddleware import SecurityHeadersMiddleware
+        from fastmiddleware import SecurityHeadersMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1070,7 +1070,7 @@ class TestIdempotencyEdgeCases:
 
     def test_idempotency_replay(self):
         """Test idempotency key replay."""
-        from FastMiddleware import IdempotencyConfig, IdempotencyMiddleware
+        from fastmiddleware import IdempotencyConfig, IdempotencyMiddleware
 
         app = FastAPI()
         config = IdempotencyConfig(
@@ -1106,7 +1106,7 @@ class TestMetricsCollectorDirectly:
 
     def test_record_with_response_size(self):
         """Test recording metrics with response size via middleware."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -1139,7 +1139,7 @@ class TestMetricsCollectorDirectly:
 
     def test_empty_latencies_bucket(self):
         """Test format with empty latencies."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -1160,7 +1160,7 @@ class TestIdempotencyExpiration:
     @pytest.mark.asyncio
     async def test_expired_key_returns_none(self):
         """Test that expired keys return None."""
-        from FastMiddleware import InMemoryIdempotencyStore
+        from fastmiddleware import InMemoryIdempotencyStore
 
         store = InMemoryIdempotencyStore()
 
@@ -1180,7 +1180,7 @@ class TestCompressionAlreadyCompressed:
 
     def test_small_response_not_compressed(self):
         """Test that small responses aren't compressed."""
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(CompressionMiddleware, minimum_size=1000)  # High minimum
@@ -1201,7 +1201,7 @@ class TestCacheNoStorePath:
 
     def test_cache_with_normal_response(self):
         """Test that normal responses get cache headers."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -1228,7 +1228,7 @@ class TestTrustedHostRedirect:
 
     def test_www_redirect_to_primary(self):
         """Test www redirect to primary host."""
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1257,7 +1257,7 @@ class TestLoggingExtraScenarios:
 
     def test_log_response_headers(self):
         """Test logging response headers."""
-        from FastMiddleware import LoggingMiddleware
+        from fastmiddleware import LoggingMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1281,7 +1281,7 @@ class TestMetricsWithResponseSize:
 
     def test_metrics_response_size_and_latency(self):
         """Test metrics with response size and latency tracking."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -1312,7 +1312,7 @@ class TestCacheBuildCacheControl:
 
     def test_cache_private_setting(self):
         """Test private cache setting."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -1332,7 +1332,7 @@ class TestCacheBuildCacheControl:
 
     def test_cache_public_setting(self):
         """Test public cache setting."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -1355,7 +1355,7 @@ class TestCompressionExcludedPaths:
 
     def test_compression_excluded_path(self):
         """Test that excluded paths skip compression."""
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1380,7 +1380,7 @@ class TestStreamingResponseCompression:
         """Test that streaming responses pass through."""
         from starlette.responses import StreamingResponse
 
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         app = FastAPI()
         app.add_middleware(CompressionMiddleware, minimum_size=10)
@@ -1403,7 +1403,7 @@ class TestMetricsCollectorWithVariousData:
 
     def test_metrics_with_5xx_errors(self):
         """Test that 5xx errors are tracked."""
-        from FastMiddleware import MetricsConfig, MetricsMiddleware
+        from fastmiddleware import MetricsConfig, MetricsMiddleware
 
         app = FastAPI()
         config = MetricsConfig(
@@ -1442,7 +1442,7 @@ class TestCacheVaryHeaders:
 
     def test_cache_with_vary_headers(self):
         """Test that vary headers are added."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -1465,7 +1465,7 @@ class TestIdempotencyMethods:
 
     def test_idempotency_get_request(self):
         """Test that GET requests don't require idempotency key."""
-        from FastMiddleware import IdempotencyConfig, IdempotencyMiddleware
+        from fastmiddleware import IdempotencyConfig, IdempotencyMiddleware
 
         app = FastAPI()
         config = IdempotencyConfig(
@@ -1490,7 +1490,7 @@ class TestAuthBackendAbstract:
     @pytest.mark.asyncio
     async def test_api_key_backend_invalid_key(self):
         """Test API key backend with invalid key."""
-        from FastMiddleware import APIKeyAuthBackend
+        from fastmiddleware import APIKeyAuthBackend
 
         backend = APIKeyAuthBackend(valid_keys={"valid-key"})
         request = Mock()
@@ -1502,7 +1502,7 @@ class TestAuthBackendAbstract:
     @pytest.mark.asyncio
     async def test_api_key_backend_valid_key(self):
         """Test API key backend with valid key."""
-        from FastMiddleware import APIKeyAuthBackend
+        from fastmiddleware import APIKeyAuthBackend
 
         backend = APIKeyAuthBackend(valid_keys={"valid-key"})
         request = Mock()
@@ -1517,7 +1517,7 @@ class TestCacheNoStoreConfig:
 
     def test_global_no_store(self):
         """Test global no_store setting."""
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         app = FastAPI()
         config = CacheConfig(
@@ -1540,7 +1540,7 @@ class TestTrustedHostWildcard:
 
     def test_wildcard_subdomain(self):
         """Test wildcard subdomain matching."""
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1558,7 +1558,7 @@ class TestTrustedHostWildcard:
 
     def test_star_allows_all(self):
         """Test that * allows all hosts."""
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1580,7 +1580,7 @@ class TestErrorHandlerExcluded:
 
     def test_excluded_path(self):
         """Test that excluded paths skip error handling."""
-        from FastMiddleware import ErrorHandlerMiddleware
+        from fastmiddleware import ErrorHandlerMiddleware
 
         app = FastAPI()
         app.add_middleware(
@@ -1603,7 +1603,7 @@ class TestErrorHandlerCustomConfig:
 
     def test_error_handler_with_config(self):
         """Test error handler with custom configuration."""
-        from FastMiddleware import ErrorConfig, ErrorHandlerMiddleware
+        from fastmiddleware import ErrorConfig, ErrorHandlerMiddleware
 
         app = FastAPI()
         config = ErrorConfig(

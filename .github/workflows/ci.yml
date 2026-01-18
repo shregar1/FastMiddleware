@@ -36,10 +36,10 @@ jobs:
           pip install ruff
 
       - name: Run linting
-        run: ruff check FastMiddleware tests
+        run: ruff check fastmiddleware tests
 
       - name: Run format check
-        run: ruff format --check FastMiddleware tests
+        run: ruff format --check fastmiddleware tests
 
   test:
     name: Test (Python ${{ matrix.python-version }})
@@ -79,7 +79,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           pytest tests/ \
-            --cov=FastMiddleware \
+            --cov=fastmiddleware \
             --cov-report=xml \
             --cov-report=term-missing \
             --cov-fail-under=40 \

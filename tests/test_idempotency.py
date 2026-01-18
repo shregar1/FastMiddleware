@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from FastMiddleware import IdempotencyConfig, IdempotencyMiddleware, InMemoryIdempotencyStore
+from fastmiddleware import IdempotencyConfig, IdempotencyMiddleware, InMemoryIdempotencyStore
 
 
 @pytest.fixture

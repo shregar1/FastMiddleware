@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import NoCacheMiddleware
+from fastmiddleware import NoCacheMiddleware
 
 app = FastAPI()
 
@@ -77,7 +77,7 @@ app.add_middleware(
 ### Combine with Cache Middleware
 
 ```python
-from FastMiddleware import CacheMiddleware, NoCacheMiddleware
+from fastmiddleware import CacheMiddleware, NoCacheMiddleware
 
 # No cache for sensitive endpoints
 app.add_middleware(

@@ -13,7 +13,7 @@ from typing import Set, Dict, Any
 from fastapi import FastAPI, Request
 from starlette.responses import Response, JSONResponse
 
-from FastMiddleware import FastMVCMiddleware, get_request_id
+from fastmiddleware import FastMVCMiddleware, get_request_id
 
 
 # ============================================================================

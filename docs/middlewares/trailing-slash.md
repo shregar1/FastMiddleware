@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import TrailingSlashMiddleware, SlashAction
+from fastmiddleware import TrailingSlashMiddleware, SlashAction
 
 app = FastAPI()
 
@@ -85,7 +85,7 @@ app.add_middleware(
 ### With Redirect Middleware
 
 ```python
-from FastMiddleware import TrailingSlashMiddleware, RedirectMiddleware
+from fastmiddleware import TrailingSlashMiddleware, RedirectMiddleware
 
 # Handle trailing slash first
 app.add_middleware(

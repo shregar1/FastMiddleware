@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import EarlyHintsMiddleware, EarlyHint
+from fastmiddleware import EarlyHintsMiddleware, EarlyHint
 
 app = FastAPI()
 

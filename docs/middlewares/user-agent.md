@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import UserAgentMiddleware, UserAgentConfig, get_user_agent
+from fastmiddleware import UserAgentMiddleware, UserAgentConfig, get_user_agent
 
 app = FastAPI()
 
@@ -42,7 +42,7 @@ app.add_middleware(UserAgentMiddleware, config=config)
 ## Getting User Agent Info
 
 ```python
-from FastMiddleware import get_user_agent
+from fastmiddleware import get_user_agent
 
 @app.get("/")
 async def handler():

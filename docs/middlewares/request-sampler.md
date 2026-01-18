@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestSamplerMiddleware, is_sampled
+from fastmiddleware import RequestSamplerMiddleware, is_sampled
 
 app = FastAPI()
 
@@ -43,7 +43,7 @@ async def handler():
 Returns True if the current request is sampled.
 
 ```python
-from FastMiddleware import is_sampled
+from fastmiddleware import is_sampled
 
 @app.get("/")
 async def handler():
@@ -91,7 +91,7 @@ app.add_middleware(
 ### Conditional Detailed Logging
 
 ```python
-from FastMiddleware import is_sampled
+from fastmiddleware import is_sampled
 
 @app.get("/search")
 async def search(q: str):
@@ -112,7 +112,7 @@ async def search(q: str):
 ### Distributed Tracing
 
 ```python
-from FastMiddleware import RequestSamplerMiddleware, is_sampled
+from fastmiddleware import RequestSamplerMiddleware, is_sampled
 from opentelemetry import trace
 
 app.add_middleware(
@@ -133,7 +133,7 @@ async def handler():
 ### Analytics Sampling
 
 ```python
-from FastMiddleware import is_sampled
+from fastmiddleware import is_sampled
 
 @app.middleware("http")
 async def analytics(request, call_next):

@@ -13,36 +13,36 @@ install-dev:
 
 # Testing
 test:
-	pytest tests/ -v --cov=FastMiddleware --cov-report=term-missing
+	pytest tests/ -v --cov=fastmiddleware --cov-report=term-missing
 
 test-fast:
 	pytest tests/ -v -x --tb=short -q
 
 test-cov:
-	pytest tests/ --cov=FastMiddleware --cov-report=html --cov-report=xml
+	pytest tests/ --cov=fastmiddleware --cov-report=html --cov-report=xml
 	@echo "Coverage report: htmlcov/index.html"
 
 test-parallel:
-	pytest tests/ -v -n auto --cov=FastMiddleware
+	pytest tests/ -v -n auto --cov=fastmiddleware
 
 # Code Quality
 lint:
-	ruff check FastMiddleware tests
+	ruff check fastmiddleware tests
 
 lint-fix:
-	ruff check FastMiddleware tests --fix
+	ruff check fastmiddleware tests --fix
 
 format:
-	ruff format FastMiddleware tests
+	ruff format fastmiddleware tests
 
 format-check:
-	ruff format --check FastMiddleware tests
+	ruff format --check fastmiddleware tests
 
 type-check:
-	mypy FastMiddleware --ignore-missing-imports
+	mypy fastmiddleware --ignore-missing-imports
 
 security:
-	bandit -c pyproject.toml -r FastMiddleware
+	bandit -c pyproject.toml -r fastmiddleware
 
 # All checks (for CI)
 check-all: format-check lint type-check security test
@@ -83,14 +83,14 @@ docs-serve:
 
 # Version bump helpers
 version-patch:
-	@echo "Update version in pyproject.toml and FastMiddleware/__init__.py"
+	@echo "Update version in pyproject.toml and fastmiddleware/__init__.py"
 	@grep -E "^version = " pyproject.toml
-	@grep -E "^__version__ = " FastMiddleware/__init__.py
+	@grep -E "^__version__ = " fastmiddleware/__init__.py
 
 version-check:
 	@echo "Current versions:"
 	@grep -E "^version = " pyproject.toml
-	@grep -E "^__version__ = " FastMiddleware/__init__.py
+	@grep -E "^__version__ = " fastmiddleware/__init__.py
 
 # Help
 help:

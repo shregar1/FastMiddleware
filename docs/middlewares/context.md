@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ContextMiddleware, get_context_value, set_context_value
+from fastmiddleware import ContextMiddleware, get_context_value, set_context_value
 
 app = FastAPI()
 
@@ -42,7 +42,7 @@ async def handler():
 Returns the full context dictionary.
 
 ```python
-from FastMiddleware import get_context
+from fastmiddleware import get_context
 
 ctx = get_context()
 print(ctx)  # {"user_id": "123", "tenant_id": "acme", ...}
@@ -53,7 +53,7 @@ print(ctx)  # {"user_id": "123", "tenant_id": "acme", ...}
 Get a specific context value.
 
 ```python
-from FastMiddleware import get_context_value
+from fastmiddleware import get_context_value
 
 user_id = get_context_value("user_id")
 tier = get_context_value("tier", default="free")
@@ -64,7 +64,7 @@ tier = get_context_value("tier", default="free")
 Set a context value (available for rest of request).
 
 ```python
-from FastMiddleware import set_context_value
+from fastmiddleware import set_context_value
 
 set_context_value("authenticated", True)
 set_context_value("permissions", ["read", "write"])
@@ -93,7 +93,7 @@ async def profile():
 ### Setting Context in Middleware Chain
 
 ```python
-from FastMiddleware import ContextMiddleware, set_context_value
+from fastmiddleware import ContextMiddleware, set_context_value
 
 # In auth middleware
 @app.middleware("http")
@@ -114,7 +114,7 @@ async def protected():
 ### Context in Background Tasks
 
 ```python
-from FastMiddleware import get_context
+from fastmiddleware import get_context
 
 @app.post("/process")
 async def process(background_tasks: BackgroundTasks):
@@ -133,7 +133,7 @@ async def process(background_tasks: BackgroundTasks):
 
 ```python
 import logging
-from FastMiddleware import get_context_value
+from fastmiddleware import get_context_value
 
 class ContextFilter(logging.Filter):
     def filter(self, record):

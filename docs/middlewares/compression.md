@@ -5,14 +5,14 @@ GZip compression for HTTP responses, reducing bandwidth and improving load times
 ## Installation
 
 ```python
-from FastMiddleware import CompressionMiddleware, CompressionConfig
+from fastmiddleware import CompressionMiddleware, CompressionConfig
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import CompressionMiddleware
+from fastmiddleware import CompressionMiddleware
 
 app = FastAPI()
 
@@ -96,7 +96,7 @@ app.add_middleware(
 ### Custom Compressible Types
 
 ```python
-from FastMiddleware import CompressionConfig
+from fastmiddleware import CompressionConfig
 
 config = CompressionConfig(
     compressible_types=(
@@ -114,7 +114,7 @@ app.add_middleware(CompressionMiddleware, config=config)
 ### Full Configuration
 
 ```python
-from FastMiddleware import CompressionMiddleware, CompressionConfig
+from fastmiddleware import CompressionMiddleware, CompressionConfig
 
 config = CompressionConfig(
     minimum_size=1000,

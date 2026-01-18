@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ScopeMiddleware
+from fastmiddleware import ScopeMiddleware
 
 app = FastAPI()
 
@@ -82,7 +82,7 @@ app.add_middleware(
 ### With Authentication
 
 ```python
-from FastMiddleware import ScopeMiddleware, AuthenticationMiddleware, JWTAuthBackend
+from fastmiddleware import ScopeMiddleware, AuthenticationMiddleware, JWTAuthBackend
 
 # JWT auth extracts scopes from token
 app.add_middleware(
@@ -134,7 +134,7 @@ app.add_middleware(
 ### Custom Scope Source
 
 ```python
-from FastMiddleware import ScopeMiddleware
+from fastmiddleware import ScopeMiddleware
 
 class CustomScopeMiddleware(ScopeMiddleware):
     async def get_scopes(self, request) -> list[str]:

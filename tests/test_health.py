@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from FastMiddleware import HealthCheckMiddleware, HealthConfig
+from fastmiddleware import HealthCheckMiddleware, HealthConfig
 
 
 @pytest.fixture

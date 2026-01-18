@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestCoalescingMiddleware
+from fastmiddleware import RequestCoalescingMiddleware
 
 app = FastAPI()
 
@@ -89,7 +89,7 @@ app.add_middleware(
 ### With Caching
 
 ```python
-from FastMiddleware import RequestCoalescingMiddleware, ResponseCacheMiddleware
+from fastmiddleware import RequestCoalescingMiddleware, ResponseCacheMiddleware
 
 # Coalescing first (outer)
 app.add_middleware(

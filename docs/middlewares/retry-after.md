@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RetryAfterMiddleware
+from fastmiddleware import RetryAfterMiddleware
 
 app = FastAPI()
 
@@ -67,7 +67,7 @@ app.add_middleware(
 ### With Rate Limiting
 
 ```python
-from FastMiddleware import RateLimitMiddleware, RetryAfterMiddleware
+from fastmiddleware import RateLimitMiddleware, RetryAfterMiddleware
 
 # Retry-After first (outer)
 app.add_middleware(
@@ -85,7 +85,7 @@ app.add_middleware(
 ### Dynamic Retry Time
 
 ```python
-from FastMiddleware import RetryAfterMiddleware
+from fastmiddleware import RetryAfterMiddleware
 
 class DynamicRetryAfter(RetryAfterMiddleware):
     def get_retry_after(self, request, response) -> int:

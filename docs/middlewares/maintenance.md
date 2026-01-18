@@ -5,14 +5,14 @@ Enable maintenance mode with 503 responses, bypass options, and customizable mai
 ## Installation
 
 ```python
-from FastMiddleware import MaintenanceMiddleware, MaintenanceConfig
+from fastmiddleware import MaintenanceMiddleware, MaintenanceConfig
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import MaintenanceMiddleware
+from fastmiddleware import MaintenanceMiddleware
 
 app = FastAPI()
 

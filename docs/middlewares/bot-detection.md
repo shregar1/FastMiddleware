@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import BotDetectionMiddleware, BotAction
+from fastmiddleware import BotDetectionMiddleware, BotAction
 
 app = FastAPI()
 

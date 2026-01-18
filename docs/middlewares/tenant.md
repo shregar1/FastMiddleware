@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import TenantMiddleware, TenantConfig, get_tenant_id, get_tenant
+from fastmiddleware import TenantMiddleware, TenantConfig, get_tenant_id, get_tenant
 
 app = FastAPI()
 
@@ -76,7 +76,7 @@ curl https://api.example.com/tenant/acme-corp/data
 ## Getting Tenant
 
 ```python
-from FastMiddleware import get_tenant_id, get_tenant
+from fastmiddleware import get_tenant_id, get_tenant
 
 @app.get("/data")
 async def get_data():
@@ -95,7 +95,7 @@ async def get_info(request: Request):
 ## Custom Tenant Loading
 
 ```python
-from FastMiddleware import TenantMiddleware
+from fastmiddleware import TenantMiddleware
 
 async def load_tenant(tenant_id: str):
     return await db.get_tenant(tenant_id)

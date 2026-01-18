@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ResponseSignatureMiddleware
+from fastmiddleware import ResponseSignatureMiddleware
 
 app = FastAPI()
 
@@ -106,7 +106,7 @@ function verifyResponse(body, timestamp, signature, secret) {
 ### Exclude Paths
 
 ```python
-from FastMiddleware import ResponseSignatureMiddleware, ResponseSignatureConfig
+from fastmiddleware import ResponseSignatureMiddleware, ResponseSignatureConfig
 
 config = ResponseSignatureConfig(
     secret_key="my-secret",

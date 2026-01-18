@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from FastMiddleware import TrustedHostMiddleware
+from fastmiddleware import TrustedHostMiddleware
 
 
 @pytest.fixture

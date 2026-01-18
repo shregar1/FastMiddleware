@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ResponseFormatMiddleware
+from fastmiddleware import ResponseFormatMiddleware
 
 app = FastAPI()
 
@@ -114,7 +114,7 @@ app.add_middleware(
 ### Exclude Paths
 
 ```python
-from FastMiddleware import ResponseFormatMiddleware, ResponseFormatConfig
+from fastmiddleware import ResponseFormatMiddleware, ResponseFormatConfig
 
 config = ResponseFormatConfig(
     wrap_responses=True,
@@ -154,7 +154,7 @@ async def list_users(page: int = 1, limit: int = 10):
 ### Custom Metadata
 
 ```python
-from FastMiddleware import ResponseFormatMiddleware
+from fastmiddleware import ResponseFormatMiddleware
 
 class CustomFormatMiddleware(ResponseFormatMiddleware):
     def get_metadata(self, request, response, duration):

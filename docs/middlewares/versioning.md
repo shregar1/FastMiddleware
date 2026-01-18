@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import VersioningMiddleware, VersioningConfig, VersionLocation, get_api_version
+from fastmiddleware import VersioningMiddleware, VersioningConfig, VersionLocation, get_api_version
 
 app = FastAPI()
 
@@ -60,7 +60,7 @@ app.add_middleware(
 ## Getting Version
 
 ```python
-from FastMiddleware import get_api_version
+from fastmiddleware import get_api_version
 
 @app.get("/users")
 async def get_users():

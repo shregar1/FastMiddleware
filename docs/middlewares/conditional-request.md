@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ConditionalRequestMiddleware
+from fastmiddleware import ConditionalRequestMiddleware
 
 app = FastAPI()
 
@@ -51,7 +51,7 @@ app.add_middleware(ConditionalRequestMiddleware)
 ### With ETag Middleware
 
 ```python
-from FastMiddleware import ConditionalRequestMiddleware, ETagMiddleware
+from fastmiddleware import ConditionalRequestMiddleware, ETagMiddleware
 
 # Add ETag generation first
 app.add_middleware(ETagMiddleware)
@@ -62,7 +62,7 @@ app.add_middleware(ConditionalRequestMiddleware)
 ### With Cache Middleware
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     ConditionalRequestMiddleware,
     CacheMiddleware,
     ETagMiddleware,

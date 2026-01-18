@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestLimitMiddleware
+from fastmiddleware import RequestLimitMiddleware
 
 app = FastAPI()
 
@@ -62,7 +62,7 @@ app.add_middleware(
 ### Multiple Limits (Custom)
 
 ```python
-from FastMiddleware import RequestLimitMiddleware
+from fastmiddleware import RequestLimitMiddleware
 
 class PathAwareLimit(RequestLimitMiddleware):
     def get_limit(self, request) -> int:

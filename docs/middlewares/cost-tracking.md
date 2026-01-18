@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import CostTrackingMiddleware, add_cost, get_request_cost
+from fastmiddleware import CostTrackingMiddleware, add_cost, get_request_cost
 
 app = FastAPI()
 
@@ -43,7 +43,7 @@ async def handler():
 Returns the current accumulated cost for the request.
 
 ```python
-from FastMiddleware import get_request_cost
+from fastmiddleware import get_request_cost
 
 @app.get("/summary")
 async def summary():
@@ -56,7 +56,7 @@ async def summary():
 Add to the request's cost (e.g., for external API calls).
 
 ```python
-from FastMiddleware import add_cost
+from fastmiddleware import add_cost
 
 @app.get("/ai-analysis")
 async def ai_analysis():
@@ -103,7 +103,7 @@ app.add_middleware(
 ### Track and Report Costs
 
 ```python
-from FastMiddleware import CostTrackingMiddleware, get_request_cost
+from fastmiddleware import CostTrackingMiddleware, get_request_cost
 
 app.add_middleware(CostTrackingMiddleware, default_cost=1.0)
 
@@ -126,7 +126,7 @@ async def log_cost(request, call_next):
 ### Quota Integration
 
 ```python
-from FastMiddleware import CostTrackingMiddleware, get_request_cost, add_cost
+from fastmiddleware import CostTrackingMiddleware, get_request_cost, add_cost
 
 app.add_middleware(CostTrackingMiddleware)
 

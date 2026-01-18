@@ -12,7 +12,7 @@ from starlette.testclient import TestClient
 
 class TestCORSEdgeCases:
     def test_cors_preflight(self):
-        from FastMiddleware import CORSMiddleware
+        from fastmiddleware import CORSMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -36,7 +36,7 @@ class TestCORSEdgeCases:
         assert response.status_code == 200
 
     def test_cors_wildcard(self):
-        from FastMiddleware import CORSMiddleware
+        from fastmiddleware import CORSMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -51,7 +51,7 @@ class TestCORSEdgeCases:
 
 class TestSecurityHeadersEdgeCases:
     def test_security_headers_csp(self):
-        from FastMiddleware import SecurityHeadersConfig, SecurityHeadersMiddleware
+        from fastmiddleware import SecurityHeadersConfig, SecurityHeadersMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -75,7 +75,7 @@ class TestSecurityHeadersEdgeCases:
 
 class TestRateLimitEdgeCases:
     def test_rate_limit_exceeded(self):
-        from FastMiddleware import RateLimitConfig, RateLimitMiddleware
+        from fastmiddleware import RateLimitConfig, RateLimitMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -95,7 +95,7 @@ class TestRateLimitEdgeCases:
 
 class TestCompressionEdgeCases:
     def test_compression_large_response(self):
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         async def homepage(request):
             return PlainTextResponse("X" * 10000)
@@ -108,7 +108,7 @@ class TestCompressionEdgeCases:
         assert response.status_code == 200
 
     def test_compression_small_response(self):
-        from FastMiddleware import CompressionMiddleware
+        from fastmiddleware import CompressionMiddleware
 
         async def homepage(request):
             return PlainTextResponse("small")
@@ -123,7 +123,7 @@ class TestCompressionEdgeCases:
 
 class TestErrorHandlerEdgeCases:
     def test_error_handler_exception(self):
-        from FastMiddleware import ErrorHandlerMiddleware
+        from fastmiddleware import ErrorHandlerMiddleware
 
         async def error_route(request):
             raise ValueError("Test error")
@@ -138,7 +138,7 @@ class TestErrorHandlerEdgeCases:
 
 class TestHealthCheckEdgeCases:
     def test_health_ready_live(self):
-        from FastMiddleware import HealthCheckMiddleware
+        from fastmiddleware import HealthCheckMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -160,7 +160,7 @@ class TestHealthCheckEdgeCases:
 
 class TestMaintenanceEdgeCases:
     def test_maintenance_enabled(self):
-        from FastMiddleware import MaintenanceConfig, MaintenanceMiddleware
+        from fastmiddleware import MaintenanceConfig, MaintenanceMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -177,7 +177,7 @@ class TestMaintenanceEdgeCases:
 
 class TestMetricsEdgeCases:
     def test_metrics_endpoint(self):
-        from FastMiddleware import MetricsMiddleware
+        from fastmiddleware import MetricsMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -196,7 +196,7 @@ class TestMetricsEdgeCases:
 
 class TestIdempotencyEdgeCases:
     def test_idempotency_replay(self):
-        from FastMiddleware import IdempotencyConfig, IdempotencyMiddleware
+        from fastmiddleware import IdempotencyConfig, IdempotencyMiddleware
 
         counter = {"value": 0}
 
@@ -221,7 +221,7 @@ class TestIdempotencyEdgeCases:
 
 class TestAuthenticationEdgeCases:
     def test_auth_with_api_key_backend(self):
-        from FastMiddleware import APIKeyAuthBackend, AuthenticationMiddleware
+        from fastmiddleware import APIKeyAuthBackend, AuthenticationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -240,7 +240,7 @@ class TestAuthenticationEdgeCases:
 
 class TestCacheEdgeCases:
     def test_cache_with_etag(self):
-        from FastMiddleware import CacheConfig, CacheMiddleware
+        from fastmiddleware import CacheConfig, CacheMiddleware
 
         async def homepage(request):
             return PlainTextResponse("Content")
@@ -256,7 +256,7 @@ class TestCacheEdgeCases:
 
 class TestLoggingEdgeCases:
     def test_logging_post_request(self):
-        from FastMiddleware import LoggingMiddleware
+        from fastmiddleware import LoggingMiddleware
 
         async def homepage(request):
             await request.body()
@@ -272,7 +272,7 @@ class TestLoggingEdgeCases:
 
 class TestTrustedHostEdgeCases:
     def test_trusted_host_wildcard(self):
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -285,7 +285,7 @@ class TestTrustedHostEdgeCases:
         assert response.status_code == 200
 
     def test_trusted_host_blocked(self):
-        from FastMiddleware import TrustedHostMiddleware
+        from fastmiddleware import TrustedHostMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -300,7 +300,7 @@ class TestTrustedHostEdgeCases:
 
 class TestRequestContextEdgeCases:
     def test_request_context_async(self):
-        from FastMiddleware import RequestContextMiddleware, get_request_context, get_request_id
+        from fastmiddleware import RequestContextMiddleware, get_request_context, get_request_id
 
         async def homepage(request):
             req_id = get_request_id()
@@ -317,7 +317,7 @@ class TestRequestContextEdgeCases:
 
 class TestTimingEdgeCases:
     def test_timing_slow_request(self):
-        from FastMiddleware import TimingMiddleware
+        from fastmiddleware import TimingMiddleware
 
         async def slow_handler(request):
             await asyncio.sleep(0.01)
@@ -334,7 +334,7 @@ class TestTimingEdgeCases:
 
 class TestPathRewriteEdgeCases:
     def test_path_rewrite_no_match(self):
-        from FastMiddleware import PathRewriteMiddleware, RewriteRule
+        from fastmiddleware import PathRewriteMiddleware, RewriteRule
 
         async def homepage(request):
             return PlainTextResponse(request.url.path)
@@ -349,7 +349,7 @@ class TestPathRewriteEdgeCases:
 
 class TestProfilingEdgeCases:
     def test_profiling_disabled(self):
-        from FastMiddleware import ProfilingMiddleware
+        from fastmiddleware import ProfilingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -364,7 +364,7 @@ class TestProfilingEdgeCases:
 
 class TestBotDetectionEdgeCases:
     def test_bot_detection_googlebot(self):
-        from FastMiddleware import BotDetectionMiddleware
+        from fastmiddleware import BotDetectionMiddleware
 
         async def homepage(request):
             return JSONResponse({"is_bot": getattr(request.state, "is_bot", False)})
@@ -381,7 +381,7 @@ class TestBotDetectionEdgeCases:
 
 class TestLocaleEdgeCases:
     def test_locale_from_query(self):
-        from FastMiddleware import LocaleMiddleware
+        from fastmiddleware import LocaleMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -396,7 +396,7 @@ class TestLocaleEdgeCases:
 
 class TestGeoIPEdgeCases:
     def test_geoip_cloudflare_headers(self):
-        from FastMiddleware import GeoIPMiddleware
+        from fastmiddleware import GeoIPMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -417,7 +417,7 @@ class TestGeoIPEdgeCases:
 
 class TestFeatureFlagEdgeCases:
     def test_feature_flag_header_override(self):
-        from FastMiddleware import FeatureFlagConfig, FeatureFlagMiddleware
+        from fastmiddleware import FeatureFlagConfig, FeatureFlagMiddleware
 
         async def homepage(request):
             flags = getattr(request.state, "feature_flags", {})
@@ -434,7 +434,7 @@ class TestFeatureFlagEdgeCases:
 
 class TestClientHintsEdgeCases:
     def test_client_hints_all_headers(self):
-        from FastMiddleware import ClientHintsMiddleware
+        from fastmiddleware import ClientHintsMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -456,7 +456,7 @@ class TestClientHintsEdgeCases:
 
 class TestTrailingSlashEdgeCases:
     def test_trailing_slash_strip(self):
-        from FastMiddleware import TrailingSlashConfig, TrailingSlashMiddleware
+        from fastmiddleware import TrailingSlashConfig, TrailingSlashMiddleware
 
         async def homepage(request):
             return PlainTextResponse(request.url.path)
@@ -472,7 +472,7 @@ class TestTrailingSlashEdgeCases:
 
 class TestMethodOverrideEdgeCases:
     def test_method_override_query_param(self):
-        from FastMiddleware import MethodOverrideMiddleware
+        from fastmiddleware import MethodOverrideMiddleware
 
         async def handler(request):
             return PlainTextResponse(request.method)
@@ -487,7 +487,7 @@ class TestMethodOverrideEdgeCases:
 
 class TestRedirectEdgeCases:
     def test_redirect_permanent(self):
-        from FastMiddleware import RedirectMiddleware, RedirectRule
+        from fastmiddleware import RedirectMiddleware, RedirectRule
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -504,7 +504,7 @@ class TestRedirectEdgeCases:
 
 class TestXFFTrustEdgeCases:
     def test_xff_trust_chain(self):
-        from FastMiddleware import XFFTrustMiddleware
+        from fastmiddleware import XFFTrustMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -519,7 +519,7 @@ class TestXFFTrustEdgeCases:
 
 class TestResponseCacheEdgeCases:
     def test_response_cache_invalidation(self):
-        from FastMiddleware import ResponseCacheMiddleware
+        from fastmiddleware import ResponseCacheMiddleware
 
         counter = {"value": 0}
 
@@ -541,7 +541,7 @@ class TestResponseCacheEdgeCases:
 
 class TestETagEdgeCases:
     def test_etag_conditional(self):
-        from FastMiddleware import ETagMiddleware
+        from fastmiddleware import ETagMiddleware
 
         async def homepage(request):
             return PlainTextResponse("Static Content")
@@ -557,7 +557,7 @@ class TestETagEdgeCases:
 
 class TestHATEOASEdgeCases:
     def test_hateoas_json_response(self):
-        from FastMiddleware import HATEOASMiddleware
+        from fastmiddleware import HATEOASMiddleware
 
         async def homepage(request):
             return JSONResponse({"id": 1, "name": "Test"})
@@ -572,7 +572,7 @@ class TestHATEOASEdgeCases:
 
 class TestDataMaskingEdgeCases:
     def test_data_masking_json(self):
-        from FastMiddleware import DataMaskingMiddleware
+        from fastmiddleware import DataMaskingMiddleware
 
         async def homepage(request):
             return JSONResponse({"password": "secret", "name": "John"})

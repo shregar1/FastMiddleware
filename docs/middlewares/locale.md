@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import LocaleMiddleware, get_locale
+from fastmiddleware import LocaleMiddleware, get_locale
 
 app = FastAPI()
 
@@ -51,7 +51,7 @@ async def handler():
 Returns the detected locale for the current request.
 
 ```python
-from FastMiddleware import get_locale
+from fastmiddleware import get_locale
 
 @app.get("/content")
 async def content():
@@ -98,7 +98,7 @@ async def set_locale(locale: str, response: Response):
 ### Translation Integration
 
 ```python
-from FastMiddleware import LocaleMiddleware, get_locale
+from fastmiddleware import LocaleMiddleware, get_locale
 import gettext
 
 app.add_middleware(
@@ -123,7 +123,7 @@ async def messages():
 
 ```python
 from babel import numbers, dates
-from FastMiddleware import get_locale
+from fastmiddleware import get_locale
 
 @app.get("/product/{id}")
 async def product(id: str):

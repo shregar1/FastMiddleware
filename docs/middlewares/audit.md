@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import AuditMiddleware
+from fastmiddleware import AuditMiddleware
 
 app = FastAPI()
 
@@ -82,7 +82,7 @@ app.add_middleware(
 ### Custom Audit Handler
 
 ```python
-from FastMiddleware import AuditMiddleware, AuditEvent
+from fastmiddleware import AuditMiddleware, AuditEvent
 
 async def custom_audit_handler(event: AuditEvent):
     # Send to SIEM, database, or external service
@@ -97,7 +97,7 @@ app.add_middleware(
 ### With User Context
 
 ```python
-from FastMiddleware import AuditMiddleware, RequestContextMiddleware
+from fastmiddleware import AuditMiddleware, RequestContextMiddleware
 
 # Add context first to capture user info
 app.add_middleware(RequestContextMiddleware)

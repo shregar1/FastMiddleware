@@ -5,14 +5,14 @@ Centralized error handling with consistent error response formatting, exception 
 ## Installation
 
 ```python
-from FastMiddleware import ErrorHandlerMiddleware, ErrorConfig
+from fastmiddleware import ErrorHandlerMiddleware, ErrorConfig
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ErrorHandlerMiddleware
+from fastmiddleware import ErrorHandlerMiddleware
 
 app = FastAPI()
 
@@ -109,7 +109,7 @@ app.add_middleware(
 ### Custom Exception Handlers
 
 ```python
-from FastMiddleware import ErrorConfig
+from fastmiddleware import ErrorConfig
 
 config = ErrorConfig()
 config.error_handlers[ValueError] = (400, "Invalid value provided")
@@ -123,7 +123,7 @@ app.add_middleware(ErrorHandlerMiddleware, config=config)
 ### Handler with Custom Response
 
 ```python
-from FastMiddleware import ErrorConfig
+from fastmiddleware import ErrorConfig
 
 def handle_validation_error(exc: ValueError) -> tuple[int, str, dict]:
     """Custom handler returning (status, message, extra_data)."""
@@ -168,7 +168,7 @@ logging.basicConfig(level=logging.ERROR)
 ## Integration with Request ID
 
 ```python
-from FastMiddleware import ErrorHandlerMiddleware, RequestIDMiddleware
+from fastmiddleware import ErrorHandlerMiddleware, RequestIDMiddleware
 
 # Request ID is included in error responses
 app.add_middleware(ErrorHandlerMiddleware)

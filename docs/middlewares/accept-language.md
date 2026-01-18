@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import AcceptLanguageMiddleware, get_language
+from fastmiddleware import AcceptLanguageMiddleware, get_language
 
 app = FastAPI()
 
@@ -49,7 +49,7 @@ async def handler():
 Returns the negotiated language code for the current request.
 
 ```python
-from FastMiddleware import get_language
+from fastmiddleware import get_language
 
 @app.get("/greeting")
 async def greeting():
@@ -93,7 +93,7 @@ app.add_middleware(
 ### Integration with Translation System
 
 ```python
-from FastMiddleware import AcceptLanguageMiddleware, get_language
+from fastmiddleware import AcceptLanguageMiddleware, get_language
 import gettext
 
 app.add_middleware(

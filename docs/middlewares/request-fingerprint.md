@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestFingerprintMiddleware, get_fingerprint
+from fastmiddleware import RequestFingerprintMiddleware, get_fingerprint
 
 app = FastAPI()
 
@@ -39,7 +39,7 @@ async def handler():
 Returns the fingerprint for the current request.
 
 ```python
-from FastMiddleware import get_fingerprint
+from fastmiddleware import get_fingerprint
 
 @app.get("/track")
 async def track():
@@ -95,7 +95,7 @@ app.add_middleware(
 ### Device Tracking
 
 ```python
-from FastMiddleware import RequestFingerprintMiddleware, get_fingerprint
+from fastmiddleware import RequestFingerprintMiddleware, get_fingerprint
 
 app.add_middleware(RequestFingerprintMiddleware)
 
@@ -129,7 +129,7 @@ async def purchase(data: PurchaseData):
 ### Rate Limiting by Fingerprint
 
 ```python
-from FastMiddleware import RateLimitMiddleware, get_fingerprint
+from fastmiddleware import RateLimitMiddleware, get_fingerprint
 
 # Custom key function using fingerprint
 def fingerprint_key(request):

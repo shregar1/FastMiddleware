@@ -26,7 +26,7 @@ pip install fastmvc-middleware[all]    # All optional dependencies
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     CORSMiddleware,
     SecurityHeadersMiddleware,
     LoggingMiddleware,
@@ -57,7 +57,7 @@ All available imports organized by category:
 ### Core Middlewares
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     FastMVCMiddleware,       # Base middleware class
     CORSMiddleware,          # Cross-Origin Resource Sharing
     LoggingMiddleware,       # Structured request/response logging
@@ -69,7 +69,7 @@ from FastMiddleware import (
 ### Security Middlewares
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # Security Headers
     SecurityHeadersMiddleware, SecurityHeadersConfig,
     TrustedHostMiddleware,
@@ -102,7 +102,7 @@ from FastMiddleware import (
 ### Rate Limiting & Protection
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     RateLimitMiddleware, RateLimitConfig, RateLimitStore, InMemoryRateLimitStore,
     QuotaMiddleware, QuotaConfig,
     LoadSheddingMiddleware, LoadSheddingConfig,
@@ -115,7 +115,7 @@ from FastMiddleware import (
 ### Authentication & Authorization
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # JWT & API Key
     AuthenticationMiddleware, AuthConfig, AuthBackend,
     JWTAuthBackend, APIKeyAuthBackend,
@@ -133,7 +133,7 @@ from FastMiddleware import (
 ### Session & Context
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # Session
     SessionMiddleware, SessionConfig, SessionStore, InMemorySessionStore, Session,
     
@@ -151,7 +151,7 @@ from FastMiddleware import (
 ### Response Handling
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # Compression & Caching
     CompressionMiddleware, CompressionConfig,
     CacheMiddleware, CacheConfig,
@@ -174,7 +174,7 @@ from FastMiddleware import (
 ### Error Handling
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     ErrorHandlerMiddleware, ErrorConfig,
     ExceptionHandlerMiddleware, ExceptionHandlerConfig,
     CircuitBreakerMiddleware, CircuitBreakerConfig, CircuitState,
@@ -184,7 +184,7 @@ from FastMiddleware import (
 ### Health & Monitoring
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # Health Checks
     HealthCheckMiddleware, HealthConfig,
     
@@ -209,7 +209,7 @@ from FastMiddleware import (
 ### Idempotency
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     IdempotencyMiddleware, IdempotencyConfig, IdempotencyStore, InMemoryIdempotencyStore,
 )
 ```
@@ -217,7 +217,7 @@ from FastMiddleware import (
 ### Maintenance & Lifecycle
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     MaintenanceMiddleware, MaintenanceConfig,
     WarmupMiddleware, WarmupConfig,
     GracefulShutdownMiddleware, GracefulShutdownConfig,
@@ -229,7 +229,7 @@ from FastMiddleware import (
 ### Request Processing
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     # Limits & Validation
     TimeoutMiddleware, TimeoutConfig,
     RequestLimitMiddleware, RequestLimitConfig,
@@ -252,7 +252,7 @@ from FastMiddleware import (
 ### URL & Routing
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     RedirectMiddleware, RedirectConfig, RedirectRule,
     PathRewriteMiddleware, PathRewriteConfig, RewriteRule,
     ProxyMiddleware, ProxyConfig, ProxyRoute,  # Requires: pip install fastmvc-middleware[proxy]
@@ -262,7 +262,7 @@ from FastMiddleware import (
 ### API Management
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     VersioningMiddleware, VersioningConfig, VersionLocation, get_api_version,
     DeprecationMiddleware, DeprecationConfig, DeprecationInfo,
     RetryAfterMiddleware, RetryAfterConfig,
@@ -274,7 +274,7 @@ from FastMiddleware import (
 ### Detection & Analytics
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     BotDetectionMiddleware, BotConfig, BotAction,
     GeoIPMiddleware, GeoIPConfig, get_geo_data,
     UserAgentMiddleware, UserAgentConfig, UserAgentInfo, get_user_agent,
@@ -286,7 +286,7 @@ from FastMiddleware import (
 ### Feature Management & Testing
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     FeatureFlagMiddleware, FeatureFlagConfig, get_feature_flags, is_feature_enabled,
     ABTestMiddleware, ABTestConfig, Experiment, get_variant,
 )
@@ -295,7 +295,7 @@ from FastMiddleware import (
 ### Localization
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     LocaleMiddleware, LocaleConfig, get_locale,
     AcceptLanguageMiddleware, AcceptLanguageConfig, get_language,
 )
@@ -304,7 +304,7 @@ from FastMiddleware import (
 ### Import All (Not Recommended for Production)
 
 ```python
-from FastMiddleware import *
+from fastmiddleware import *
 ```
 
 ---
@@ -479,7 +479,7 @@ from FastMiddleware import *
 Adds comprehensive security headers (OWASP recommended).
 
 ```python
-from FastMiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+from fastmiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
 
 app.add_middleware(
     SecurityHeadersMiddleware,
@@ -507,7 +507,7 @@ app.add_middleware(SecurityHeadersMiddleware, config=config)
 Cross-Origin Resource Sharing configuration.
 
 ```python
-from FastMiddleware import CORSMiddleware
+from fastmiddleware import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
@@ -526,7 +526,7 @@ app.add_middleware(
 Cross-Site Request Forgery protection.
 
 ```python
-from FastMiddleware import CSRFMiddleware, CSRFConfig
+from fastmiddleware import CSRFMiddleware, CSRFConfig
 
 app.add_middleware(
     CSRFMiddleware,
@@ -545,7 +545,7 @@ app.add_middleware(
 Redirects HTTP requests to HTTPS.
 
 ```python
-from FastMiddleware import HTTPSRedirectMiddleware
+from fastmiddleware import HTTPSRedirectMiddleware
 
 app.add_middleware(
     HTTPSRedirectMiddleware,
@@ -561,7 +561,7 @@ app.add_middleware(
 IP-based access control (whitelist/blacklist).
 
 ```python
-from FastMiddleware import IPFilterMiddleware, IPFilterConfig
+from fastmiddleware import IPFilterMiddleware, IPFilterConfig
 
 # Whitelist mode
 app.add_middleware(
@@ -583,7 +583,7 @@ app.add_middleware(
 Validates Host header to prevent host header attacks.
 
 ```python
-from FastMiddleware import TrustedHostMiddleware
+from fastmiddleware import TrustedHostMiddleware
 
 app.add_middleware(
     TrustedHostMiddleware,
@@ -598,7 +598,7 @@ app.add_middleware(
 Validates Origin header for cross-origin requests.
 
 ```python
-from FastMiddleware import OriginMiddleware, OriginConfig
+from fastmiddleware import OriginMiddleware, OriginConfig
 
 app.add_middleware(
     OriginMiddleware,
@@ -614,7 +614,7 @@ app.add_middleware(
 Validates incoming webhook signatures.
 
 ```python
-from FastMiddleware import WebhookMiddleware, WebhookConfig
+from fastmiddleware import WebhookMiddleware, WebhookConfig
 
 app.add_middleware(
     WebhookMiddleware,
@@ -631,7 +631,7 @@ app.add_middleware(
 Sets Referrer-Policy header.
 
 ```python
-from FastMiddleware import ReferrerPolicyMiddleware
+from fastmiddleware import ReferrerPolicyMiddleware
 
 app.add_middleware(
     ReferrerPolicyMiddleware,
@@ -648,7 +648,7 @@ app.add_middleware(
 Controls browser feature permissions.
 
 ```python
-from FastMiddleware import PermissionsPolicyMiddleware
+from fastmiddleware import PermissionsPolicyMiddleware
 
 app.add_middleware(
     PermissionsPolicyMiddleware,
@@ -668,7 +668,7 @@ app.add_middleware(
 Handles CSP violation reports.
 
 ```python
-from FastMiddleware import CSPReportMiddleware
+from fastmiddleware import CSPReportMiddleware
 
 csp_reporter = CSPReportMiddleware(
     app,
@@ -688,7 +688,7 @@ reports = csp_reporter.get_reports()
 Traps malicious requests with fake endpoints.
 
 ```python
-from FastMiddleware import HoneypotMiddleware, HoneypotConfig
+from fastmiddleware import HoneypotMiddleware, HoneypotConfig
 
 app.add_middleware(
     HoneypotMiddleware,
@@ -705,7 +705,7 @@ app.add_middleware(
 Sanitizes input to prevent XSS and injection.
 
 ```python
-from FastMiddleware import SanitizationMiddleware, SanitizationConfig
+from fastmiddleware import SanitizationMiddleware, SanitizationConfig
 
 app.add_middleware(
     SanitizationMiddleware,
@@ -722,7 +722,7 @@ app.add_middleware(
 Prevents replay attacks using timestamps and nonces.
 
 ```python
-from FastMiddleware import ReplayPreventionMiddleware
+from fastmiddleware import ReplayPreventionMiddleware
 
 app.add_middleware(
     ReplayPreventionMiddleware,
@@ -741,7 +741,7 @@ app.add_middleware(
 Validates HMAC request signatures.
 
 ```python
-from FastMiddleware import RequestSigningMiddleware
+from fastmiddleware import RequestSigningMiddleware
 
 app.add_middleware(
     RequestSigningMiddleware,
@@ -762,7 +762,7 @@ app.add_middleware(
 Pluggable authentication with JWT and API key support.
 
 ```python
-from FastMiddleware import AuthenticationMiddleware, JWTAuthBackend, APIKeyAuthBackend
+from fastmiddleware import AuthenticationMiddleware, JWTAuthBackend, APIKeyAuthBackend
 
 # JWT Authentication
 app.add_middleware(
@@ -793,7 +793,7 @@ app.add_middleware(
 HTTP Basic Authentication.
 
 ```python
-from FastMiddleware import BasicAuthMiddleware
+from fastmiddleware import BasicAuthMiddleware
 
 app.add_middleware(
     BasicAuthMiddleware,
@@ -809,7 +809,7 @@ app.add_middleware(
 Bearer token authentication.
 
 ```python
-from FastMiddleware import BearerAuthMiddleware
+from fastmiddleware import BearerAuthMiddleware
 
 app.add_middleware(
     BearerAuthMiddleware,
@@ -831,7 +831,7 @@ middleware.set_validate_func(lambda token: validate_with_db(token))
 OAuth scope validation.
 
 ```python
-from FastMiddleware import ScopeMiddleware
+from fastmiddleware import ScopeMiddleware
 
 app.add_middleware(
     ScopeMiddleware,
@@ -850,7 +850,7 @@ app.add_middleware(
 Per-route authentication requirements.
 
 ```python
-from FastMiddleware import RouteAuthMiddleware, RouteAuth
+from fastmiddleware import RouteAuthMiddleware, RouteAuth
 
 app.add_middleware(
     RouteAuthMiddleware,
@@ -871,7 +871,7 @@ app.add_middleware(
 Structured request/response logging.
 
 ```python
-from FastMiddleware import LoggingMiddleware
+from fastmiddleware import LoggingMiddleware
 
 app.add_middleware(
     LoggingMiddleware,
@@ -888,7 +888,7 @@ app.add_middleware(
 Adds processing time to response headers.
 
 ```python
-from FastMiddleware import TimingMiddleware
+from fastmiddleware import TimingMiddleware
 
 app.add_middleware(TimingMiddleware)
 # Response includes: X-Process-Time: 0.0234
@@ -901,7 +901,7 @@ app.add_middleware(TimingMiddleware)
 Generates unique request IDs.
 
 ```python
-from FastMiddleware import RequestIDMiddleware
+from fastmiddleware import RequestIDMiddleware
 
 app.add_middleware(
     RequestIDMiddleware,
@@ -917,7 +917,7 @@ app.add_middleware(
 Async-safe context variables.
 
 ```python
-from FastMiddleware import RequestContextMiddleware, get_request_id, get_request_context
+from fastmiddleware import RequestContextMiddleware, get_request_id, get_request_context
 
 app.add_middleware(RequestContextMiddleware)
 
@@ -935,7 +935,7 @@ async def handler():
 Prometheus-compatible metrics.
 
 ```python
-from FastMiddleware import MetricsMiddleware, MetricsConfig
+from fastmiddleware import MetricsMiddleware, MetricsConfig
 
 app.add_middleware(
     MetricsMiddleware,
@@ -953,7 +953,7 @@ app.add_middleware(
 Request performance profiling.
 
 ```python
-from FastMiddleware import ProfilingMiddleware
+from fastmiddleware import ProfilingMiddleware
 
 app.add_middleware(
     ProfilingMiddleware,
@@ -969,7 +969,7 @@ app.add_middleware(
 Audit logging for compliance.
 
 ```python
-from FastMiddleware import AuditMiddleware, AuditConfig
+from fastmiddleware import AuditMiddleware, AuditConfig
 
 app.add_middleware(
     AuditMiddleware,
@@ -986,7 +986,7 @@ app.add_middleware(
 Server-Timing header for browser devtools.
 
 ```python
-from FastMiddleware import ServerTimingMiddleware, timing
+from fastmiddleware import ServerTimingMiddleware, timing
 
 app.add_middleware(ServerTimingMiddleware)
 
@@ -1008,7 +1008,7 @@ async def handler():
 Access logging in various formats.
 
 ```python
-from FastMiddleware import RequestLoggerMiddleware
+from fastmiddleware import RequestLoggerMiddleware
 
 app.add_middleware(
     RequestLoggerMiddleware,
@@ -1024,7 +1024,7 @@ app.add_middleware(
 Track request costs for billing.
 
 ```python
-from FastMiddleware import CostTrackingMiddleware, add_cost, get_request_cost
+from fastmiddleware import CostTrackingMiddleware, add_cost, get_request_cost
 
 app.add_middleware(
     CostTrackingMiddleware,
@@ -1045,7 +1045,7 @@ async def handler():
 Sample requests for analytics.
 
 ```python
-from FastMiddleware import RequestSamplerMiddleware, is_sampled
+from fastmiddleware import RequestSamplerMiddleware, is_sampled
 
 app.add_middleware(
     RequestSamplerMiddleware,
@@ -1069,7 +1069,7 @@ async def handler():
 Sliding window rate limiting.
 
 ```python
-from FastMiddleware import RateLimitMiddleware, RateLimitConfig
+from fastmiddleware import RateLimitMiddleware, RateLimitConfig
 
 app.add_middleware(
     RateLimitMiddleware,
@@ -1094,7 +1094,7 @@ app.add_middleware(RateLimitMiddleware, config=config)
 Circuit breaker pattern.
 
 ```python
-from FastMiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig
+from fastmiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig
 
 app.add_middleware(
     CircuitBreakerMiddleware,
@@ -1113,7 +1113,7 @@ app.add_middleware(
 Bulkhead pattern for isolation.
 
 ```python
-from FastMiddleware import BulkheadMiddleware
+from fastmiddleware import BulkheadMiddleware
 
 app.add_middleware(
     BulkheadMiddleware,
@@ -1130,7 +1130,7 @@ app.add_middleware(
 Shed load during high traffic.
 
 ```python
-from FastMiddleware import LoadSheddingMiddleware
+from fastmiddleware import LoadSheddingMiddleware
 
 app.add_middleware(
     LoadSheddingMiddleware,
@@ -1146,7 +1146,7 @@ app.add_middleware(
 Request timeout enforcement.
 
 ```python
-from FastMiddleware import TimeoutMiddleware
+from fastmiddleware import TimeoutMiddleware
 
 app.add_middleware(
     TimeoutMiddleware,
@@ -1162,7 +1162,7 @@ app.add_middleware(
 Consistent error response formatting.
 
 ```python
-from FastMiddleware import ErrorHandlerMiddleware, ErrorConfig
+from fastmiddleware import ErrorHandlerMiddleware, ErrorConfig
 
 app.add_middleware(
     ErrorHandlerMiddleware,
@@ -1178,7 +1178,7 @@ app.add_middleware(
 Custom exception handling.
 
 ```python
-from FastMiddleware import ExceptionHandlerMiddleware
+from fastmiddleware import ExceptionHandlerMiddleware
 
 handler = ExceptionHandlerMiddleware(app, debug=False)
 
@@ -1194,7 +1194,7 @@ def handle_value_error(exc):
 Graceful shutdown with request draining.
 
 ```python
-from FastMiddleware import GracefulShutdownMiddleware
+from fastmiddleware import GracefulShutdownMiddleware
 
 shutdown_mw = GracefulShutdownMiddleware(app, timeout=30.0)
 
@@ -1209,7 +1209,7 @@ await shutdown_mw.shutdown()
 Deduplicate concurrent requests.
 
 ```python
-from FastMiddleware import RequestDedupMiddleware
+from fastmiddleware import RequestDedupMiddleware
 
 app.add_middleware(
     RequestDedupMiddleware,
@@ -1224,7 +1224,7 @@ app.add_middleware(
 Coalesce identical requests.
 
 ```python
-from FastMiddleware import RequestCoalescingMiddleware
+from fastmiddleware import RequestCoalescingMiddleware
 
 app.add_middleware(
     RequestCoalescingMiddleware,
@@ -1241,7 +1241,7 @@ app.add_middleware(
 GZip response compression.
 
 ```python
-from FastMiddleware import CompressionMiddleware, CompressionConfig
+from fastmiddleware import CompressionMiddleware, CompressionConfig
 
 app.add_middleware(
     CompressionMiddleware,
@@ -1257,7 +1257,7 @@ app.add_middleware(
 HTTP caching with ETags.
 
 ```python
-from FastMiddleware import CacheMiddleware, CacheConfig
+from fastmiddleware import CacheMiddleware, CacheConfig
 
 app.add_middleware(
     CacheMiddleware,
@@ -1274,7 +1274,7 @@ app.add_middleware(
 ETag generation and validation.
 
 ```python
-from FastMiddleware import ETagMiddleware
+from fastmiddleware import ETagMiddleware
 
 app.add_middleware(
     ETagMiddleware,
@@ -1289,7 +1289,7 @@ app.add_middleware(
 In-memory response caching.
 
 ```python
-from FastMiddleware import ResponseCacheMiddleware
+from fastmiddleware import ResponseCacheMiddleware
 
 cache = ResponseCacheMiddleware(
     app,
@@ -1310,7 +1310,7 @@ cache.clear()
 Response bandwidth throttling.
 
 ```python
-from FastMiddleware import BandwidthMiddleware
+from fastmiddleware import BandwidthMiddleware
 
 app.add_middleware(
     BandwidthMiddleware,
@@ -1325,7 +1325,7 @@ app.add_middleware(
 Disable caching headers.
 
 ```python
-from FastMiddleware import NoCacheMiddleware
+from fastmiddleware import NoCacheMiddleware
 
 app.add_middleware(
     NoCacheMiddleware,
@@ -1340,7 +1340,7 @@ app.add_middleware(
 If-None-Match / If-Modified-Since handling.
 
 ```python
-from FastMiddleware import ConditionalRequestMiddleware
+from fastmiddleware import ConditionalRequestMiddleware
 
 app.add_middleware(ConditionalRequestMiddleware)
 # Returns 304 Not Modified when appropriate
@@ -1353,7 +1353,7 @@ app.add_middleware(ConditionalRequestMiddleware)
 HTTP 103 Early Hints (via Link header).
 
 ```python
-from FastMiddleware import EarlyHintsMiddleware, EarlyHint
+from fastmiddleware import EarlyHintsMiddleware, EarlyHint
 
 app.add_middleware(
     EarlyHintsMiddleware,
@@ -1371,7 +1371,7 @@ app.add_middleware(
 Sign responses for verification.
 
 ```python
-from FastMiddleware import ResponseSignatureMiddleware
+from fastmiddleware import ResponseSignatureMiddleware
 
 app.add_middleware(
     ResponseSignatureMiddleware,
@@ -1387,7 +1387,7 @@ app.add_middleware(
 Standardize response format (wrap all responses).
 
 ```python
-from FastMiddleware import ResponseFormatMiddleware, ResponseFormatConfig
+from fastmiddleware import ResponseFormatMiddleware, ResponseFormatConfig
 
 app.add_middleware(
     ResponseFormatMiddleware,
@@ -1417,7 +1417,7 @@ app.add_middleware(
 Health, readiness, and liveness endpoints.
 
 ```python
-from FastMiddleware import HealthCheckMiddleware, HealthConfig
+from fastmiddleware import HealthCheckMiddleware, HealthConfig
 
 app.add_middleware(
     HealthCheckMiddleware,
@@ -1435,7 +1435,7 @@ app.add_middleware(
 Maintenance mode with bypass options.
 
 ```python
-from FastMiddleware import MaintenanceMiddleware
+from fastmiddleware import MaintenanceMiddleware
 
 maint = MaintenanceMiddleware(
     app,
@@ -1457,7 +1457,7 @@ maint.disable()
 Container warmup handling.
 
 ```python
-from FastMiddleware import WarmupMiddleware
+from fastmiddleware import WarmupMiddleware
 
 warmup = WarmupMiddleware(
     app,
@@ -1476,7 +1476,7 @@ warmup.set_ready(True)
 Chaos engineering (testing only!).
 
 ```python
-from FastMiddleware import ChaosMiddleware
+from fastmiddleware import ChaosMiddleware
 
 app.add_middleware(
     ChaosMiddleware,
@@ -1497,7 +1497,7 @@ app.add_middleware(
 Artificial delays (testing only).
 
 ```python
-from FastMiddleware import SlowResponseMiddleware
+from fastmiddleware import SlowResponseMiddleware
 
 app.add_middleware(
     SlowResponseMiddleware,
@@ -1516,7 +1516,7 @@ app.add_middleware(
 API versioning via header, query, or path.
 
 ```python
-from FastMiddleware import VersioningMiddleware, VersionLocation, get_api_version
+from fastmiddleware import VersioningMiddleware, VersionLocation, get_api_version
 
 app.add_middleware(
     VersioningMiddleware,
@@ -1538,7 +1538,7 @@ async def handler():
 API deprecation warnings.
 
 ```python
-from FastMiddleware import DeprecationMiddleware, DeprecationInfo
+from fastmiddleware import DeprecationMiddleware, DeprecationInfo
 
 app.add_middleware(
     DeprecationMiddleware,
@@ -1561,7 +1561,7 @@ app.add_middleware(
 Retry-After headers for rate limits.
 
 ```python
-from FastMiddleware import RetryAfterMiddleware
+from fastmiddleware import RetryAfterMiddleware
 
 app.add_middleware(
     RetryAfterMiddleware,
@@ -1576,7 +1576,7 @@ app.add_middleware(
 Add API version to all responses.
 
 ```python
-from FastMiddleware import APIVersionHeaderMiddleware
+from fastmiddleware import APIVersionHeaderMiddleware
 
 app.add_middleware(
     APIVersionHeaderMiddleware,
@@ -1593,7 +1593,7 @@ app.add_middleware(
 Accept header content negotiation.
 
 ```python
-from FastMiddleware import ContentNegotiationMiddleware, get_negotiated_type
+from fastmiddleware import ContentNegotiationMiddleware, get_negotiated_type
 
 app.add_middleware(
     ContentNegotiationMiddleware,
@@ -1616,7 +1616,7 @@ async def handler():
 Validate requests against JSON Schema.
 
 ```python
-from FastMiddleware import JSONSchemaMiddleware
+from fastmiddleware import JSONSchemaMiddleware
 
 user_schema = {
     "type": "object",
@@ -1641,7 +1641,7 @@ app.add_middleware(
 Add hypermedia links to responses.
 
 ```python
-from FastMiddleware import HATEOASMiddleware, Link
+from fastmiddleware import HATEOASMiddleware, Link
 
 app.add_middleware(
     HATEOASMiddleware,
@@ -1663,7 +1663,7 @@ app.add_middleware(
 Detect and handle bot traffic.
 
 ```python
-from FastMiddleware import BotDetectionMiddleware, BotAction
+from fastmiddleware import BotDetectionMiddleware, BotAction
 
 app.add_middleware(
     BotDetectionMiddleware,
@@ -1679,7 +1679,7 @@ app.add_middleware(
 Parse User-Agent headers.
 
 ```python
-from FastMiddleware import UserAgentMiddleware, get_user_agent
+from fastmiddleware import UserAgentMiddleware, get_user_agent
 
 app.add_middleware(UserAgentMiddleware)
 
@@ -1701,7 +1701,7 @@ async def handler():
 Extract GeoIP from CDN headers.
 
 ```python
-from FastMiddleware import GeoIPMiddleware, get_geo_data
+from fastmiddleware import GeoIPMiddleware, get_geo_data
 
 app.add_middleware(GeoIPMiddleware)
 
@@ -1721,7 +1721,7 @@ async def handler():
 Client Hints support.
 
 ```python
-from FastMiddleware import ClientHintsMiddleware, get_client_hints
+from fastmiddleware import ClientHintsMiddleware, get_client_hints
 
 app.add_middleware(
     ClientHintsMiddleware,
@@ -1744,7 +1744,7 @@ async def handler():
 Create request fingerprints.
 
 ```python
-from FastMiddleware import RequestFingerprintMiddleware, get_fingerprint
+from fastmiddleware import RequestFingerprintMiddleware, get_fingerprint
 
 app.add_middleware(RequestFingerprintMiddleware)
 
@@ -1762,7 +1762,7 @@ async def handler():
 Feature flag management.
 
 ```python
-from FastMiddleware import FeatureFlagMiddleware, is_feature_enabled, get_feature_flags
+from fastmiddleware import FeatureFlagMiddleware, is_feature_enabled, get_feature_flags
 
 app.add_middleware(
     FeatureFlagMiddleware,
@@ -1786,7 +1786,7 @@ async def handler():
 A/B testing support.
 
 ```python
-from FastMiddleware import ABTestMiddleware, Experiment, get_variant
+from fastmiddleware import ABTestMiddleware, Experiment, get_variant
 
 app.add_middleware(
     ABTestMiddleware,
@@ -1814,7 +1814,7 @@ async def handler():
 Locale detection.
 
 ```python
-from FastMiddleware import LocaleMiddleware, get_locale
+from fastmiddleware import LocaleMiddleware, get_locale
 
 app.add_middleware(
     LocaleMiddleware,
@@ -1835,7 +1835,7 @@ async def handler():
 Accept-Language negotiation.
 
 ```python
-from FastMiddleware import AcceptLanguageMiddleware, get_language
+from fastmiddleware import AcceptLanguageMiddleware, get_language
 
 app.add_middleware(
     AcceptLanguageMiddleware,
@@ -1858,7 +1858,7 @@ async def handler():
 URL redirects.
 
 ```python
-from FastMiddleware import RedirectMiddleware, RedirectRule
+from fastmiddleware import RedirectMiddleware, RedirectRule
 
 app.add_middleware(
     RedirectMiddleware,
@@ -1876,7 +1876,7 @@ app.add_middleware(
 Path rewriting.
 
 ```python
-from FastMiddleware import PathRewriteMiddleware, RewriteRule
+from fastmiddleware import PathRewriteMiddleware, RewriteRule
 
 app.add_middleware(
     PathRewriteMiddleware,
@@ -1894,7 +1894,7 @@ app.add_middleware(
 Reverse proxy to other services.
 
 ```python
-from FastMiddleware import ProxyMiddleware, ProxyRoute
+from fastmiddleware import ProxyMiddleware, ProxyRoute
 
 app.add_middleware(
     ProxyMiddleware,
@@ -1917,7 +1917,7 @@ app.add_middleware(
 HTTP method override.
 
 ```python
-from FastMiddleware import MethodOverrideMiddleware
+from fastmiddleware import MethodOverrideMiddleware
 
 app.add_middleware(MethodOverrideMiddleware)
 # POST /resource?_method=DELETE becomes DELETE /resource
@@ -1931,7 +1931,7 @@ app.add_middleware(MethodOverrideMiddleware)
 Trailing slash handling.
 
 ```python
-from FastMiddleware import TrailingSlashMiddleware, SlashAction
+from fastmiddleware import TrailingSlashMiddleware, SlashAction
 
 app.add_middleware(
     TrailingSlashMiddleware,
@@ -1946,7 +1946,7 @@ app.add_middleware(
 Transform request/response headers.
 
 ```python
-from FastMiddleware import HeaderTransformMiddleware
+from fastmiddleware import HeaderTransformMiddleware
 
 app.add_middleware(
     HeaderTransformMiddleware,
@@ -1965,7 +1965,7 @@ app.add_middleware(
 Server-side sessions.
 
 ```python
-from FastMiddleware import SessionMiddleware, SessionConfig
+from fastmiddleware import SessionMiddleware, SessionConfig
 
 app.add_middleware(
     SessionMiddleware,
@@ -1982,7 +1982,7 @@ app.add_middleware(
 Multi-tenancy support.
 
 ```python
-from FastMiddleware import TenantMiddleware, get_tenant_id
+from fastmiddleware import TenantMiddleware, get_tenant_id
 
 app.add_middleware(
     TenantMiddleware,
@@ -2002,7 +2002,7 @@ async def handler():
 Correlation ID tracking.
 
 ```python
-from FastMiddleware import CorrelationMiddleware, get_correlation_id
+from fastmiddleware import CorrelationMiddleware, get_correlation_id
 
 app.add_middleware(
     CorrelationMiddleware,
@@ -2021,7 +2021,7 @@ async def handler():
 Propagate request IDs across services.
 
 ```python
-from FastMiddleware import RequestIDPropagationMiddleware, get_request_ids
+from fastmiddleware import RequestIDPropagationMiddleware, get_request_ids
 
 app.add_middleware(RequestIDPropagationMiddleware)
 
@@ -2038,7 +2038,7 @@ async def handler():
 Shared request context.
 
 ```python
-from FastMiddleware import ContextMiddleware, get_context_value, set_context_value
+from fastmiddleware import ContextMiddleware, get_context_value, set_context_value
 
 app.add_middleware(
     ContextMiddleware,
@@ -2059,7 +2059,7 @@ async def handler():
 Extract real client IP.
 
 ```python
-from FastMiddleware import RealIPMiddleware, get_real_ip
+from fastmiddleware import RealIPMiddleware, get_real_ip
 
 app.add_middleware(RealIPMiddleware)
 
@@ -2075,7 +2075,7 @@ async def handler():
 X-Forwarded-For trust handling.
 
 ```python
-from FastMiddleware import XFFTrustMiddleware
+from fastmiddleware import XFFTrustMiddleware
 
 app.add_middleware(
     XFFTrustMiddleware,
@@ -2093,7 +2093,7 @@ app.add_middleware(
 Mask sensitive data in logs.
 
 ```python
-from FastMiddleware import DataMaskingMiddleware, MaskingRule
+from fastmiddleware import DataMaskingMiddleware, MaskingRule
 
 app.add_middleware(
     DataMaskingMiddleware,
@@ -2111,7 +2111,7 @@ app.add_middleware(
 Usage quota enforcement.
 
 ```python
-from FastMiddleware import QuotaMiddleware
+from fastmiddleware import QuotaMiddleware
 
 app.add_middleware(
     QuotaMiddleware,
@@ -2129,7 +2129,7 @@ app.add_middleware(
 Idempotency key support.
 
 ```python
-from FastMiddleware import IdempotencyMiddleware
+from fastmiddleware import IdempotencyMiddleware
 
 app.add_middleware(
     IdempotencyMiddleware,
@@ -2145,7 +2145,7 @@ app.add_middleware(
 Request body size limits.
 
 ```python
-from FastMiddleware import RequestLimitMiddleware
+from fastmiddleware import RequestLimitMiddleware
 
 app.add_middleware(
     RequestLimitMiddleware,
@@ -2160,7 +2160,7 @@ app.add_middleware(
 Request/response size limits.
 
 ```python
-from FastMiddleware import PayloadSizeMiddleware
+from fastmiddleware import PayloadSizeMiddleware
 
 app.add_middleware(
     PayloadSizeMiddleware,
@@ -2176,7 +2176,7 @@ app.add_middleware(
 Content-Type validation.
 
 ```python
-from FastMiddleware import ContentTypeMiddleware
+from fastmiddleware import ContentTypeMiddleware
 
 app.add_middleware(
     ContentTypeMiddleware,
@@ -2191,7 +2191,7 @@ app.add_middleware(
 Request structure validation.
 
 ```python
-from FastMiddleware import RequestValidatorMiddleware, ValidationRule
+from fastmiddleware import RequestValidatorMiddleware, ValidationRule
 
 app.add_middleware(
     RequestValidatorMiddleware,
@@ -2214,7 +2214,7 @@ app.add_middleware(
 Response time SLA monitoring.
 
 ```python
-from FastMiddleware import ResponseTimeMiddleware, ResponseTimeSLA
+from fastmiddleware import ResponseTimeMiddleware, ResponseTimeSLA
 
 app.add_middleware(
     ResponseTimeMiddleware,
@@ -2232,7 +2232,7 @@ app.add_middleware(
 Request prioritization.
 
 ```python
-from FastMiddleware import RequestPriorityMiddleware, Priority
+from fastmiddleware import RequestPriorityMiddleware, Priority
 
 app.add_middleware(
     RequestPriorityMiddleware,

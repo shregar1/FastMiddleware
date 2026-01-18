@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import BearerAuthMiddleware, BearerAuthConfig
+from fastmiddleware import BearerAuthMiddleware, BearerAuthConfig
 
 app = FastAPI()
 

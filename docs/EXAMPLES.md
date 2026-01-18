@@ -21,7 +21,7 @@ A complete production-ready API configuration.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     CORSMiddleware,
     SecurityHeadersMiddleware,
     RateLimitMiddleware,
@@ -111,7 +111,7 @@ Configuration for a microservice with distributed tracing.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     RequestIDPropagationMiddleware,
     CorrelationMiddleware,
     ServerTimingMiddleware,
@@ -182,7 +182,7 @@ SaaS application with tenant isolation.
 
 ```python
 from fastapi import FastAPI, Request
-from FastMiddleware import (
+from fastmiddleware import (
     TenantMiddleware,
     SessionMiddleware,
     RateLimitMiddleware,
@@ -266,7 +266,7 @@ Configuration for handling high traffic with protection.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     RateLimitMiddleware,
     BulkheadMiddleware,
     LoadSheddingMiddleware,
@@ -360,7 +360,7 @@ Security-focused configuration for financial applications.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     SecurityHeadersMiddleware,
     HTTPSRedirectMiddleware,
     CSRFMiddleware,
@@ -462,7 +462,7 @@ API gateway configuration with routing and proxying.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     ProxyMiddleware,
     ProxyRoute,
     RateLimitMiddleware,
@@ -570,7 +570,7 @@ A/B testing and feature flag configuration.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     ABTestMiddleware,
     Experiment,
     FeatureFlagMiddleware,
@@ -666,7 +666,7 @@ Complete monitoring and observability setup.
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import (
+from fastmiddleware import (
     MetricsMiddleware,
     LoggingMiddleware,
     RequestLoggerMiddleware,
@@ -766,7 +766,7 @@ async def complex_operation():
 Creating your own middleware.
 
 ```python
-from FastMiddleware import FastMVCMiddleware
+from fastmiddleware import FastMVCMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 from typing import Callable, Awaitable

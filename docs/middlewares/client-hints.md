@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ClientHintsMiddleware, get_client_hints
+from fastmiddleware import ClientHintsMiddleware, get_client_hints
 
 app = FastAPI()
 
@@ -53,7 +53,7 @@ async def handler():
 Returns parsed client hints for the current request.
 
 ```python
-from FastMiddleware import get_client_hints
+from fastmiddleware import get_client_hints
 
 @app.get("/image")
 async def get_image():
@@ -104,7 +104,7 @@ async def content():
 ### Adaptive Image Serving
 
 ```python
-from FastMiddleware import ClientHintsMiddleware, get_client_hints
+from fastmiddleware import ClientHintsMiddleware, get_client_hints
 
 app.add_middleware(
     ClientHintsMiddleware,

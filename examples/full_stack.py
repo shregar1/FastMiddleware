@@ -20,7 +20,7 @@ from fastapi import FastAPI, Request, Depends, HTTPException
 from fastapi.security import HTTPBearer
 from pydantic import BaseModel
 
-from FastMiddleware import (
+from fastmiddleware import (
     CORSMiddleware,
     SecurityHeadersMiddleware,
     RateLimitMiddleware,

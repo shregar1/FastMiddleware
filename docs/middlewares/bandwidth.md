@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import BandwidthMiddleware
+from fastmiddleware import BandwidthMiddleware
 
 app = FastAPI()
 
@@ -64,7 +64,7 @@ app.add_middleware(
 ### Per-Tier Bandwidth (with custom logic)
 
 ```python
-from FastMiddleware import BandwidthMiddleware
+from fastmiddleware import BandwidthMiddleware
 
 class TieredBandwidthMiddleware(BandwidthMiddleware):
     async def get_limit(self, request):

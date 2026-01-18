@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestValidatorMiddleware, ValidationRule
+from fastmiddleware import RequestValidatorMiddleware, ValidationRule
 
 app = FastAPI()
 

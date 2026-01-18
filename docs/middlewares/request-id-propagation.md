@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestIDPropagationMiddleware, get_request_ids
+from fastmiddleware import RequestIDPropagationMiddleware, get_request_ids
 
 app = FastAPI()
 
@@ -39,7 +39,7 @@ async def handler():
 Returns the chain of request IDs from upstream services.
 
 ```python
-from FastMiddleware import get_request_ids
+from fastmiddleware import get_request_ids
 
 @app.get("/")
 async def handler():
@@ -53,7 +53,7 @@ async def handler():
 Returns the full trace header for forwarding.
 
 ```python
-from FastMiddleware import get_trace_header
+from fastmiddleware import get_trace_header
 
 @app.get("/downstream")
 async def call_downstream():
@@ -87,7 +87,7 @@ app.add_middleware(
 
 ```python
 import httpx
-from FastMiddleware import get_trace_header, get_request_ids
+from fastmiddleware import get_trace_header, get_request_ids
 
 @app.get("/aggregate")
 async def aggregate():
@@ -111,7 +111,7 @@ async def aggregate():
 
 ```python
 import logging
-from FastMiddleware import get_request_ids
+from fastmiddleware import get_request_ids
 
 class TraceFilter(logging.Filter):
     def filter(self, record):
@@ -126,7 +126,7 @@ class TraceFilter(logging.Filter):
 ### OpenTelemetry Integration
 
 ```python
-from FastMiddleware import get_request_ids
+from fastmiddleware import get_request_ids
 from opentelemetry import trace
 
 @app.get("/traced")

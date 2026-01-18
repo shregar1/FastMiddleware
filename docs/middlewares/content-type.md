@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ContentTypeMiddleware
+from fastmiddleware import ContentTypeMiddleware
 
 app = FastAPI()
 
@@ -83,7 +83,7 @@ app.add_middleware(
 ### Exclude Certain Paths
 
 ```python
-from FastMiddleware import ContentTypeMiddleware, ContentTypeConfig
+from fastmiddleware import ContentTypeMiddleware, ContentTypeConfig
 
 config = ContentTypeConfig(
     allowed_types=["application/json"],

@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RedirectMiddleware, RedirectRule
+from fastmiddleware import RedirectMiddleware, RedirectRule
 
 app = FastAPI()
 

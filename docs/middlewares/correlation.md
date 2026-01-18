@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import CorrelationMiddleware, CorrelationConfig, get_correlation_id
+from fastmiddleware import CorrelationMiddleware, CorrelationConfig, get_correlation_id
 
 app = FastAPI()
 
@@ -43,7 +43,7 @@ app.add_middleware(CorrelationMiddleware, config=config)
 ## Getting Correlation ID
 
 ```python
-from FastMiddleware import get_correlation_id
+from fastmiddleware import get_correlation_id
 
 @app.get("/")
 async def handler():
@@ -59,7 +59,7 @@ async def handler():
 
 ```python
 import httpx
-from FastMiddleware import get_correlation_id
+from fastmiddleware import get_correlation_id
 
 @app.get("/aggregate")
 async def aggregate():

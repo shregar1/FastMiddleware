@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import HTTPSRedirectMiddleware, HTTPSRedirectConfig
+from fastmiddleware import HTTPSRedirectMiddleware, HTTPSRedirectConfig
 
 app = FastAPI()
 

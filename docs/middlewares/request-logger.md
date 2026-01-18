@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestLoggerMiddleware
+from fastmiddleware import RequestLoggerMiddleware
 
 app = FastAPI()
 
@@ -110,7 +110,7 @@ app.add_middleware(
 ### With Request ID
 
 ```python
-from FastMiddleware import RequestLoggerMiddleware, RequestIDMiddleware
+from fastmiddleware import RequestLoggerMiddleware, RequestIDMiddleware
 
 # Request ID first
 app.add_middleware(RequestIDMiddleware)
@@ -125,7 +125,7 @@ app.add_middleware(
 ### Filter by Status Code
 
 ```python
-from FastMiddleware import RequestLoggerMiddleware
+from fastmiddleware import RequestLoggerMiddleware
 
 class ErrorOnlyLogger(RequestLoggerMiddleware):
     def should_log(self, request, response) -> bool:

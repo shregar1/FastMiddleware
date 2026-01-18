@@ -13,7 +13,7 @@ pip install fastmvc-middleware
 ```python
 import os
 from fastapi import FastAPI
-from FastMiddleware import SlowResponseMiddleware
+from fastmiddleware import SlowResponseMiddleware
 
 app = FastAPI()
 

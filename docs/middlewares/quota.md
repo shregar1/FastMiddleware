@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import QuotaMiddleware
+from fastmiddleware import QuotaMiddleware
 
 app = FastAPI()
 
@@ -81,7 +81,7 @@ app.add_middleware(
 ### Custom Tier Detection
 
 ```python
-from FastMiddleware import QuotaMiddleware, QuotaConfig
+from fastmiddleware import QuotaMiddleware, QuotaConfig
 
 async def get_user_tier(request) -> str:
     api_key = request.headers.get("X-API-Key")

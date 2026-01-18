@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import DeprecationMiddleware, DeprecationInfo
+from fastmiddleware import DeprecationMiddleware, DeprecationInfo
 
 app = FastAPI()
 
@@ -130,7 +130,7 @@ app.add_middleware(
 ### With Version Header
 
 ```python
-from FastMiddleware import DeprecationMiddleware, APIVersionHeaderMiddleware
+from fastmiddleware import DeprecationMiddleware, APIVersionHeaderMiddleware
 
 app.add_middleware(
     APIVersionHeaderMiddleware,

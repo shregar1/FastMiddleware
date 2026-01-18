@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ResponseTimeMiddleware, ResponseTimeSLA
+from fastmiddleware import ResponseTimeMiddleware, ResponseTimeSLA
 
 app = FastAPI()
 
@@ -71,7 +71,7 @@ app.add_middleware(
 ### With Alerting
 
 ```python
-from FastMiddleware import ResponseTimeMiddleware
+from fastmiddleware import ResponseTimeMiddleware
 
 class AlertingResponseTime(ResponseTimeMiddleware):
     async def on_sla_violation(self, request, duration_ms, sla):

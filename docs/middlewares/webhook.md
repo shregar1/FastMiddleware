@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import WebhookMiddleware
+from fastmiddleware import WebhookMiddleware
 
 app = FastAPI()
 
@@ -106,7 +106,7 @@ async def github_webhook(request: Request):
 ### Multiple Providers
 
 ```python
-from FastMiddleware import WebhookMiddleware
+from fastmiddleware import WebhookMiddleware
 
 # Stripe
 stripe_webhook = WebhookMiddleware(
@@ -128,7 +128,7 @@ github_webhook = WebhookMiddleware(
 ### Custom Signature Format
 
 ```python
-from FastMiddleware import WebhookMiddleware
+from fastmiddleware import WebhookMiddleware
 
 class CustomWebhook(WebhookMiddleware):
     def parse_signature(self, header: str) -> str:

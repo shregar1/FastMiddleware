@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import LoadSheddingMiddleware
+from fastmiddleware import LoadSheddingMiddleware
 
 app = FastAPI()
 
@@ -75,7 +75,7 @@ app.add_middleware(
 
 ```python
 # Custom implementation for gradual shedding
-from FastMiddleware import LoadSheddingMiddleware
+from fastmiddleware import LoadSheddingMiddleware
 
 class GradualLoadShedding(LoadSheddingMiddleware):
     def get_shed_probability(self, current_load: int) -> float:
@@ -92,7 +92,7 @@ app.add_middleware(GradualLoadShedding, max_concurrent=1000)
 ### With Circuit Breaker
 
 ```python
-from FastMiddleware import LoadSheddingMiddleware, CircuitBreakerMiddleware
+from fastmiddleware import LoadSheddingMiddleware, CircuitBreakerMiddleware
 
 # Load shedding first (outer)
 app.add_middleware(

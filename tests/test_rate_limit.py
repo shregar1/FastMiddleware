@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from FastMiddleware import InMemoryRateLimitStore, RateLimitConfig, RateLimitMiddleware
+from fastmiddleware import InMemoryRateLimitStore, RateLimitConfig, RateLimitMiddleware
 
 
 @pytest.fixture

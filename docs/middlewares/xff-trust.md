@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import XFFTrustMiddleware
+from fastmiddleware import XFFTrustMiddleware
 
 app = FastAPI()
 
@@ -119,7 +119,7 @@ app.add_middleware(
 ### With Rate Limiting
 
 ```python
-from FastMiddleware import XFFTrustMiddleware, RateLimitMiddleware
+from fastmiddleware import XFFTrustMiddleware, RateLimitMiddleware
 
 # XFF trust first (sets real IP)
 app.add_middleware(

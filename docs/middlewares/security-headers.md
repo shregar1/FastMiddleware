@@ -5,14 +5,14 @@ Adds comprehensive security headers to protect against common web vulnerabilitie
 ## Installation
 
 ```python
-from FastMiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+from fastmiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import SecurityHeadersMiddleware
+from fastmiddleware import SecurityHeadersMiddleware
 
 app = FastAPI()
 
@@ -133,7 +133,7 @@ app.add_middleware(
 ### Full Production Configuration
 
 ```python
-from FastMiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+from fastmiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
 
 config = SecurityHeadersConfig(
     enable_hsts=True,

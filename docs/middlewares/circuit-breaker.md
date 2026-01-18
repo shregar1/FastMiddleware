@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig, CircuitState
+from fastmiddleware import CircuitBreakerMiddleware, CircuitBreakerConfig, CircuitState
 
 app = FastAPI()
 

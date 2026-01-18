@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RealIPMiddleware, RealIPConfig, get_real_ip
+from fastmiddleware import RealIPMiddleware, RealIPConfig, get_real_ip
 
 app = FastAPI()
 
@@ -53,7 +53,7 @@ app.add_middleware(
 ## Getting Real IP
 
 ```python
-from FastMiddleware import get_real_ip
+from fastmiddleware import get_real_ip
 
 @app.get("/")
 async def handler():

@@ -5,7 +5,7 @@ Provides async-safe context variables accessible from anywhere in your applicati
 ## Installation
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     RequestContextMiddleware,
     get_request_id,
     get_request_context,
@@ -16,7 +16,7 @@ from FastMiddleware import (
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestContextMiddleware, get_request_id
+from fastmiddleware import RequestContextMiddleware, get_request_id
 
 app = FastAPI()
 
@@ -50,7 +50,7 @@ async def my_service():
 ### Basic Usage
 
 ```python
-from FastMiddleware import RequestContextMiddleware, get_request_id, get_request_context
+from fastmiddleware import RequestContextMiddleware, get_request_id, get_request_context
 
 app.add_middleware(RequestContextMiddleware)
 
@@ -69,7 +69,7 @@ async def root():
 ### In Service Layer
 
 ```python
-from FastMiddleware import get_request_id, get_request_context
+from fastmiddleware import get_request_id, get_request_context
 
 class UserService:
     async def get_users(self):
@@ -91,7 +91,7 @@ class UserService:
 ### In Repository Layer
 
 ```python
-from FastMiddleware import get_request_id
+from fastmiddleware import get_request_id
 
 class UserRepository:
     async def get_by_id(self, user_id: int):
@@ -113,7 +113,7 @@ class UserRepository:
 ### In Background Tasks
 
 ```python
-from FastMiddleware import get_request_id
+from fastmiddleware import get_request_id
 
 @app.post("/process")
 async def process_data(background_tasks: BackgroundTasks):
@@ -141,7 +141,7 @@ import json
 
 class ContextualFormatter(logging.Formatter):
     def format(self, record):
-        from FastMiddleware import get_request_context
+        from fastmiddleware import get_request_context
         
         ctx = get_request_context() or {}
         
@@ -186,7 +186,7 @@ def get_user_context() -> dict:
 ### Database Query Logging
 
 ```python
-from FastMiddleware import get_request_id
+from fastmiddleware import get_request_id
 
 class TracedDatabase:
     async def execute(self, query: str, *args):

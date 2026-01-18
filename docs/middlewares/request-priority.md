@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestPriorityMiddleware, Priority
+from fastmiddleware import RequestPriorityMiddleware, Priority
 
 app = FastAPI()
 
@@ -75,7 +75,7 @@ app.add_middleware(
 ### With Load Shedding
 
 ```python
-from FastMiddleware import RequestPriorityMiddleware, LoadSheddingMiddleware
+from fastmiddleware import RequestPriorityMiddleware, LoadSheddingMiddleware
 
 # Priority first
 app.add_middleware(
@@ -94,7 +94,7 @@ app.add_middleware(
 ### Dynamic Priority
 
 ```python
-from FastMiddleware import RequestPriorityMiddleware
+from fastmiddleware import RequestPriorityMiddleware
 
 class DynamicPriority(RequestPriorityMiddleware):
     async def get_priority(self, request) -> Priority:
@@ -114,7 +114,7 @@ app.add_middleware(DynamicPriority)
 ### Queue Integration
 
 ```python
-from FastMiddleware import RequestPriorityMiddleware, Priority
+from fastmiddleware import RequestPriorityMiddleware, Priority
 
 @app.post("/tasks")
 async def create_task(task: Task, request: Request):

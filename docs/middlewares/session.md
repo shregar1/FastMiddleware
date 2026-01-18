@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import SessionMiddleware, SessionConfig
+from fastmiddleware import SessionMiddleware, SessionConfig
 
 app = FastAPI()
 
@@ -89,7 +89,7 @@ async def handler(request: Request):
 ## Custom Session Store
 
 ```python
-from FastMiddleware import SessionStore, Session
+from fastmiddleware import SessionStore, Session
 
 class RedisSessionStore(SessionStore):
     async def load(self, session_id: str) -> Session:

@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ContentNegotiationMiddleware, get_negotiated_type
+from fastmiddleware import ContentNegotiationMiddleware, get_negotiated_type
 
 app = FastAPI()
 
@@ -42,7 +42,7 @@ async def handler():
 Returns the negotiated content type for the current request.
 
 ```python
-from FastMiddleware import get_negotiated_type
+from fastmiddleware import get_negotiated_type
 
 @app.get("/users")
 async def get_users():
@@ -95,7 +95,7 @@ app.add_middleware(
 
 ```python
 from fastapi import Response
-from FastMiddleware import ContentNegotiationMiddleware, get_negotiated_type
+from fastmiddleware import ContentNegotiationMiddleware, get_negotiated_type
 
 app.add_middleware(
     ContentNegotiationMiddleware,

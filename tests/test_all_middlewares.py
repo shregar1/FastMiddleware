@@ -15,7 +15,7 @@ from starlette.testclient import TestClient
 # ============== AB Testing ==============
 class TestABTesting:
     def test_ab_test_basic(self):
-        from FastMiddleware import ABTestMiddleware, Experiment
+        from fastmiddleware import ABTestMiddleware, Experiment
 
         async def homepage(request):
             return JSONResponse({"variant": request.state.ab_variants.get("test_exp", "none")})
@@ -32,7 +32,7 @@ class TestABTesting:
         assert response.json()["variant"] in ["a", "b"]
 
     def test_ab_test_sticky_variant(self):
-        from FastMiddleware import ABTestMiddleware, Experiment
+        from fastmiddleware import ABTestMiddleware, Experiment
 
         async def homepage(request):
             return JSONResponse({"variant": request.state.ab_variants.get("exp", "none")})
@@ -56,7 +56,7 @@ class TestABTesting:
 # ============== Accept Language ==============
 class TestAcceptLanguage:
     def test_accept_language_basic(self):
-        from FastMiddleware import AcceptLanguageMiddleware
+        from fastmiddleware import AcceptLanguageMiddleware
 
         async def homepage(request):
             return JSONResponse({"lang": getattr(request.state, "language", "en")})
@@ -73,7 +73,7 @@ class TestAcceptLanguage:
         assert response.status_code == 200
 
     def test_accept_language_default(self):
-        from FastMiddleware import AcceptLanguageMiddleware
+        from fastmiddleware import AcceptLanguageMiddleware
 
         async def homepage(request):
             return JSONResponse({"lang": getattr(request.state, "language", "en")})
@@ -89,7 +89,7 @@ class TestAcceptLanguage:
 # ============== API Version Header ==============
 class TestAPIVersionHeader:
     def test_api_version_header(self):
-        from FastMiddleware import APIVersionHeaderMiddleware
+        from fastmiddleware import APIVersionHeaderMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -108,7 +108,7 @@ class TestAPIVersionHeader:
 # ============== Audit ==============
 class TestAudit:
     def test_audit_logging(self):
-        from FastMiddleware import AuditMiddleware
+        from fastmiddleware import AuditMiddleware
 
         async def homepage(request):
             return JSONResponse({"status": "ok"})
@@ -124,7 +124,7 @@ class TestAudit:
 # ============== Bandwidth ==============
 class TestBandwidth:
     def test_bandwidth_throttle(self):
-        from FastMiddleware import BandwidthMiddleware
+        from fastmiddleware import BandwidthMiddleware
 
         async def homepage(request):
             return PlainTextResponse("X" * 1000)
@@ -143,7 +143,7 @@ class TestBasicAuth:
     def test_basic_auth_success(self):
         import base64
 
-        from FastMiddleware import BasicAuthMiddleware
+        from fastmiddleware import BasicAuthMiddleware
 
         async def homepage(request):
             return PlainTextResponse(f"Hello {request.state.user}")
@@ -158,7 +158,7 @@ class TestBasicAuth:
         assert "admin" in response.text
 
     def test_basic_auth_failure(self):
-        from FastMiddleware import BasicAuthMiddleware
+        from fastmiddleware import BasicAuthMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -174,7 +174,7 @@ class TestBasicAuth:
 # ============== Bearer Auth ==============
 class TestBearerAuth:
     def test_bearer_auth_success(self):
-        from FastMiddleware import BearerAuthMiddleware
+        from fastmiddleware import BearerAuthMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -187,7 +187,7 @@ class TestBearerAuth:
         assert response.status_code == 200
 
     def test_bearer_auth_invalid(self):
-        from FastMiddleware import BearerAuthMiddleware
+        from fastmiddleware import BearerAuthMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -203,7 +203,7 @@ class TestBearerAuth:
 # ============== Bot Detection ==============
 class TestBotDetection:
     def test_bot_detection(self):
-        from FastMiddleware import BotDetectionMiddleware
+        from fastmiddleware import BotDetectionMiddleware
 
         async def homepage(request):
             return JSONResponse({"is_bot": getattr(request.state, "is_bot", False)})
@@ -224,7 +224,7 @@ class TestBotDetection:
 # ============== Bulkhead ==============
 class TestBulkhead:
     def test_bulkhead_allows_request(self):
-        from FastMiddleware import BulkheadMiddleware
+        from fastmiddleware import BulkheadMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -240,7 +240,7 @@ class TestBulkhead:
 # ============== Chaos ==============
 class TestChaos:
     def test_chaos_disabled(self):
-        from FastMiddleware import ChaosMiddleware
+        from fastmiddleware import ChaosMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -256,7 +256,7 @@ class TestChaos:
 # ============== Circuit Breaker ==============
 class TestCircuitBreaker:
     def test_circuit_breaker_closed(self):
-        from FastMiddleware import CircuitBreakerMiddleware
+        from fastmiddleware import CircuitBreakerMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -272,7 +272,7 @@ class TestCircuitBreaker:
 # ============== Client Hints ==============
 class TestClientHints:
     def test_client_hints(self):
-        from FastMiddleware import ClientHintsMiddleware
+        from fastmiddleware import ClientHintsMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -288,7 +288,7 @@ class TestClientHints:
 # ============== Conditional Request ==============
 class TestConditionalRequest:
     def test_conditional_request(self):
-        from FastMiddleware import ConditionalRequestMiddleware
+        from fastmiddleware import ConditionalRequestMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -304,7 +304,7 @@ class TestConditionalRequest:
 # ============== Content Negotiation ==============
 class TestContentNegotiation:
     def test_content_negotiation(self):
-        from FastMiddleware import ContentNegotiationMiddleware
+        from fastmiddleware import ContentNegotiationMiddleware
 
         async def homepage(request):
             return JSONResponse(
@@ -324,7 +324,7 @@ class TestContentNegotiation:
 # ============== Content Type ==============
 class TestContentType:
     def test_content_type_validation(self):
-        from FastMiddleware import ContentTypeMiddleware
+        from fastmiddleware import ContentTypeMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -340,7 +340,7 @@ class TestContentType:
 # ============== Context ==============
 class TestContext:
     def test_context_middleware(self):
-        from FastMiddleware import ContextMiddleware
+        from fastmiddleware import ContextMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -356,7 +356,7 @@ class TestContext:
 # ============== Correlation ==============
 class TestCorrelation:
     def test_correlation_id(self):
-        from FastMiddleware import CorrelationMiddleware
+        from fastmiddleware import CorrelationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -370,7 +370,7 @@ class TestCorrelation:
         assert "X-Correlation-ID" in response.headers or "x-correlation-id" in response.headers
 
     def test_correlation_id_passed(self):
-        from FastMiddleware import CorrelationMiddleware
+        from fastmiddleware import CorrelationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -386,7 +386,7 @@ class TestCorrelation:
 # ============== Cost Tracking ==============
 class TestCostTracking:
     def test_cost_tracking(self):
-        from FastMiddleware import CostTrackingMiddleware
+        from fastmiddleware import CostTrackingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -402,7 +402,7 @@ class TestCostTracking:
 # ============== CSP Report ==============
 class TestCSPReport:
     def test_csp_report(self):
-        from FastMiddleware import CSPReportMiddleware
+        from fastmiddleware import CSPReportMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -418,7 +418,7 @@ class TestCSPReport:
 # ============== CSRF ==============
 class TestCSRF:
     def test_csrf_get_token(self):
-        from FastMiddleware import CSRFConfig, CSRFMiddleware
+        from fastmiddleware import CSRFConfig, CSRFMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -435,7 +435,7 @@ class TestCSRF:
 # ============== Data Masking ==============
 class TestDataMasking:
     def test_data_masking(self):
-        from FastMiddleware import DataMaskingMiddleware
+        from fastmiddleware import DataMaskingMiddleware
 
         async def homepage(request):
             return JSONResponse({"password": "secret123"})
@@ -451,7 +451,7 @@ class TestDataMasking:
 # ============== Deprecation ==============
 class TestDeprecation:
     def test_deprecation_warning(self):
-        from FastMiddleware import DeprecationInfo, DeprecationMiddleware
+        from fastmiddleware import DeprecationInfo, DeprecationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -470,7 +470,7 @@ class TestDeprecation:
 # ============== Early Hints ==============
 class TestEarlyHints:
     def test_early_hints(self):
-        from FastMiddleware import EarlyHintsMiddleware
+        from fastmiddleware import EarlyHintsMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -486,7 +486,7 @@ class TestEarlyHints:
 # ============== ETag ==============
 class TestETag:
     def test_etag_generation(self):
-        from FastMiddleware import ETagMiddleware
+        from fastmiddleware import ETagMiddleware
 
         async def homepage(request):
             return PlainTextResponse("Hello World")
@@ -502,7 +502,7 @@ class TestETag:
 # ============== Exception Handler ==============
 class TestExceptionHandler:
     def test_exception_handler(self):
-        from FastMiddleware import ExceptionHandlerMiddleware
+        from fastmiddleware import ExceptionHandlerMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -518,7 +518,7 @@ class TestExceptionHandler:
 # ============== Feature Flag ==============
 class TestFeatureFlag:
     def test_feature_flag(self):
-        from FastMiddleware import FeatureFlagMiddleware
+        from fastmiddleware import FeatureFlagMiddleware
 
         async def homepage(request):
             flags = getattr(request.state, "feature_flags", {})
@@ -535,7 +535,7 @@ class TestFeatureFlag:
 # ============== GeoIP ==============
 class TestGeoIP:
     def test_geoip(self):
-        from FastMiddleware import GeoIPMiddleware
+        from fastmiddleware import GeoIPMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -551,7 +551,7 @@ class TestGeoIP:
 # ============== Graceful Shutdown ==============
 class TestGracefulShutdown:
     def test_graceful_shutdown_normal(self):
-        from FastMiddleware import GracefulShutdownMiddleware
+        from fastmiddleware import GracefulShutdownMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -567,7 +567,7 @@ class TestGracefulShutdown:
 # ============== HATEOAS ==============
 class TestHATEOAS:
     def test_hateoas(self):
-        from FastMiddleware import HATEOASMiddleware
+        from fastmiddleware import HATEOASMiddleware
 
         async def homepage(request):
             return JSONResponse({"id": 1})
@@ -583,7 +583,7 @@ class TestHATEOAS:
 # ============== Header Transform ==============
 class TestHeaderTransform:
     def test_header_transform(self):
-        from FastMiddleware import HeaderTransformMiddleware
+        from fastmiddleware import HeaderTransformMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -600,7 +600,7 @@ class TestHeaderTransform:
 # ============== Honeypot ==============
 class TestHoneypot:
     def test_honeypot_normal(self):
-        from FastMiddleware import HoneypotMiddleware
+        from fastmiddleware import HoneypotMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -613,7 +613,7 @@ class TestHoneypot:
         assert response.status_code == 200
 
     def test_honeypot_trap(self):
-        from FastMiddleware import HoneypotMiddleware
+        from fastmiddleware import HoneypotMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -629,7 +629,7 @@ class TestHoneypot:
 # ============== HTTPS Redirect ==============
 class TestHTTPSRedirect:
     def test_https_redirect_excluded(self):
-        from FastMiddleware import HTTPSRedirectMiddleware
+        from fastmiddleware import HTTPSRedirectMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -645,7 +645,7 @@ class TestHTTPSRedirect:
 # ============== IP Filter ==============
 class TestIPFilter:
     def test_ip_filter_allowed(self):
-        from FastMiddleware import IPFilterMiddleware
+        from fastmiddleware import IPFilterMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -662,7 +662,7 @@ class TestIPFilter:
 # ============== JSON Schema ==============
 class TestJSONSchema:
     def test_json_schema(self):
-        from FastMiddleware import JSONSchemaMiddleware
+        from fastmiddleware import JSONSchemaMiddleware
 
         async def homepage(request):
             return JSONResponse({"status": "ok"})
@@ -678,7 +678,7 @@ class TestJSONSchema:
 # ============== Load Shedding ==============
 class TestLoadShedding:
     def test_load_shedding_normal(self):
-        from FastMiddleware import LoadSheddingMiddleware
+        from fastmiddleware import LoadSheddingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -694,7 +694,7 @@ class TestLoadShedding:
 # ============== Locale ==============
 class TestLocale:
     def test_locale(self):
-        from FastMiddleware import LocaleMiddleware
+        from fastmiddleware import LocaleMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -710,7 +710,7 @@ class TestLocale:
 # ============== Method Override ==============
 class TestMethodOverride:
     def test_method_override(self):
-        from FastMiddleware import MethodOverrideMiddleware
+        from fastmiddleware import MethodOverrideMiddleware
 
         async def delete_handler(request):
             return PlainTextResponse(f"Method: {request.method}")
@@ -726,7 +726,7 @@ class TestMethodOverride:
 # ============== No Cache ==============
 class TestNoCache:
     def test_no_cache(self):
-        from FastMiddleware import NoCacheMiddleware
+        from fastmiddleware import NoCacheMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -742,7 +742,7 @@ class TestNoCache:
 # ============== Origin ==============
 class TestOrigin:
     def test_origin(self):
-        from FastMiddleware import OriginMiddleware
+        from fastmiddleware import OriginMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -758,7 +758,7 @@ class TestOrigin:
 # ============== Path Rewrite ==============
 class TestPathRewrite:
     def test_path_rewrite(self):
-        from FastMiddleware import PathRewriteMiddleware, RewriteRule
+        from fastmiddleware import PathRewriteMiddleware, RewriteRule
 
         async def homepage(request):
             return PlainTextResponse(f"Path: {request.url.path}")
@@ -774,7 +774,7 @@ class TestPathRewrite:
 # ============== Payload Size ==============
 class TestPayloadSize:
     def test_payload_size(self):
-        from FastMiddleware import PayloadSizeMiddleware
+        from fastmiddleware import PayloadSizeMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -790,7 +790,7 @@ class TestPayloadSize:
 # ============== Permissions Policy ==============
 class TestPermissionsPolicy:
     def test_permissions_policy(self):
-        from FastMiddleware import PermissionsPolicyMiddleware
+        from fastmiddleware import PermissionsPolicyMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -806,7 +806,7 @@ class TestPermissionsPolicy:
 # ============== Profiling ==============
 class TestProfiling:
     def test_profiling(self):
-        from FastMiddleware import ProfilingMiddleware
+        from fastmiddleware import ProfilingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -822,7 +822,7 @@ class TestProfiling:
 # ============== Quota ==============
 class TestQuota:
     def test_quota(self):
-        from FastMiddleware import QuotaMiddleware
+        from fastmiddleware import QuotaMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -838,7 +838,7 @@ class TestQuota:
 # ============== Real IP ==============
 class TestRealIP:
     def test_real_ip(self):
-        from FastMiddleware import RealIPMiddleware
+        from fastmiddleware import RealIPMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -854,7 +854,7 @@ class TestRealIP:
 # ============== Redirect ==============
 class TestRedirect:
     def test_redirect(self):
-        from FastMiddleware import RedirectMiddleware, RedirectRule
+        from fastmiddleware import RedirectMiddleware, RedirectRule
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -870,7 +870,7 @@ class TestRedirect:
 # ============== Referrer Policy ==============
 class TestReferrerPolicy:
     def test_referrer_policy(self):
-        from FastMiddleware import ReferrerPolicyMiddleware
+        from fastmiddleware import ReferrerPolicyMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -887,7 +887,7 @@ class TestReferrerPolicy:
 # ============== Replay Prevention ==============
 class TestReplayPrevention:
     def test_replay_prevention(self):
-        from FastMiddleware import ReplayPreventionMiddleware
+        from fastmiddleware import ReplayPreventionMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -905,7 +905,7 @@ class TestReplayPrevention:
 # ============== Request Coalescing ==============
 class TestRequestCoalescing:
     def test_request_coalescing(self):
-        from FastMiddleware import RequestCoalescingMiddleware
+        from fastmiddleware import RequestCoalescingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -921,7 +921,7 @@ class TestRequestCoalescing:
 # ============== Request Dedup ==============
 class TestRequestDedup:
     def test_request_dedup(self):
-        from FastMiddleware import RequestDedupMiddleware
+        from fastmiddleware import RequestDedupMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -937,7 +937,7 @@ class TestRequestDedup:
 # ============== Request Fingerprint ==============
 class TestRequestFingerprint:
     def test_request_fingerprint(self):
-        from FastMiddleware import RequestFingerprintMiddleware
+        from fastmiddleware import RequestFingerprintMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -953,7 +953,7 @@ class TestRequestFingerprint:
 # ============== Request ID Propagation ==============
 class TestRequestIDPropagation:
     def test_request_id_propagation(self):
-        from FastMiddleware import RequestIDPropagationMiddleware
+        from fastmiddleware import RequestIDPropagationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -969,7 +969,7 @@ class TestRequestIDPropagation:
 # ============== Request Limit ==============
 class TestRequestLimit:
     def test_request_limit(self):
-        from FastMiddleware import RequestLimitMiddleware
+        from fastmiddleware import RequestLimitMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -985,7 +985,7 @@ class TestRequestLimit:
 # ============== Request Logger ==============
 class TestRequestLogger:
     def test_request_logger(self):
-        from FastMiddleware import RequestLoggerMiddleware
+        from fastmiddleware import RequestLoggerMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1001,7 +1001,7 @@ class TestRequestLogger:
 # ============== Request Priority ==============
 class TestRequestPriority:
     def test_request_priority(self):
-        from FastMiddleware import RequestPriorityMiddleware
+        from fastmiddleware import RequestPriorityMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1017,7 +1017,7 @@ class TestRequestPriority:
 # ============== Request Sampler ==============
 class TestRequestSampler:
     def test_request_sampler(self):
-        from FastMiddleware import RequestSamplerMiddleware
+        from fastmiddleware import RequestSamplerMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1033,7 +1033,7 @@ class TestRequestSampler:
 # ============== Request Signing ==============
 class TestRequestSigning:
     def test_request_signing(self):
-        from FastMiddleware import RequestSigningMiddleware
+        from fastmiddleware import RequestSigningMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1054,7 +1054,7 @@ class TestRequestSigning:
 # ============== Request Validator ==============
 class TestRequestValidator:
     def test_request_validator(self):
-        from FastMiddleware import RequestValidatorMiddleware
+        from fastmiddleware import RequestValidatorMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1070,7 +1070,7 @@ class TestRequestValidator:
 # ============== Response Cache ==============
 class TestResponseCache:
     def test_response_cache(self):
-        from FastMiddleware import ResponseCacheMiddleware
+        from fastmiddleware import ResponseCacheMiddleware
 
         call_count = 0
 
@@ -1090,7 +1090,7 @@ class TestResponseCache:
 # ============== Response Format ==============
 class TestResponseFormat:
     def test_response_format(self):
-        from FastMiddleware import ResponseFormatMiddleware
+        from fastmiddleware import ResponseFormatMiddleware
 
         async def homepage(request):
             return JSONResponse({"data": "test"})
@@ -1106,7 +1106,7 @@ class TestResponseFormat:
 # ============== Response Signature ==============
 class TestResponseSignature:
     def test_response_signature(self):
-        from FastMiddleware import ResponseSignatureMiddleware
+        from fastmiddleware import ResponseSignatureMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1122,7 +1122,7 @@ class TestResponseSignature:
 # ============== Response Time ==============
 class TestResponseTime:
     def test_response_time(self):
-        from FastMiddleware import ResponseTimeMiddleware
+        from fastmiddleware import ResponseTimeMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1138,7 +1138,7 @@ class TestResponseTime:
 # ============== Retry After ==============
 class TestRetryAfter:
     def test_retry_after(self):
-        from FastMiddleware import RetryAfterMiddleware
+        from fastmiddleware import RetryAfterMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1154,7 +1154,7 @@ class TestRetryAfter:
 # ============== Route Auth ==============
 class TestRouteAuth:
     def test_route_auth(self):
-        from FastMiddleware import RouteAuthMiddleware
+        from fastmiddleware import RouteAuthMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1170,7 +1170,7 @@ class TestRouteAuth:
 # ============== Sanitization ==============
 class TestSanitization:
     def test_sanitization(self):
-        from FastMiddleware import SanitizationMiddleware
+        from fastmiddleware import SanitizationMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1186,7 +1186,7 @@ class TestSanitization:
 # ============== Scope ==============
 class TestScope:
     def test_scope(self):
-        from FastMiddleware import ScopeMiddleware
+        from fastmiddleware import ScopeMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1202,7 +1202,7 @@ class TestScope:
 # ============== Server Timing ==============
 class TestServerTiming:
     def test_server_timing(self):
-        from FastMiddleware import ServerTimingMiddleware
+        from fastmiddleware import ServerTimingMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1218,7 +1218,7 @@ class TestServerTiming:
 # ============== Session ==============
 class TestSession:
     def test_session(self):
-        from FastMiddleware import SessionConfig, SessionMiddleware
+        from fastmiddleware import SessionConfig, SessionMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1235,7 +1235,7 @@ class TestSession:
 # ============== Slow Response ==============
 class TestSlowResponse:
     def test_slow_response_disabled(self):
-        from FastMiddleware import SlowResponseMiddleware
+        from fastmiddleware import SlowResponseMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1251,7 +1251,7 @@ class TestSlowResponse:
 # ============== Tenant ==============
 class TestTenant:
     def test_tenant(self):
-        from FastMiddleware import TenantMiddleware
+        from fastmiddleware import TenantMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1267,7 +1267,7 @@ class TestTenant:
 # ============== Timeout ==============
 class TestTimeout:
     def test_timeout(self):
-        from FastMiddleware import TimeoutMiddleware
+        from fastmiddleware import TimeoutMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1283,7 +1283,7 @@ class TestTimeout:
 # ============== Trailing Slash ==============
 class TestTrailingSlash:
     def test_trailing_slash(self):
-        from FastMiddleware import TrailingSlashMiddleware
+        from fastmiddleware import TrailingSlashMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1299,7 +1299,7 @@ class TestTrailingSlash:
 # ============== User Agent ==============
 class TestUserAgent:
     def test_user_agent(self):
-        from FastMiddleware import UserAgentMiddleware
+        from fastmiddleware import UserAgentMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1317,7 +1317,7 @@ class TestUserAgent:
 # ============== Versioning ==============
 class TestVersioning:
     def test_versioning(self):
-        from FastMiddleware import VersioningMiddleware
+        from fastmiddleware import VersioningMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1333,7 +1333,7 @@ class TestVersioning:
 # ============== Warmup ==============
 class TestWarmup:
     def test_warmup(self):
-        from FastMiddleware import WarmupMiddleware
+        from fastmiddleware import WarmupMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1349,7 +1349,7 @@ class TestWarmup:
 # ============== Webhook ==============
 class TestWebhook:
     def test_webhook(self):
-        from FastMiddleware import WebhookMiddleware
+        from fastmiddleware import WebhookMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")
@@ -1366,7 +1366,7 @@ class TestWebhook:
 # ============== XFF Trust ==============
 class TestXFFTrust:
     def test_xff_trust(self):
-        from FastMiddleware import XFFTrustMiddleware
+        from fastmiddleware import XFFTrustMiddleware
 
         async def homepage(request):
             return PlainTextResponse("OK")

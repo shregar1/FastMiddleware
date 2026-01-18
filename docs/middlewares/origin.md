@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import OriginMiddleware
+from fastmiddleware import OriginMiddleware
 
 app = FastAPI()
 
@@ -98,7 +98,7 @@ app.add_middleware(
 ### With CORS
 
 ```python
-from FastMiddleware import OriginMiddleware, CORSMiddleware
+from fastmiddleware import OriginMiddleware, CORSMiddleware
 
 # Origin validation (strict)
 app.add_middleware(

@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ResponseCacheMiddleware
+from fastmiddleware import ResponseCacheMiddleware
 
 app = FastAPI()
 
@@ -131,7 +131,7 @@ async def clear_cache():
 ### Conditional Caching
 
 ```python
-from FastMiddleware import ResponseCacheMiddleware
+from fastmiddleware import ResponseCacheMiddleware
 
 class ConditionalCache(ResponseCacheMiddleware):
     def should_cache(self, request, response) -> bool:

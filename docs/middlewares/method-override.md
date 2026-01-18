@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import MethodOverrideMiddleware
+from fastmiddleware import MethodOverrideMiddleware
 
 app = FastAPI()
 
@@ -88,7 +88,7 @@ app.add_middleware(
 ### With CSRF Protection
 
 ```python
-from FastMiddleware import MethodOverrideMiddleware, CSRFMiddleware
+from fastmiddleware import MethodOverrideMiddleware, CSRFMiddleware
 
 # CSRF first (checks token)
 app.add_middleware(CSRFMiddleware, secret_key="...")

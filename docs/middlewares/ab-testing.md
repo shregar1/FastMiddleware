@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ABTestMiddleware, ABTestConfig, Experiment, get_variant
+from fastmiddleware import ABTestMiddleware, ABTestConfig, Experiment, get_variant
 
 app = FastAPI()
 
@@ -61,7 +61,7 @@ app.add_middleware(
 ## Getting Variants
 
 ```python
-from FastMiddleware import get_variant
+from fastmiddleware import get_variant
 
 @app.get("/checkout")
 async def checkout():

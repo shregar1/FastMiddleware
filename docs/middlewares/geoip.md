@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import GeoIPMiddleware, get_geo_data
+from fastmiddleware import GeoIPMiddleware, get_geo_data
 
 app = FastAPI()
 
@@ -42,7 +42,7 @@ This middleware extracts GeoIP information from headers set by CDNs and load bal
 Returns GeoIP data for the current request.
 
 ```python
-from FastMiddleware import get_geo_data
+from fastmiddleware import get_geo_data
 
 geo = get_geo_data()
 # {
@@ -89,7 +89,7 @@ async def content():
 ### Geo-Based Rate Limiting
 
 ```python
-from FastMiddleware import GeoIPMiddleware, get_geo_data
+from fastmiddleware import GeoIPMiddleware, get_geo_data
 
 @app.middleware("http")
 async def geo_rate_limit(request, call_next):

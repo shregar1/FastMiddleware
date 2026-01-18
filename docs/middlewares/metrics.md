@@ -5,14 +5,14 @@ Prometheus-compatible metrics collection with request counts, latency histograms
 ## Installation
 
 ```python
-from FastMiddleware import MetricsMiddleware, MetricsConfig, MetricsCollector
+from fastmiddleware import MetricsMiddleware, MetricsConfig, MetricsCollector
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import MetricsMiddleware
+from fastmiddleware import MetricsMiddleware
 
 app = FastAPI()
 app.add_middleware(MetricsMiddleware)

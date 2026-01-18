@@ -5,14 +5,14 @@ Adds request processing time to response headers for performance monitoring and 
 ## Installation
 
 ```python
-from FastMiddleware import TimingMiddleware
+from fastmiddleware import TimingMiddleware
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import TimingMiddleware
+from fastmiddleware import TimingMiddleware
 
 app = FastAPI()
 
@@ -171,7 +171,7 @@ app.add_middleware(
 ## Combining with Logging
 
 ```python
-from FastMiddleware import TimingMiddleware, LoggingMiddleware
+from fastmiddleware import TimingMiddleware, LoggingMiddleware
 
 # TimingMiddleware will add the header
 # LoggingMiddleware will log it

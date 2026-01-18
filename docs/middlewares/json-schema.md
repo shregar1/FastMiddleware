@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import JSONSchemaMiddleware, JSONSchemaConfig
+from fastmiddleware import JSONSchemaMiddleware, JSONSchemaConfig
 
 app = FastAPI()
 

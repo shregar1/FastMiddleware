@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import FeatureFlagMiddleware, FeatureFlagConfig, is_feature_enabled, get_feature_flags
+from fastmiddleware import FeatureFlagMiddleware, FeatureFlagConfig, is_feature_enabled, get_feature_flags
 
 app = FastAPI()
 
@@ -53,7 +53,7 @@ app.add_middleware(FeatureFlagMiddleware, config=config)
 ## Checking Flags
 
 ```python
-from FastMiddleware import is_feature_enabled, get_feature_flags
+from fastmiddleware import is_feature_enabled, get_feature_flags
 
 @app.get("/dashboard")
 async def dashboard():

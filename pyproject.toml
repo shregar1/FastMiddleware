@@ -100,7 +100,7 @@ Changelog = "https://github.com/shregar1/fastmvc-middleware/blob/main/CHANGELOG.
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/FastMiddleware",
+    "/fastmiddleware",
     "/LICENSE",
     "/README.md",
     "/CHANGELOG.md",
@@ -119,13 +119,13 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["FastMiddleware"]
+packages = ["fastmiddleware"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
-addopts = "-v --cov=FastMiddleware --cov-report=term-missing --strict-markers"
+addopts = "-v --cov=fastmiddleware --cov-report=term-missing --strict-markers"
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
@@ -207,7 +207,7 @@ ignore = [
 "__init__.py" = ["F401", "E402", "I001", "RUF022"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["FastMiddleware"]
+known-first-party = ["fastmiddleware"]
 force-single-line = false
 lines-after-imports = 2
 
@@ -218,7 +218,7 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 
 [tool.coverage.run]
-source = ["FastMiddleware"]
+source = ["fastmiddleware"]
 branch = true
 parallel = true
 omit = [
@@ -247,7 +247,7 @@ directory = "htmlcov"
 [tool.bandit]
 exclude_dirs = ["tests", "venv", ".venv"]
 skips = ["B101"]  # assert used
-targets = ["FastMiddleware"]
+targets = ["fastmiddleware"]
 
 [tool.bandit.assert_used]
 skips = ["**/test_*.py", "**/tests.py"]

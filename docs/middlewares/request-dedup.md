@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestDedupMiddleware
+from fastmiddleware import RequestDedupMiddleware
 
 app = FastAPI()
 
@@ -82,7 +82,7 @@ app.add_middleware(
 ### With Idempotency Keys
 
 ```python
-from FastMiddleware import RequestDedupMiddleware, IdempotencyMiddleware
+from fastmiddleware import RequestDedupMiddleware, IdempotencyMiddleware
 
 # Dedup first (for accidental duplicates)
 app.add_middleware(

@@ -13,7 +13,7 @@ pip install fastmvc-middleware
 ```python
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from FastMiddleware import ExceptionHandlerMiddleware
+from fastmiddleware import ExceptionHandlerMiddleware
 
 app = FastAPI()
 

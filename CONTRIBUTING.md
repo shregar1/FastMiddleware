@@ -114,7 +114,7 @@ See [Branch Protection Setup](.github/BRANCH_PROTECTION.md) for details on branc
 ### 1. Create the middleware file
 
 ```python
-# FastMiddleware/your_middleware.py
+# fastmiddleware/your_middleware.py
 """
 Your Middleware - Brief description.
 
@@ -155,7 +155,7 @@ class YourMiddleware(FastMVCMiddleware):
 
     Example:
         ```python
-        from FastMiddleware import YourMiddleware, YourMiddlewareConfig
+        from fastmiddleware import YourMiddleware, YourMiddlewareConfig
 
         app.add_middleware(
             YourMiddleware,
@@ -232,7 +232,7 @@ from starlette.applications import Starlette
 from starlette.responses import PlainTextResponse
 from starlette.testclient import TestClient
 
-from FastMiddleware import YourMiddleware, YourMiddlewareConfig
+from fastmiddleware import YourMiddleware, YourMiddlewareConfig
 
 
 class TestYourMiddleware:
@@ -280,7 +280,7 @@ pip install fastmvc-middleware
 ## Usage
 
 \`\`\`python
-from FastMiddleware import YourMiddleware
+from fastmiddleware import YourMiddleware
 
 app.add_middleware(YourMiddleware, option1="value")
 \`\`\`

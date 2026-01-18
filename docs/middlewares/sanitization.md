@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import SanitizationMiddleware
+from fastmiddleware import SanitizationMiddleware
 
 app = FastAPI()
 
@@ -100,7 +100,7 @@ app.add_middleware(
 ### Exclude Paths
 
 ```python
-from FastMiddleware import SanitizationMiddleware, SanitizationConfig
+from fastmiddleware import SanitizationMiddleware, SanitizationConfig
 
 config = SanitizationConfig(
     escape_html=True,
@@ -113,7 +113,7 @@ app.add_middleware(SanitizationMiddleware, config=config)
 ### Sanitize Specific Fields
 
 ```python
-from FastMiddleware import SanitizationMiddleware
+from fastmiddleware import SanitizationMiddleware
 
 class SelectiveSanitization(SanitizationMiddleware):
     sanitize_fields = {"name", "description", "comment", "bio"}

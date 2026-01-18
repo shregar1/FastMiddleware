@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import PayloadSizeMiddleware
+from fastmiddleware import PayloadSizeMiddleware
 
 app = FastAPI()
 
@@ -68,7 +68,7 @@ app.add_middleware(
 
 ```python
 # Use multiple middlewares or custom logic
-from FastMiddleware import PayloadSizeMiddleware
+from fastmiddleware import PayloadSizeMiddleware
 
 class PathAwarePayloadSize(PayloadSizeMiddleware):
     def get_limit(self, path: str) -> int:

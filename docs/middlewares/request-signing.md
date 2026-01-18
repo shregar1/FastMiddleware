@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RequestSigningMiddleware
+from fastmiddleware import RequestSigningMiddleware
 
 app = FastAPI()
 
@@ -128,7 +128,7 @@ function signRequest(method, path, body, secret) {
 ### With Replay Prevention
 
 ```python
-from FastMiddleware import RequestSigningMiddleware, ReplayPreventionMiddleware
+from fastmiddleware import RequestSigningMiddleware, ReplayPreventionMiddleware
 
 # Replay prevention first
 app.add_middleware(

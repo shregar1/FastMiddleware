@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ReferrerPolicyMiddleware
+from fastmiddleware import ReferrerPolicyMiddleware
 
 app = FastAPI()
 

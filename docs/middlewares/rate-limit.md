@@ -5,7 +5,7 @@ Protects your API from abuse with sliding window rate limiting, configurable lim
 ## Installation
 
 ```python
-from FastMiddleware import (
+from fastmiddleware import (
     RateLimitMiddleware,
     RateLimitConfig,
     RateLimitStore,
@@ -17,7 +17,7 @@ from FastMiddleware import (
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RateLimitMiddleware
+from fastmiddleware import RateLimitMiddleware
 
 app = FastAPI()
 
@@ -43,7 +43,7 @@ app.add_middleware(RateLimitMiddleware)
 ### Basic Rate Limiting
 
 ```python
-from FastMiddleware import RateLimitMiddleware, RateLimitConfig
+from fastmiddleware import RateLimitMiddleware, RateLimitConfig
 
 config = RateLimitConfig(
     requests_per_minute=100,
@@ -166,7 +166,7 @@ Content-Type: application/json
 For distributed systems, implement a custom storage backend:
 
 ```python
-from FastMiddleware import RateLimitStore
+from fastmiddleware import RateLimitStore
 
 class RedisRateLimitStore(RateLimitStore):
     """Redis-backed rate limit storage."""

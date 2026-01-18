@@ -16,7 +16,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import ServerTimingMiddleware, timing, add_timing
+from fastmiddleware import ServerTimingMiddleware, timing, add_timing
 
 app = FastAPI()
 
@@ -58,7 +58,7 @@ with timing("operation_name", "Description"):
 ### Manual
 
 ```python
-from FastMiddleware import add_timing
+from fastmiddleware import add_timing
 import time
 
 start = time.perf_counter()

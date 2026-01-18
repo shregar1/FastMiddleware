@@ -5,14 +5,14 @@ Structured request/response logging with configurable verbosity, custom formatte
 ## Installation
 
 ```python
-from FastMiddleware import LoggingMiddleware
+from fastmiddleware import LoggingMiddleware
 ```
 
 ## Quick Start
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import LoggingMiddleware
+from fastmiddleware import LoggingMiddleware
 
 app = FastAPI()
 
@@ -210,7 +210,7 @@ app.add_middleware(
 Combine with RequestIDMiddleware for traceability:
 
 ```python
-from FastMiddleware import LoggingMiddleware, RequestIDMiddleware
+from fastmiddleware import LoggingMiddleware, RequestIDMiddleware
 
 app.add_middleware(LoggingMiddleware)
 app.add_middleware(RequestIDMiddleware)

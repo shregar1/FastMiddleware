@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import PathRewriteMiddleware, RewriteRule
+from fastmiddleware import PathRewriteMiddleware, RewriteRule
 
 app = FastAPI()
 

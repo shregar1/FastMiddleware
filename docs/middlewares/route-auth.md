@@ -12,7 +12,7 @@ pip install fastmvc-middleware
 
 ```python
 from fastapi import FastAPI
-from FastMiddleware import RouteAuthMiddleware, RouteAuth
+from fastmiddleware import RouteAuthMiddleware, RouteAuth
 
 app = FastAPI()
 
@@ -101,7 +101,7 @@ app.add_middleware(
 ### With Authentication Middleware
 
 ```python
-from FastMiddleware import RouteAuthMiddleware, AuthenticationMiddleware, JWTAuthBackend
+from fastmiddleware import RouteAuthMiddleware, AuthenticationMiddleware, JWTAuthBackend
 
 # Authentication first
 app.add_middleware(
