@@ -5,11 +5,11 @@ This file contains shared fixtures used across all test modules.
 """
 
 import asyncio
+from collections.abc import Generator
+
 import pytest
-from typing import AsyncGenerator, Generator
 from fastapi import FastAPI, Request
 from starlette.testclient import TestClient
-from starlette.responses import JSONResponse
 
 
 # Configure pytest-asyncio
@@ -19,6 +19,7 @@ pytest_plugins = ("pytest_asyncio",)
 # ============================================================================
 # Basic Application Fixtures
 # ============================================================================
+
 
 @pytest.fixture
 def app() -> FastAPI:
@@ -36,43 +37,43 @@ def client(app: FastAPI) -> TestClient:
 def app_with_routes() -> FastAPI:
     """Create a FastAPI application with common test routes."""
     app = FastAPI()
-    
+
     @app.get("/")
     async def root():
         return {"message": "Hello, World!"}
-    
+
     @app.get("/health")
     async def health():
         return {"status": "healthy"}
-    
+
     @app.get("/ready")
     async def ready():
         return {"ready": True}
-    
+
     @app.get("/live")
     async def live():
         return {"alive": True}
-    
+
     @app.get("/protected")
     async def protected(request: Request):
         auth = getattr(request.state, "auth", None)
         return {"auth": auth}
-    
+
     @app.get("/context")
     async def context(request: Request):
         return {
             "request_id": getattr(request.state, "request_id", None),
             "start_time": str(getattr(request.state, "start_time", None)),
         }
-    
+
     @app.get("/data")
     async def get_data():
         return {"items": list(range(10)), "status": "success"}
-    
+
     @app.get("/large-data")
     async def get_large_data():
         return {"items": list(range(1000)), "data": "x" * 1000}
-    
+
     @app.post("/data")
     async def post_data(request: Request):
         try:
@@ -80,7 +81,7 @@ def app_with_routes() -> FastAPI:
             return {"received": body}
         except Exception:
             return {"received": None}
-    
+
     @app.put("/data/{item_id}")
     async def put_data(item_id: int, request: Request):
         try:
@@ -88,25 +89,26 @@ def app_with_routes() -> FastAPI:
             return {"id": item_id, "updated": body}
         except Exception:
             return {"id": item_id, "updated": None}
-    
+
     @app.delete("/data/{item_id}")
     async def delete_data(item_id: int):
         return {"id": item_id, "deleted": True}
-    
+
     @app.get("/error")
     async def raise_error():
         raise ValueError("Test error message")
-    
+
     @app.get("/slow")
     async def slow():
         import asyncio
+
         await asyncio.sleep(0.1)
         return {"slow": True}
-    
+
     @app.get("/users/{user_id}")
     async def get_user(user_id: int):
         return {"user_id": user_id}
-    
+
     return app
 
 
@@ -120,41 +122,43 @@ def client_with_routes(app_with_routes: FastAPI) -> TestClient:
 # Legacy Fixtures (for backward compatibility)
 # ============================================================================
 
+
 @pytest.fixture
 def sample_routes(app: FastAPI):
     """Add sample routes to the test application."""
-    
+
     @app.get("/")
     async def root():
         return {"message": "Hello, World!"}
-    
+
     @app.get("/health")
     async def health():
         return {"status": "healthy"}
-    
+
     @app.get("/protected")
     async def protected(request: Request):
         auth = getattr(request.state, "auth", None)
         return {"auth": auth}
-    
+
     @app.get("/context")
     async def context(request: Request):
         return {
             "request_id": getattr(request.state, "request_id", None),
             "start_time": str(getattr(request.state, "start_time", None)),
         }
-    
+
     @app.post("/data")
     async def post_data(request: Request):
         body = await request.json()
         return {"received": body}
-    
+
     return app
 
 
 # ============================================================================
 # Async Event Loop Fixture
 # ============================================================================
+
 
 @pytest.fixture(scope="session")
 def event_loop() -> Generator[asyncio.AbstractEventLoop, None, None]:
@@ -168,47 +172,51 @@ def event_loop() -> Generator[asyncio.AbstractEventLoop, None, None]:
 # Mock External Dependencies
 # ============================================================================
 
+
 @pytest.fixture
 def mock_database():
     """Mock database connection for health checks."""
+
     class MockDatabase:
         def __init__(self):
             self.connected = True
-        
+
         async def is_connected(self) -> bool:
             return self.connected
-        
+
         async def ping(self) -> bool:
             return self.connected
-    
+
     return MockDatabase()
 
 
 @pytest.fixture
 def mock_redis():
     """Mock Redis connection for health checks."""
+
     class MockRedis:
         def __init__(self):
             self.connected = True
-        
+
         async def ping(self) -> bool:
             return self.connected
-        
+
         async def get(self, key: str) -> str | None:
             return None
-        
+
         async def set(self, key: str, value: str, ttl: int = None) -> bool:
             return True
-        
+
         async def delete(self, key: str) -> bool:
             return True
-    
+
     return MockRedis()
 
 
 # ============================================================================
 # JWT Test Fixtures
 # ============================================================================
+
 
 @pytest.fixture
 def jwt_secret() -> str:
@@ -220,9 +228,10 @@ def jwt_secret() -> str:
 def valid_jwt_token(jwt_secret: str) -> str:
     """Generate a valid JWT token for testing."""
     try:
-        import jwt
         from datetime import datetime, timedelta
-        
+
+        import jwt
+
         payload = {
             "sub": "user123",
             "name": "Test User",
@@ -238,9 +247,10 @@ def valid_jwt_token(jwt_secret: str) -> str:
 def expired_jwt_token(jwt_secret: str) -> str:
     """Generate an expired JWT token for testing."""
     try:
-        import jwt
         from datetime import datetime, timedelta
-        
+
+        import jwt
+
         payload = {
             "sub": "user123",
             "name": "Test User",
@@ -256,6 +266,7 @@ def expired_jwt_token(jwt_secret: str) -> str:
 # Request ID Fixtures
 # ============================================================================
 
+
 @pytest.fixture
 def sample_request_id() -> str:
     """Return a sample request ID."""
@@ -265,6 +276,7 @@ def sample_request_id() -> str:
 # ============================================================================
 # HTTP Headers Fixtures
 # ============================================================================
+
 
 @pytest.fixture
 def standard_headers() -> dict:
@@ -290,11 +302,12 @@ def cors_headers() -> dict:
 # Rate Limiting Fixtures
 # ============================================================================
 
+
 @pytest.fixture
 def rate_limit_config():
     """Return a rate limit configuration for testing."""
     from FastMiddleware import RateLimitConfig
-    
+
     return RateLimitConfig(
         requests_per_minute=10,
         requests_per_hour=100,
@@ -304,6 +317,7 @@ def rate_limit_config():
 # ============================================================================
 # Helper Functions
 # ============================================================================
+
 
 def make_request(client: TestClient, method: str, path: str, **kwargs) -> dict:
     """Helper function to make HTTP requests and return JSON response."""
@@ -319,7 +333,7 @@ def assert_security_headers(response, hsts: bool = False):
     assert "X-Content-Type-Options" in response.headers
     assert response.headers["X-Content-Type-Options"] == "nosniff"
     assert "X-Frame-Options" in response.headers
-    
+
     if hsts:
         assert "Strict-Transport-Security" in response.headers
 

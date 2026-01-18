@@ -4,7 +4,7 @@ CORS (Cross-Origin Resource Sharing) Middleware for FastMVC.
 Provides configurable CORS headers with sensible defaults for API development.
 """
 
-from typing import Sequence
+from collections.abc import Sequence
 
 from starlette.middleware.cors import CORSMiddleware as StarletteCORSMiddleware
 
@@ -12,23 +12,23 @@ from starlette.middleware.cors import CORSMiddleware as StarletteCORSMiddleware
 class CORSMiddleware(StarletteCORSMiddleware):
     """
     CORS middleware with sensible defaults for FastMVC applications.
-    
+
     This is a thin wrapper around Starlette's CORSMiddleware with
     commonly used defaults for API development.
-    
+
     Features:
         - Configurable allowed origins, methods, and headers
         - Support for credentials
         - Origin regex matching
         - Preflight response caching
-    
+
     Example:
         ```python
         from fastapi import FastAPI
         from FastMiddleware import CORSMiddleware
-        
+
         app = FastAPI()
-        
+
         # Allow specific origins
         app.add_middleware(
             CORSMiddleware,
@@ -36,7 +36,7 @@ class CORSMiddleware(StarletteCORSMiddleware):
             allow_methods=["*"],
             allow_headers=["*"],
         )
-        
+
         # Allow all origins (development)
         app.add_middleware(
             CORSMiddleware,
@@ -44,12 +44,12 @@ class CORSMiddleware(StarletteCORSMiddleware):
             allow_credentials=False,  # Must be False when using "*"
         )
         ```
-    
+
     Note:
         When `allow_origins` is set to `["*"]`, `allow_credentials` must be
         set to `False` for security reasons.
     """
-    
+
     def __init__(
         self,
         app,
@@ -63,7 +63,7 @@ class CORSMiddleware(StarletteCORSMiddleware):
     ) -> None:
         """
         Initialize the CORS middleware.
-        
+
         Args:
             app: The ASGI application.
             allow_origins: List of allowed origins. Use ["*"] to allow all.

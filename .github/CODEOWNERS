@@ -1,0 +1,21 @@
+# Code Owners - These users will be automatically requested for review
+# when someone opens a pull request that modifies code they own.
+#
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - will be requested for review on all PRs
+* @shregar1
+
+# Core middleware code
+/FastMiddleware/ @shregar1
+
+# Tests
+/tests/ @shregar1
+
+# Documentation
+/docs/ @shregar1
+README.md @shregar1
+
+# CI/CD and configuration
+/.github/ @shregar1
+pyproject.toml @shregar1

@@ -4,12 +4,11 @@ Maintenance Mode Middleware for FastMVC.
 Provides a maintenance mode that returns 503 responses.
 """
 
+from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Callable, Awaitable, Set
-from datetime import datetime
 
 from starlette.requests import Request
-from starlette.responses import Response, JSONResponse, HTMLResponse
+from starlette.responses import HTMLResponse, JSONResponse, Response
 
 from FastMiddleware.base import FastMVCMiddleware
 
@@ -18,7 +17,7 @@ from FastMiddleware.base import FastMVCMiddleware
 class MaintenanceConfig:
     """
     Configuration for maintenance mode middleware.
-    
+
     Attributes:
         enabled: Whether maintenance mode is active.
         message: Message to display during maintenance.
@@ -28,11 +27,11 @@ class MaintenanceConfig:
         bypass_header: Header name for bypass token.
         bypass_token: Token value to bypass maintenance mode.
         html_template: Custom HTML template for maintenance page.
-    
+
     Example:
         ```python
         from FastMiddleware import MaintenanceConfig
-        
+
         config = MaintenanceConfig(
             enabled=True,
             message="We're upgrading! Back in 30 minutes.",
@@ -42,12 +41,12 @@ class MaintenanceConfig:
         )
         ```
     """
-    
+
     enabled: bool = False
     message: str = "Service temporarily unavailable for maintenance"
     retry_after: int = 300  # 5 minutes
-    allowed_ips: Set[str] | None = None
-    allowed_paths: Set[str] | None = None
+    allowed_ips: set[str] | None = None
+    allowed_paths: set[str] | None = None
     bypass_header: str = "X-Maintenance-Bypass"
     bypass_token: str | None = None
     html_template: str | None = None
@@ -57,10 +56,10 @@ class MaintenanceConfig:
 class MaintenanceMiddleware(FastMVCMiddleware):
     """
     Middleware that enables maintenance mode for your application.
-    
+
     When enabled, returns 503 Service Unavailable for all requests
     except those from allowed IPs, paths, or with bypass tokens.
-    
+
     Features:
         - IP-based bypass (for admin access)
         - Path-based bypass (for health checks)
@@ -68,14 +67,14 @@ class MaintenanceMiddleware(FastMVCMiddleware):
         - Configurable retry time
         - JSON or HTML responses
         - Dynamic enable/disable
-    
+
     Example:
         ```python
         from fastapi import FastAPI
         from FastMiddleware import MaintenanceMiddleware, MaintenanceConfig
-        
+
         app = FastAPI()
-        
+
         # Static configuration
         config = MaintenanceConfig(
             enabled=False,  # Toggle to True to enable
@@ -83,15 +82,15 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             retry_after=1800,
             allowed_paths={"/health", "/status"},
         )
-        
+
         middleware = MaintenanceMiddleware(app, config=config)
         app.add_middleware(MaintenanceMiddleware, config=config)
-        
+
         # Enable/disable at runtime
         middleware.enable()
         middleware.disable()
         ```
-    
+
     Response (JSON):
         ```json
         {
@@ -101,12 +100,12 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             "retry_after": 300
         }
         ```
-    
+
     Response Headers:
         - Retry-After: 300
         - X-Maintenance-Mode: true
     """
-    
+
     DEFAULT_HTML = """
 <!DOCTYPE html>
 <html lang="en">
@@ -169,7 +168,7 @@ class MaintenanceMiddleware(FastMVCMiddleware):
 </body>
 </html>
 """
-    
+
     def __init__(
         self,
         app,
@@ -177,15 +176,15 @@ class MaintenanceMiddleware(FastMVCMiddleware):
         enabled: bool | None = None,
         message: str | None = None,
         retry_after: int | None = None,
-        allowed_ips: Set[str] | None = None,
-        allowed_paths: Set[str] | None = None,
+        allowed_ips: set[str] | None = None,
+        allowed_paths: set[str] | None = None,
         bypass_token: str | None = None,
-        exclude_paths: Set[str] | None = None,
-        exclude_methods: Set[str] | None = None,
+        exclude_paths: set[str] | None = None,
+        exclude_methods: set[str] | None = None,
     ) -> None:
         """
         Initialize the maintenance middleware.
-        
+
         Args:
             app: The ASGI application.
             config: Maintenance configuration.
@@ -199,9 +198,9 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             exclude_methods: HTTP methods to exclude from middleware.
         """
         super().__init__(app, exclude_paths=exclude_paths, exclude_methods=exclude_methods)
-        
+
         self.config = config or MaintenanceConfig()
-        
+
         if enabled is not None:
             self.config.enabled = enabled
         if message is not None:
@@ -214,7 +213,7 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             self.config.allowed_paths = allowed_paths
         if bypass_token is not None:
             self.config.bypass_token = bypass_token
-    
+
     def enable(self, message: str | None = None, retry_after: int | None = None) -> None:
         """Enable maintenance mode."""
         self.config.enabled = True
@@ -222,35 +221,35 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             self.config.message = message
         if retry_after:
             self.config.retry_after = retry_after
-    
+
     def disable(self) -> None:
         """Disable maintenance mode."""
         self.config.enabled = False
-    
+
     def is_enabled(self) -> bool:
         """Check if maintenance mode is enabled."""
         return self.config.enabled
-    
+
     def _should_bypass(self, request: Request) -> bool:
         """Check if request should bypass maintenance mode."""
         # Check allowed paths
         if self.config.allowed_paths and request.url.path in self.config.allowed_paths:
             return True
-        
+
         # Check allowed IPs
         if self.config.allowed_ips:
             client_ip = self.get_client_ip(request)
             if client_ip in self.config.allowed_ips:
                 return True
-        
+
         # Check bypass token
         if self.config.bypass_token:
             token = request.headers.get(self.config.bypass_header)
             if token == self.config.bypass_token:
                 return True
-        
+
         return False
-    
+
     def _get_html_response(self) -> str:
         """Generate HTML maintenance page."""
         template = self.config.html_template or self.DEFAULT_HTML
@@ -258,45 +257,45 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             message=self.config.message,
             retry_minutes=self.config.retry_after // 60,
         )
-    
+
     async def dispatch(
         self, request: Request, call_next: Callable[[Request], Awaitable[Response]]
     ) -> Response:
         """
         Process request with maintenance mode check.
-        
+
         Args:
             request: The incoming HTTP request.
             call_next: Callable to invoke the next middleware or route handler.
-            
+
         Returns:
             The HTTP response or 503 maintenance response.
         """
         # Pass through if maintenance mode is disabled
         if not self.config.enabled:
             return await call_next(request)
-        
+
         # Check for bypass conditions
         if self._should_bypass(request):
             return await call_next(request)
-        
+
         # Skip excluded paths/methods
         if self.should_skip(request):
             return await call_next(request)
-        
+
         # Return maintenance response
         headers = {
             "Retry-After": str(self.config.retry_after),
             "X-Maintenance-Mode": "true",
         }
-        
+
         if self.config.use_html:
             return HTMLResponse(
                 content=self._get_html_response(),
                 status_code=503,
                 headers=headers,
             )
-        
+
         return JSONResponse(
             content={
                 "error": True,
@@ -307,4 +306,3 @@ class MaintenanceMiddleware(FastMVCMiddleware):
             status_code=503,
             headers=headers,
         )
-

@@ -98,10 +98,16 @@ Prefixes:
 
 ### 5. Submit Pull Request
 
+> ⚠️ **Note**: Direct pushes to `main` are disabled. All changes must go through a pull request.
+
 1. Push your branch
 2. Open a PR against `main`
 3. Fill out the PR template
-4. Wait for review
+4. Wait for CI checks to pass
+5. Get approval from a code owner
+6. Merge (squash recommended)
+
+See [Branch Protection Setup](.github/BRANCH_PROTECTION.md) for details on branch protection rules.
 
 ## Creating a New Middleware
 

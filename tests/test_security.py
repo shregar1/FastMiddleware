@@ -6,7 +6,7 @@ import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
 
-from FastMiddleware import SecurityHeadersMiddleware, SecurityHeadersConfig
+from FastMiddleware import SecurityHeadersConfig, SecurityHeadersMiddleware
 
 
 @pytest.fixture
@@ -25,18 +25,18 @@ def security_client(security_app: FastAPI) -> TestClient:
 
 class TestSecurityHeadersMiddleware:
     """Tests for SecurityHeadersMiddleware."""
-    
+
     def test_default_security_headers(self, security_client: TestClient):
         """Test that default security headers are added."""
         response = security_client.get("/")
-        
+
         assert response.headers.get("X-Content-Type-Options") == "nosniff"
         assert response.headers.get("X-Frame-Options") == "DENY"
         assert response.headers.get("X-XSS-Protection") == "1; mode=block"
         assert response.headers.get("Referrer-Policy") == "strict-origin-when-cross-origin"
         assert "Content-Security-Policy" in response.headers
         assert "Permissions-Policy" in response.headers
-    
+
     def test_hsts_disabled_by_default(self, security_client: TestClient):
         """Test that HSTS is disabled by default."""
         response = security_client.get("/")
@@ -45,7 +45,7 @@ class TestSecurityHeadersMiddleware:
 
 class TestSecurityHeadersWithHSTS:
     """Tests for security headers with HSTS enabled."""
-    
+
     @pytest.fixture
     def hsts_app(self, sample_routes) -> FastAPI:
         """Create app with HSTS enabled."""
@@ -58,17 +58,17 @@ class TestSecurityHeadersWithHSTS:
             hsts_preload=True,
         )
         return app
-    
+
     @pytest.fixture
     def hsts_client(self, hsts_app: FastAPI) -> TestClient:
         """Create test client for HSTS app."""
         return TestClient(hsts_app)
-    
+
     def test_hsts_header_added(self, hsts_client: TestClient):
         """Test that HSTS header is added when enabled."""
         response = hsts_client.get("/")
         hsts = response.headers.get("Strict-Transport-Security")
-        
+
         assert hsts is not None
         assert "max-age=31536000" in hsts
         assert "includeSubDomains" in hsts
@@ -77,7 +77,7 @@ class TestSecurityHeadersWithHSTS:
 
 class TestSecurityHeadersConfig:
     """Tests for SecurityHeadersConfig."""
-    
+
     def test_config_object(self, sample_routes):
         """Test using configuration object."""
         config = SecurityHeadersConfig(
@@ -85,16 +85,16 @@ class TestSecurityHeadersConfig:
             enable_hsts=True,
             content_security_policy="default-src 'self'",
         )
-        
+
         app = sample_routes
         app.add_middleware(SecurityHeadersMiddleware, config=config)
         client = TestClient(app)
-        
+
         response = client.get("/")
         assert response.headers.get("X-Frame-Options") == "SAMEORIGIN"
         assert response.headers.get("Content-Security-Policy") == "default-src 'self'"
         assert "Strict-Transport-Security" in response.headers
-    
+
     def test_build_hsts_header(self):
         """Test HSTS header building."""
         config = SecurityHeadersConfig(
@@ -102,7 +102,6 @@ class TestSecurityHeadersConfig:
             hsts_include_subdomains=True,
             hsts_preload=False,
         )
-        
+
         hsts = config.build_hsts_header()
         assert hsts == "max-age=3600; includeSubDomains"
-
