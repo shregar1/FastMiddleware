@@ -10,10 +10,12 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
-    { name = "Shiv", email = "shiv@hyyre.dev" }
+    { name = "Shivansh Sengar", email = "sengarsinghshivansh@gmail.com" },
+    { name = "Shreyansh Sengar", email = "sengarsinghshreyansh@gmail.com" }
 ]
 maintainers = [
-    { name = "Shiv", email = "shiv@hyyre.dev" }
+    { name = "Shivansh Sengar", email = "sengarsinghshivansh@gmail.com" },
+    { name = "Shreyansh Sengar", email = "sengarsinghshreyansh@gmail.com" }
 ]
 keywords = [
     "fastapi",

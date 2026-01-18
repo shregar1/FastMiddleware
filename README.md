@@ -2246,6 +2246,135 @@ app.add_middleware(
 
 ---
 
+## 🔧 Creating Custom Middleware
+
+Create your own middleware easily with built-in factory utilities. **Duplicate detection** is automatic - adding the same middleware twice will skip the second one.
+
+### Method 1: Function-based (Simplest)
+
+```python
+from fastmiddleware import create_middleware
+
+async def add_custom_header(request, call_next):
+    response = await call_next(request)
+    response.headers["X-Custom-Header"] = "my-value"
+    return response
+
+# Create middleware class from function
+CustomHeaderMiddleware = create_middleware("custom_header", add_custom_header)
+
+app.add_middleware(CustomHeaderMiddleware)
+app.add_middleware(CustomHeaderMiddleware)  # Skipped - already added!
+```
+
+### Method 2: Decorator Style
+
+```python
+from fastmiddleware import middleware
+
+@middleware("request_timer")
+async def request_timer(request, call_next):
+    import time
+    start = time.time()
+    response = await call_next(request)
+    duration = time.time() - start
+    response.headers["X-Response-Time"] = f"{duration:.3f}s"
+    return response
+
+app.add_middleware(request_timer)
+```
+
+### Method 3: Builder Pattern (Most Flexible)
+
+```python
+from fastmiddleware import MiddlewareBuilder
+import time
+
+RequestTimingMiddleware = (
+    MiddlewareBuilder("request_timing")
+    .on_request(lambda req: setattr(req.state, "start_time", time.time()))
+    .on_response(lambda req, res: (
+        res.headers.__setitem__("X-Duration", f"{time.time() - req.state.start_time:.3f}"),
+        res
+    )[1])
+    .skip_paths({"/health", "/metrics"})
+    .build()
+)
+
+app.add_middleware(RequestTimingMiddleware)
+```
+
+### Method 4: Quick One-liner
+
+```python
+from fastmiddleware import quick_middleware
+
+# Simple before/after hooks
+LoggingMiddleware = quick_middleware(
+    before=lambda req: print(f"Request: {req.method} {req.url.path}"),
+    after=lambda req, res: (print(f"Response: {res.status_code}"), res)[1],
+    name="simple_logging"
+)
+
+app.add_middleware(LoggingMiddleware)
+```
+
+### Method 5: Extend Base Class (Full Control)
+
+```python
+from fastmiddleware import FastMVCMiddleware
+from starlette.requests import Request
+from starlette.responses import Response
+
+class MyCustomMiddleware(FastMVCMiddleware):
+    def __init__(self, app, my_option: str = "default", **kwargs):
+        super().__init__(app, **kwargs)
+        self.my_option = my_option
+
+    async def dispatch(self, request: Request, call_next):
+        # Pre-processing
+        request.state.custom_data = self.my_option
+
+        # Call next middleware/route
+        response = await call_next(request)
+
+        # Post-processing
+        response.headers["X-Custom"] = self.my_option
+        return response
+
+app.add_middleware(MyCustomMiddleware, my_option="hello")
+```
+
+### Preventing Duplicate Middleware
+
+Use `add_middleware_once()` to safely add any middleware:
+
+```python
+from fastmiddleware import CORSMiddleware, add_middleware_once
+
+# First call - adds the middleware
+added = add_middleware_once(app, CORSMiddleware, allow_origins=["*"])
+print(added)  # True
+
+# Second call - skipped (already exists)
+added = add_middleware_once(app, CORSMiddleware, allow_origins=["*"])
+print(added)  # False
+```
+
+### Factory Utilities Reference
+
+| Utility | Description |
+|---------|-------------|
+| `create_middleware(name, func)` | Create middleware from async function |
+| `@middleware(name)` | Decorator to create middleware |
+| `MiddlewareBuilder(name)` | Builder pattern with hooks |
+| `quick_middleware(before, after)` | Simple before/after hooks |
+| `add_middleware_once(app, cls)` | Add only if not already added |
+| `is_middleware_registered(app, name)` | Check if middleware exists |
+| `clear_registry(app)` | Clear duplicate tracking (for tests) |
+
+---
+
 ## 📖 More Documentation
 
 - [API Reference](docs/API.md)

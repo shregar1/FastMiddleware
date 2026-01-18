@@ -8,6 +8,20 @@ for building robust FastAPI/Starlette applications.
 from fastmiddleware.base import FastMVCMiddleware
 
 # ============================================================================
+# Factory & Utilities
+# ============================================================================
+from fastmiddleware.factory import (
+    create_middleware,
+    middleware,
+    MiddlewareBuilder,
+    MiddlewareConfig,
+    add_middleware_once,
+    quick_middleware,
+    is_middleware_registered,
+    clear_registry,
+)
+
+# ============================================================================
 # Core Middlewares
 # ============================================================================
 from fastmiddleware.cors import CORSMiddleware
@@ -266,8 +280,8 @@ from fastmiddleware.real_ip import RealIPMiddleware, RealIPConfig, get_real_ip
 from fastmiddleware.xff_trust import XFFTrustMiddleware, XFFTrustConfig
 
 __version__ = "0.6.1"
-__author__ = "Shiv"
-__email__ = "shiv@hyyre.dev"
+__author__ = "Shreyansh Sengar"
+__email__ = "sengarsinghshivansh@gmail.com, sengarsinghshreyansh@gmail.com"
 __license__ = "MIT"
 __url__ = "https://github.com/shregar1/fastmvc-middleware"
 

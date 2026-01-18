@@ -364,7 +364,7 @@ import fastmiddleware
 
 print(fastmiddleware.__version__)  # "0.5.0"
 print(fastmiddleware.__author__)   # "Shiv"
-print(fastmiddleware.__email__)    # "shiv@hyyre.dev"
+print(fastmiddleware.__email__)    # "sengarsinghshivansh@gmail.com, sengarsinghshreyansh@gmail.com"
 print(fastmiddleware.__license__)  # "MIT"
 print(fastmiddleware.__url__)      # "https://github.com/shregar1/fastmvc-middleware"
 ```

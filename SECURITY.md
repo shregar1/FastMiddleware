@@ -13,7 +13,7 @@ We release patches for security vulnerabilities for the following versions:
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them via email to: **security@hyyre.dev**
+Instead, please report them via email to: **sengarsinghshivansh@gmail.com**
 
 Please include:
 
