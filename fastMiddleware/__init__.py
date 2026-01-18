@@ -267,7 +267,9 @@ from fastMiddleware.xff_trust import XFFTrustMiddleware, XFFTrustConfig
 
 __version__ = "0.5.0"
 __author__ = "Shiv"
+__email__ = "shiv@hyyre.dev"
 __license__ = "MIT"
+__url__ = "https://github.com/hyyre/fastmvc-middleware"
 
 __all__ = [
     # Base

@@ -137,16 +137,18 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Ruff
+.ruff_cache/
+
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
-Thumbs.db
 
 # Project specific
-.ruff_cache/
+*.local
+.env.local
+.env.*.local

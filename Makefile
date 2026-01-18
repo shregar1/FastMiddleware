@@ -1,4 +1,4 @@
-.PHONY: help install dev test lint type-check format build clean publish
+.PHONY: help install dev test lint type-check format build clean publish publish-test check
 
 help:
 	@echo "FastMVC Middleware - Development Commands"
@@ -6,15 +6,17 @@ help:
 	@echo "Usage: make [command]"
 	@echo ""
 	@echo "Commands:"
-	@echo "  install      Install package in development mode"
-	@echo "  dev          Install with development dependencies"
-	@echo "  test         Run tests with coverage"
-	@echo "  lint         Run linter (ruff)"
-	@echo "  type-check   Run type checker (mypy)"
-	@echo "  format       Format code with ruff"
-	@echo "  build        Build package for distribution"
-	@echo "  clean        Remove build artifacts"
-	@echo "  publish      Publish to PyPI (requires credentials)"
+	@echo "  install       Install package in development mode"
+	@echo "  dev           Install with development dependencies"
+	@echo "  test          Run tests with coverage"
+	@echo "  lint          Run linter (ruff)"
+	@echo "  type-check    Run type checker (mypy)"
+	@echo "  format        Format code with ruff"
+	@echo "  build         Build package for distribution"
+	@echo "  check         Check package before publishing"
+	@echo "  clean         Remove build artifacts"
+	@echo "  publish-test  Publish to TestPyPI"
+	@echo "  publish       Publish to PyPI (requires credentials)"
 
 install:
 	pip install -e .
@@ -23,20 +25,23 @@ dev:
 	pip install -e ".[dev]"
 
 test:
-	pytest --cov=fastmvc_middleware --cov-report=term-missing --cov-report=html
+	pytest --cov=fastMiddleware --cov-report=term-missing --cov-report=html
 
 lint:
-	ruff check .
+	ruff check fastMiddleware tests
 
 type-check:
-	mypy fastmvc_middleware
+	mypy fastMiddleware
 
 format:
-	ruff format .
-	ruff check --fix .
+	ruff format fastMiddleware tests
+	ruff check --fix fastMiddleware tests
 
 build: clean
 	python -m build
+
+check: build
+	twine check dist/*
 
 clean:
 	rm -rf build/
@@ -48,7 +53,10 @@ clean:
 	rm -rf htmlcov/
 	rm -rf .coverage
 	find . -type d -name __pycache__ -exec rm -rf {} +
+	find . -type d -name "*.egg-info" -exec rm -rf {} +
 
-publish: build
+publish-test: build
+	twine upload --repository testpypi dist/*
+
+publish: check
 	twine upload dist/*
-

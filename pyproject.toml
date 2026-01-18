@@ -4,12 +4,15 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fastmvc-middleware"
-version = "0.2.0"
-description = "Production-ready middleware collection for FastAPI/Starlette applications"
+version = "0.5.0"
+description = "Production-ready middleware collection with 90+ components for FastAPI/Starlette applications"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
+    { name = "Shiv", email = "shiv@hyyre.dev" }
+]
+maintainers = [
     { name = "Shiv", email = "shiv@hyyre.dev" }
 ]
 keywords = [
@@ -22,6 +25,23 @@ keywords = [
     "authentication",
     "logging",
     "api",
+    "jwt",
+    "csrf",
+    "caching",
+    "compression",
+    "health-check",
+    "metrics",
+    "prometheus",
+    "circuit-breaker",
+    "bulkhead",
+    "idempotency",
+    "session",
+    "multi-tenant",
+    "feature-flags",
+    "ab-testing",
+    "geoip",
+    "bot-detection",
+    "audit-logging",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -36,7 +56,10 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware",
     "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Monitoring",
+    "Topic :: Security",
     "Typing :: Typed",
 ]
 dependencies = [
@@ -45,8 +68,10 @@ dependencies = [
 
 [project.optional-dependencies]
 jwt = ["pyjwt>=2.0.0"]
+proxy = ["httpx>=0.24.0"]
 all = [
     "pyjwt>=2.0.0",
+    "httpx>=0.24.0",
 ]
 dev = [
     "pytest>=7.0.0",
@@ -58,6 +83,8 @@ dev = [
     "pyjwt>=2.0.0",
     "fastapi>=0.100.0",
     "uvicorn>=0.20.0",
+    "build>=1.0.0",
+    "twine>=4.0.0",
 ]
 
 [project.urls]
@@ -70,11 +97,25 @@ Changelog = "https://github.com/hyyre/fastmvc-middleware/blob/main/CHANGELOG.md"
 [tool.hatch.build.targets.sdist]
 include = [
     "/fastMiddleware",
+    "/LICENSE",
+    "/README.md",
+    "/CHANGELOG.md",
+]
+exclude = [
+    "*.pyc",
+    "__pycache__",
+    "*.egg-info",
+    ".git",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "htmlcov",
+    "venv",
+    ".venv",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["fastMiddleware"]
-sources = ["."]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -123,4 +164,3 @@ exclude_lines = [
     "if TYPE_CHECKING:",
     "if __name__ == .__main__.:",
 ]
-
