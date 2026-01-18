@@ -7,7 +7,7 @@ This document describes how to configure branch protection rules for the `main` 
 Go to: **Repository Settings → Branches → Add branch protection rule**
 
 ### Branch name pattern
-```
+```text
 main
 ```
 

@@ -29,7 +29,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `route_scopes` | `dict[str, list[str]]` | `{}` | Required scopes by path |
 | `require_all` | `bool` | `False` | Require all scopes vs any |
 | `scope_key` | `str` | `"scopes"` | Key in request.state |

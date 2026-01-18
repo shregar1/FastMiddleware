@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `escape_html` | `bool` | `True` | Escape HTML entities |
 | `strip_tags` | `bool` | `False` | Remove HTML tags |
 | `remove_null_bytes` | `bool` | `True` | Remove null bytes |
@@ -127,7 +127,7 @@ app.add_middleware(SelectiveSanitization, escape_html=True)
 ## Sanitization Rules
 
 | Input | escape_html | strip_tags |
-|-------|-------------|------------|
+| ------- | ------------- | ------------ |
 | `<script>` | `&lt;script&gt;` | (removed) |
 | `<b>text</b>` | `&lt;b&gt;text&lt;/b&gt;` | `text` |
 | `"quotes"` | `&quot;quotes&quot;` | `"quotes"` |

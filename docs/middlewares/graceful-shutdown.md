@@ -39,7 +39,7 @@ async def on_shutdown():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `timeout` | `float` | `30.0` | Max drain time in seconds |
 | `check_path` | `str` | `"/_shutdown"` | Status check endpoint |
 
@@ -50,7 +50,7 @@ async def on_shutdown():
 3. **Draining**: New requests get 503, in-flight continue
 4. **Complete**: All in-flight requests finished or timeout
 
-```
+```text
 Normal ──> Shutdown Called ──> Draining ──> Complete
                                   │
                                   ▼

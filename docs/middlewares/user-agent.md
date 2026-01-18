@@ -34,7 +34,7 @@ app.add_middleware(UserAgentMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `add_headers` | `bool` | `False` | Add device info headers |
 | `cache_results` | `bool` | `True` | Cache parsed UA strings |
 | `exclude_paths` | `Set[str]` | `set()` | Paths to exclude |
@@ -64,7 +64,7 @@ async def handler():
 ## Parsed Information
 
 | Field | Type | Example Values |
-|-------|------|----------------|
+| ------- | ------ | ---------------- |
 | `browser` | `str` | Chrome, Firefox, Safari, Edge |
 | `browser_version` | `str` | 120.0.0 |
 | `os` | `str` | Windows, macOS, iOS, Android, Linux |
@@ -103,7 +103,7 @@ async def data():
 ## Response Headers (if enabled)
 
 | Header | Value |
-|--------|-------|
+| -------- | ------- |
 | `X-Device-Type` | Desktop, Mobile, Tablet, Bot |
 | `X-Browser` | Chrome, Firefox, Safari, etc. |
 

@@ -43,7 +43,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"X-Tenant-ID"` | Header containing tenant ID |
 | `use_subdomain` | `bool` | `False` | Extract from subdomain |
 | `use_path` | `bool` | `False` | Extract from URL path |
@@ -115,7 +115,7 @@ async def handler():
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 400 | Missing tenant ID (if required) |
 | 404 | Tenant not found (with loader) |
 

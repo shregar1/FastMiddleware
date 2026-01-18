@@ -287,11 +287,10 @@ app.add_middleware(YourMiddleware, option1="value")
 
 ## Configuration
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `option1` | `str` | `"default"` | Description |
-| `option2` | `int` | `100` | Description |
-
+|Parameter|Type|Default|Description|
+| ----------- | ------ | --------- | ------------- |
+|`option1`|`str`|`"default"`|Description|
+|`option2`|`int`|`100`|Description|
 ## Related Middlewares
 
 - [RelatedMiddleware](related.md)

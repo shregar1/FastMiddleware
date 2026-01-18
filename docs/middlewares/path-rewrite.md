@@ -28,13 +28,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `rules` | `list[RewriteRule]` | `[]` | Rewrite rules |
 
 ## RewriteRule Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `pattern` | `str` | Path pattern to match |
 | `replacement` | `str` | Replacement path |
 | `is_regex` | `bool` | Treat pattern as regex |
@@ -140,7 +140,7 @@ app.add_middleware(
 ## Difference from Redirect
 
 | Feature | PathRewrite | Redirect |
-|---------|-------------|----------|
+| --------- | ------------- | ---------- |
 | URL in browser | Unchanged | Changes |
 | HTTP round-trip | Single | Double |
 | Use case | Internal routing | SEO, permanent moves |

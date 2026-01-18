@@ -31,7 +31,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `rate` | `float` | `0.1` | Sampling rate (0.0 - 1.0) |
 | `path_rates` | `dict[str, float]` | `{}` | Per-path sampling rates |
 | `always_sample` | `set[str]` | `set()` | Paths to always sample |
@@ -158,7 +158,7 @@ request.state.sampled  # bool - Is this request sampled?
 
 ## Response Headers
 
-```
+```http
 X-Sampled: true
 ```
 

@@ -22,7 +22,7 @@ app.add_middleware(RequestIDMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"X-Request-ID"` | Header name for request ID |
 | `generator` | `Callable` | UUID4 | ID generator function |
 | `trust_incoming` | `bool` | `True` | Trust incoming request IDs |

@@ -41,7 +41,7 @@ app.add_middleware(SessionMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret_key` | `str` | Required | Secret for session signing |
 | `cookie_name` | `str` | `"session_id"` | Session cookie name |
 | `max_age` | `int` | `3600` | Session lifetime in seconds |
@@ -78,7 +78,7 @@ async def handler(request: Request):
 ## Session API
 
 | Method | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `session.get(key, default=None)` | Get value |
 | `session.set(key, value)` | Set value |
 | `session[key] = value` | Set value (dict-style) |

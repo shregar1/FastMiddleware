@@ -30,7 +30,7 @@ app.add_middleware(AuthenticationMiddleware, backend=backend)
 ### AuthConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `exclude_paths` | `set[str]` | Health/docs paths | Paths without auth |
 | `exclude_methods` | `set[str]` | `{"OPTIONS"}` | Methods without auth |
 | `header_name` | `str` | `"Authorization"` | Auth header name |
@@ -55,7 +55,7 @@ backend = JWTAuthBackend(
 ```
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret` | `str` | Required | JWT secret key |
 | `algorithm` | `str` | `"HS256"` | JWT algorithm |
 | `verify_exp` | `bool` | `True` | Verify expiration |
@@ -81,7 +81,7 @@ backend = APIKeyAuthBackend(
 ```
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `valid_keys` | `set[str] \| None` | `None` | Static valid keys |
 | `validator` | `Callable \| None` | `None` | Async validator function |
 | `header_name` | `str` | `"X-API-Key"` | Header name |

@@ -21,7 +21,7 @@ app.add_middleware(MetricsMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `metrics_path` | `str` | `"/metrics"` | Metrics endpoint |
 | `histogram_buckets` | `tuple` | Default buckets | Latency buckets |
 | `path_patterns` | `dict` | `{}` | Path normalization |
@@ -31,7 +31,7 @@ app.add_middleware(MetricsMiddleware)
 ## Metrics Collected
 
 | Metric | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `fastmvc_http_requests_total` | Counter | Total requests |
 | `fastmvc_http_request_duration_seconds` | Histogram | Request latency |
 | `fastmvc_http_response_size_bytes` | Summary | Response size |

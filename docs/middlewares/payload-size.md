@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `max_request_size` | `int` | `10485760` | Max request body (10 MB) |
 | `max_response_size` | `int` | `None` | Max response body (unlimited) |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip validation |

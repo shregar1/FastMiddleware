@@ -30,7 +30,7 @@ app.add_middleware(RateLimitMiddleware)
 ### RateLimitConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `requests_per_minute` | `int` | `60` | Requests allowed per minute |
 | `requests_per_hour` | `int \| None` | `None` | Requests allowed per hour |
 | `burst_limit` | `int \| None` | `None` | Maximum burst requests |
@@ -131,7 +131,7 @@ config = RateLimitConfig(
 Rate limit information is included in response headers:
 
 | Header | Description | Example |
-|--------|-------------|---------|
+| -------- | ------------- | --------- |
 | `X-RateLimit-Limit` | Maximum requests allowed | `60` |
 | `X-RateLimit-Remaining` | Remaining requests | `45` |
 | `X-RateLimit-Reset` | Unix timestamp when limit resets | `1704067200` |

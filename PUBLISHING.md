@@ -197,11 +197,10 @@ This uses PyPI's trusted publishing (no API token needed).
 
 ## Quick Reference
 
-| Command | Description |
-|---------|-------------|
-| `make build` | Build distribution packages |
-| `make check` | Verify packages |
-| `make publish-test` | Upload to TestPyPI |
-| `make publish` | Upload to PyPI |
-| `make clean` | Remove build artifacts |
-
+|Command|Description|
+| --------- | ------------- |
+|`make build`|Build distribution packages|
+|`make check`|Verify packages|
+|`make publish-test`|Upload to TestPyPI|
+|`make publish`|Upload to PyPI|
+|`make clean`|Remove build artifacts|

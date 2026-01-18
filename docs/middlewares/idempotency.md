@@ -21,7 +21,7 @@ app.add_middleware(IdempotencyMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"Idempotency-Key"` | Header name |
 | `ttl_seconds` | `int` | `86400` | Cache TTL (24 hours) |
 | `require_key` | `bool` | `False` | Require key for POST/PUT/PATCH |
@@ -59,7 +59,7 @@ app.add_middleware(IdempotencyMiddleware, config=config)
 ## Response Headers
 
 | Header | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `X-Idempotent-Replayed` | `true` if cached response |
 
 ## How It Works

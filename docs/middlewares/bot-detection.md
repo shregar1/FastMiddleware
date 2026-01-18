@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `action` | `BotAction` | `TAG` | Action for detected bots |
 | `block_malicious` | `bool` | `True` | Block known malicious bots |
 | `allow_good_bots` | `set[str]` | `{"googlebot", "bingbot"}` | Allowed good bots |
@@ -35,7 +35,7 @@ app.add_middleware(
 ## Bot Actions
 
 | Action | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `BotAction.TAG` | Tag request, allow through |
 | `BotAction.BLOCK` | Block with 403 Forbidden |
 | `BotAction.CHALLENGE` | Return challenge (captcha) |

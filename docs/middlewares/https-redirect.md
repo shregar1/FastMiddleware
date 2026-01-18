@@ -42,7 +42,7 @@ app.add_middleware(HTTPSRedirectMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `permanent` | `bool` | `True` | Use 301 (True) or 307 (False) |
 | `exclude_paths` | `Set[str]` | `set()` | Paths to exclude from redirect |
 | `exclude_hosts` | `Set[str]` | `{"localhost", "127.0.0.1"}` | Hosts to exclude |
@@ -50,7 +50,7 @@ app.add_middleware(HTTPSRedirectMiddleware, config=config)
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 301 | Permanent redirect (if `permanent=True`) |
 | 307 | Temporary redirect (if `permanent=False`) |
 

@@ -43,7 +43,7 @@ app.add_middleware(
 ### Experiment Options
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `name` | `str` | Required | Experiment identifier |
 | `variants` | `List[str]` | Required | Variant names |
 | `weights` | `List[float]` | Equal | Distribution weights |
@@ -52,7 +52,7 @@ app.add_middleware(
 ### Middleware Options
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `experiments` | `List[Experiment]` | `[]` | Active experiments |
 | `cookie_name` | `str` | `"ab_variants"` | Cookie for persistence |
 | `cookie_max_age` | `int` | `2592000` | 30 days |

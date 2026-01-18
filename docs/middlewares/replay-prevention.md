@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `max_age` | `int` | `300` | Max age of request (seconds) |
 | `timestamp_header` | `str` | `"X-Timestamp"` | Timestamp header name |
 | `nonce_header` | `str` | `"X-Nonce"` | Nonce header name |
@@ -42,7 +42,7 @@ app.add_middleware(
 
 ## Required Client Headers
 
-```
+```http
 X-Timestamp: 1705574400
 X-Nonce: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 ```

@@ -24,7 +24,7 @@ app.add_middleware(ErrorHandlerMiddleware)
 ### ErrorConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `include_traceback` | `bool` | `False` | Include stack trace |
 | `include_exception_type` | `bool` | `False` | Include exception class |
 | `log_exceptions` | `bool` | `True` | Log exceptions |
@@ -140,7 +140,7 @@ app.add_middleware(ErrorHandlerMiddleware, config=config)
 Map exceptions to HTTP status codes:
 
 | Exception | Status | Message |
-|-----------|--------|---------|
+| ----------- | -------- | --------- |
 | `ValueError` | 400 | Bad Request |
 | `PermissionError` | 403 | Forbidden |
 | `FileNotFoundError` | 404 | Not Found |

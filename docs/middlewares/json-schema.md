@@ -55,7 +55,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `schemas` | `Dict[str, Dict]` | `{}` | Path to schema mapping |
 | `strict` | `bool` | `True` | Return 400 on validation failure |
 
@@ -83,7 +83,7 @@ schemas={
 ## Supported Validations
 
 | Validation | Types | Description |
-|------------|-------|-------------|
+| ------------ | ------- | ------------- |
 | `type` | all | Type checking |
 | `required` | object | Required fields |
 | `properties` | object | Property schemas |

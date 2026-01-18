@@ -22,7 +22,7 @@ app.add_middleware(ETagMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `weak` | `bool` | `True` | Use weak ETags (W/"...") |
 | `hash_algorithm` | `str` | `"md5"` | Hash algorithm for ETag |
 
@@ -96,7 +96,7 @@ app.add_middleware(ETagMiddleware, config=config)
 ## Weak vs Strong ETags
 
 | Type | Format | Use Case |
-|------|--------|----------|
+| ------ | -------- | ---------- |
 | Weak | `W/"..."` | Semantically equivalent content |
 | Strong | `"..."` | Byte-for-byte identical content |
 
@@ -110,7 +110,7 @@ Use strong ETags when:
 
 ## Request/Response Flow
 
-```
+```text
 Client: GET /api/users
 Server: 200 OK
         ETag: W/"abc123"

@@ -45,7 +45,7 @@ app.add_middleware(IPFilterMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `whitelist` | `Set[str]` | `set()` | Allowed IPs/CIDRs (if set, only these allowed) |
 | `blacklist` | `Set[str]` | `set()` | Blocked IPs/CIDRs |
 | `block_private` | `bool` | `False` | Block private IP ranges |
@@ -68,7 +68,7 @@ whitelist={
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 403 | IP not in whitelist or in blacklist |
 
 ## Related Middlewares

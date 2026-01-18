@@ -25,13 +25,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `policy` | `str` | `"strict-origin-when-cross-origin"` | Referrer policy |
 
 ## Policy Options
 
 | Policy | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `no-referrer` | Never send referrer |
 | `no-referrer-when-downgrade` | No referrer on HTTPS→HTTP |
 | `origin` | Send only origin |
@@ -85,14 +85,14 @@ app.add_middleware(
 ## Policy Comparison
 
 | Scenario | no-referrer | origin | strict-origin-when-cross-origin |
-|----------|-------------|--------|--------------------------------|
+| ---------- | ------------- | -------- | -------------------------------- |
 | Same origin | None | Origin | Full URL |
 | Cross origin HTTPS→HTTPS | None | Origin | Origin |
 | Cross origin HTTPS→HTTP | None | Origin | None |
 
 ## Response Header
 
-```
+```http
 Referrer-Policy: strict-origin-when-cross-origin
 ```
 

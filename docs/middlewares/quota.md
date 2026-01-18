@@ -28,7 +28,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `quotas` | `dict[str, dict]` | `{}` | Quota definitions by tier |
 | `default_tier` | `str` | `"free"` | Default tier for unknown users |
 | `tier_header` | `str` | `"X-Tier"` | Header containing user tier |
@@ -36,7 +36,7 @@ app.add_middleware(
 ## Quota Options
 
 | Option | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `requests_per_day` | Daily request limit |
 | `requests_per_month` | Monthly request limit |
 | `data_per_day` | Daily data transfer (bytes) |
@@ -134,7 +134,7 @@ async def track_quota(request, call_next):
 
 ## Response Headers
 
-```
+```http
 X-Quota-Limit: 1000
 X-Quota-Remaining: 750
 X-Quota-Reset: 2025-01-19T00:00:00Z

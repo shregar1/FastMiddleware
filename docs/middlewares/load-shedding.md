@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `max_concurrent` | `int` | `1000` | Max concurrent requests before shedding |
 | `shed_probability` | `float` | `0.5` | Probability of shedding when over limit |
 | `priority_paths` | `set[str]` | `set()` | Paths that are never shed |
@@ -121,7 +121,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 Retry-After: 5
 X-Load-Shed: true
 ```

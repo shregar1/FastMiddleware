@@ -140,7 +140,7 @@ async def get_time():
 ## Supported CDN Headers
 
 | CDN | Headers |
-|-----|---------|
+| ----- | --------- |
 | Cloudflare | `CF-IPCountry`, `CF-IPCity`, `CF-IPLatitude`, `CF-IPLongitude` |
 | AWS CloudFront | `CloudFront-Viewer-Country`, `CloudFront-Viewer-City` |
 | Fastly | `Fastly-Geo-*` |

@@ -31,13 +31,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `deprecations` | `list[DeprecationInfo]` | `[]` | Deprecation definitions |
 
 ## DeprecationInfo Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `path` | `str` | Path pattern to deprecate |
 | `sunset_date` | `str` | Date when endpoint is removed |
 | `replacement` | `str` | New endpoint to use |
@@ -45,7 +45,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 Deprecation: true
 Sunset: Wed, 31 Dec 2025 00:00:00 GMT
 Link: </api/v2/users>; rel="successor-version"

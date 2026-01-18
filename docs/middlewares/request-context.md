@@ -31,14 +31,14 @@ async def my_service():
 ## Helper Functions
 
 | Function | Returns | Description |
-|----------|---------|-------------|
+| ---------- | --------- | ------------- |
 | `get_request_id()` | `str \| None` | Current request ID |
 | `get_request_context()` | `dict` | Full request context |
 
 ## Context Data
 
 | Key | Type | Description |
-|-----|------|-------------|
+| ----- | ------ | ------------- |
 | `request_id` | `str` | Unique request identifier |
 | `start_time` | `datetime` | Request start timestamp |
 | `client_ip` | `str` | Client IP address |

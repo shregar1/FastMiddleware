@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret_key` | `str` | Required | Secret key for signing |
 | `signature_header` | `str` | `"X-Response-Signature"` | Header name |
 | `algorithm` | `str` | `"sha256"` | Hash algorithm |
@@ -34,7 +34,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 X-Response-Signature: sha256=a1b2c3d4e5f6...
 X-Response-Timestamp: 1705574400
 ```
@@ -118,7 +118,7 @@ app.add_middleware(ResponseSignatureMiddleware, config=config)
 
 ## Signature Calculation
 
-```
+```text
 HMAC-SHA256(secret, "{timestamp}.{body}")
 ```
 

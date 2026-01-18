@@ -31,7 +31,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `extract_headers` | `dict[str, str]` | `{}` | Map headers to context keys |
 | `extract_query` | `dict[str, str]` | `{}` | Map query params to context keys |
 

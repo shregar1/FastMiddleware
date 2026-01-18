@@ -40,7 +40,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `include_total` | `bool` | `True` | Include total time |
 | `include_app` | `bool` | `True` | Include app processing time |
 | `exclude_paths` | `Set[str]` | `set()` | Paths to exclude |

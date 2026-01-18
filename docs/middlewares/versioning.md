@@ -48,7 +48,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `default_version` | `str` | `"1.0"` | Default API version |
 | `location` | `VersionLocation` | `HEADER` | Where to find version |
 | `header_name` | `str` | `"X-API-Version"` | Header name |
@@ -100,7 +100,7 @@ curl https://api.example.com/v2/users
 ## Response Headers
 
 | Header | Value |
-|--------|-------|
+| -------- | ------- |
 | `X-API-Version` | Current API version |
 
 ## Unsupported Version

@@ -31,7 +31,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `supported_languages` | `list[str]` | `["en"]` | Languages your app supports |
 | `default_language` | `str` | `"en"` | Fallback when no match found |
 

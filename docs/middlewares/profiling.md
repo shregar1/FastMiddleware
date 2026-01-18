@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `enabled` | `bool` | `False` | Enable profiling |
 | `threshold_ms` | `float` | `100` | Only profile requests > threshold |
 | `include_paths` | `set[str]` | `None` | Paths to profile (None = all) |
@@ -117,7 +117,7 @@ app.add_middleware(
 
 When profiling is active:
 
-```
+```http
 X-Profile-Enabled: true
 X-Profile-Duration-Ms: 245.6
 X-Profile-Id: abc-123

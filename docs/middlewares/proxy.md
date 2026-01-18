@@ -45,7 +45,7 @@ app.add_middleware(
 ### ProxyRoute Options
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `path_prefix` | `str` | Required | URL prefix to match |
 | `target` | `str` | Required | Target server URL |
 | `strip_prefix` | `bool` | `True` | Remove prefix from forwarded URL |
@@ -55,7 +55,7 @@ app.add_middleware(
 ### Middleware Options
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `routes` | `List[ProxyRoute]` | `[]` | Proxy route definitions |
 | `timeout` | `float` | `30.0` | Request timeout |
 | `follow_redirects` | `bool` | `False` | Follow HTTP redirects |
@@ -98,7 +98,7 @@ The middleware automatically forwards:
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 502 | Bad Gateway (target unreachable) |
 | 504 | Gateway Timeout |
 

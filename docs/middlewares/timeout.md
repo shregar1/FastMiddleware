@@ -39,7 +39,7 @@ app.add_middleware(TimeoutMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `timeout` | `float` | `30.0` | Default timeout in seconds |
 | `timeout_response_status` | `int` | `504` | Status code on timeout |
 | `timeout_message` | `str` | `"Request timed out"` | Error message |
@@ -49,7 +49,7 @@ app.add_middleware(TimeoutMiddleware, config=config)
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 504 | Request timed out (Gateway Timeout) |
 
 ## Path-Specific Timeouts

@@ -33,13 +33,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `rules` | `list[ValidationRule]` | `[]` | Validation rules |
 
 ## ValidationRule Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `path` | `str` | Path pattern to match |
 | `method` | `str` | HTTP method (or `"*"` for all) |
 | `required_headers` | `list[str]` | Required headers |

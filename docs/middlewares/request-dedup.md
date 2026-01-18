@@ -25,7 +25,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `window` | `float` | `1.0` | Deduplication window (seconds) |
 | `methods` | `set[str]` | `{"POST", "PUT"}` | Methods to deduplicate |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip |
@@ -128,7 +128,7 @@ With `Retry-After` header.
 ## Difference from Coalescing
 
 | Feature | Dedup | Coalescing |
-|---------|-------|------------|
+| --------- | ------- | ------------ |
 | Behavior | Reject duplicate | Wait and share |
 | Response | 429 error | Same response |
 | Use case | Prevent double-submit | Reduce load |

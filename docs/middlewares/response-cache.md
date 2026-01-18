@@ -26,7 +26,7 @@ cache = ResponseCacheMiddleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `default_ttl` | `int` | `60` | Default TTL in seconds |
 | `max_size` | `int` | `1000` | Max cached responses |
 | `path_ttls` | `dict[str, int]` | `{}` | Per-path TTLs |
@@ -150,14 +150,14 @@ cache = ConditionalCache(app, default_ttl=60)
 
 ## Response Headers
 
-```
+```http
 X-Cache: HIT
 X-Cache-TTL: 45
 ```
 
 or
 
-```
+```http
 X-Cache: MISS
 ```
 

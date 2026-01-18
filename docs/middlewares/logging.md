@@ -22,7 +22,7 @@ app.add_middleware(LoggingMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `log_level` | `int` | `logging.INFO` | Logging level |
 | `log_request_body` | `bool` | `False` | Log request bodies |
 | `log_response_body` | `bool` | `False` | Log response bodies |
@@ -36,14 +36,14 @@ app.add_middleware(LoggingMiddleware)
 
 ### Default Format
 
-```
+```text
 → GET /api/users
 ← ✓ GET /api/users [200] 12.34ms
 ```
 
 ### With Headers
 
-```
+```text
 → GET /api/users
   Headers: {"accept": "application/json", "authorization": "[REDACTED]"}
 ← ✓ GET /api/users [200] 12.34ms
@@ -52,7 +52,7 @@ app.add_middleware(LoggingMiddleware)
 
 ### Error Response
 
-```
+```text
 → POST /api/users
 ← ✗ POST /api/users [400] 5.67ms
 ```
@@ -160,7 +160,7 @@ app.add_middleware(
 ```
 
 Output:
-```
+```text
 → GET /api/users
   Headers: {"authorization": "[REDACTED]", "x-api-key": "[REDACTED]", "accept": "application/json"}
 ```
@@ -168,7 +168,7 @@ Output:
 ## Log Levels
 
 | Level | Usage |
-|-------|-------|
+| ------- | ------- |
 | `DEBUG` | Detailed debugging info, request/response bodies |
 | `INFO` | Standard request logging |
 | `WARNING` | 4xx responses |
@@ -179,7 +179,7 @@ Output:
 When using a structured logger, these fields are available:
 
 | Field | Description |
-|-------|-------------|
+| ------- | ------------- |
 | `method` | HTTP method |
 | `path` | Request path |
 | `status_code` | Response status |

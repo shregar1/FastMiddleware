@@ -31,7 +31,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `default_cost` | `float` | `1.0` | Default cost per request |
 | `path_costs` | `dict[str, float]` | `{}` | Cost overrides by path |
 | `method_costs` | `dict[str, float]` | `{}` | Cost multipliers by method |
@@ -153,7 +153,7 @@ async def check_quota(request, call_next):
 
 ## Response Headers
 
-```
+```http
 X-Request-Cost: 15.5
 X-Cost-Breakdown: base=1.0,api=5.0,storage=9.5
 ```

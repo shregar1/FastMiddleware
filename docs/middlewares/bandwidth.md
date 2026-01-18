@@ -25,7 +25,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `bytes_per_second` | `int` | `1048576` | Maximum bytes per second (1 MB) |
 | `burst_size` | `int` | `None` | Allow burst up to this size |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip throttling |
@@ -88,7 +88,7 @@ app.add_middleware(TieredBandwidthMiddleware)
 
 ## Response Headers
 
-```
+```http
 X-Bandwidth-Limit: 524288
 X-Bandwidth-Remaining: 423000
 ```

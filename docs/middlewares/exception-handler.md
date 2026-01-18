@@ -30,7 +30,7 @@ def handle_value_error(exc: ValueError):
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `debug` | `bool` | `False` | Include tracebacks in responses |
 
 ## Examples

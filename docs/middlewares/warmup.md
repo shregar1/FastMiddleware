@@ -38,7 +38,7 @@ async def startup():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `warmup_paths` | `Set[str]` | `{"/_warmup", "/_ah/warmup"}` | Warmup endpoints |
 | `warmup_header` | `str` | `"X-Warmup"` | Header to indicate warmup |
 | `min_warmup_time` | `float` | `0.0` | Minimum startup time |
@@ -46,7 +46,7 @@ async def startup():
 
 ## How It Works
 
-```
+```text
 App Starts ──> Warming Up ──> Ready
                   │              │
                   ▼              ▼
@@ -104,7 +104,7 @@ if warmup._is_ready():
 ## Response Codes
 
 | Path | Status | Description |
-|------|--------|-------------|
+| ------ | -------- | ------------- |
 | `/_warmup` | 200 | Ready |
 | `/_warmup` | 503 | Still warming up |
 | Other paths | 503 | During warmup |

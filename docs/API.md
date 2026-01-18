@@ -33,13 +33,13 @@ from fastmiddleware import (
 ### Base Class
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `FastMVCMiddleware` | Class | Base class for custom middleware |
 
 ### Security (14)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `SecurityHeadersMiddleware` | Middleware | Security headers |
 | `SecurityHeadersConfig` | Dataclass | Config for SecurityHeadersMiddleware |
 | `CORSMiddleware` | Middleware | Cross-origin resource sharing |
@@ -72,7 +72,7 @@ from fastmiddleware import (
 ### Authentication (10)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `AuthenticationMiddleware` | Middleware | Pluggable auth |
 | `AuthConfig` | Dataclass | Config for AuthenticationMiddleware |
 | `AuthBackend` | ABC | Auth backend interface |
@@ -91,7 +91,7 @@ from fastmiddleware import (
 ### Session & Context (20+)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `SessionMiddleware` | Middleware | Server-side sessions |
 | `SessionConfig` | Dataclass | Config |
 | `SessionStore` | ABC | Session store interface |
@@ -120,7 +120,7 @@ from fastmiddleware import (
 ### Rate Limiting & Protection (10)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `RateLimitMiddleware` | Middleware | Rate limiting |
 | `RateLimitConfig` | Dataclass | Config |
 | `RateLimitStore` | ABC | Store interface |
@@ -139,7 +139,7 @@ from fastmiddleware import (
 ### Observability (20+)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `LoggingMiddleware` | Middleware | Request logging |
 | `TimingMiddleware` | Middleware | Response timing |
 | `RequestIDMiddleware` | Middleware | Request ID |
@@ -171,7 +171,7 @@ from fastmiddleware import (
 ### Performance (15)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `CompressionMiddleware` | Middleware | GZip compression |
 | `CompressionConfig` | Dataclass | Config |
 | `CacheMiddleware` | Middleware | HTTP caching |
@@ -198,7 +198,7 @@ from fastmiddleware import (
 ### Error Handling (5)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `ErrorHandlerMiddleware` | Middleware | Error formatting |
 | `ErrorConfig` | Dataclass | Config |
 | `CircuitBreakerMiddleware` | Middleware | Circuit breaker |
@@ -210,7 +210,7 @@ from fastmiddleware import (
 ### Operations (10)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `HealthCheckMiddleware` | Middleware | Health endpoints |
 | `HealthConfig` | Dataclass | Config |
 | `MaintenanceMiddleware` | Middleware | Maintenance mode |
@@ -227,7 +227,7 @@ from fastmiddleware import (
 ### API Management (12)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `VersioningMiddleware` | Middleware | API versioning |
 | `VersioningConfig` | Dataclass | Config |
 | `VersionLocation` | Enum | Version location |
@@ -248,7 +248,7 @@ from fastmiddleware import (
 ### Detection (10)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `BotDetectionMiddleware` | Middleware | Bot detection |
 | `BotConfig` | Dataclass | Config |
 | `BotAction` | Enum | Bot actions |
@@ -269,7 +269,7 @@ from fastmiddleware import (
 ### Feature Management (8)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `FeatureFlagMiddleware` | Middleware | Feature flags |
 | `FeatureFlagConfig` | Dataclass | Config |
 | `get_feature_flags` | Function | Get all flags |
@@ -282,7 +282,7 @@ from fastmiddleware import (
 ### Localization (6)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `LocaleMiddleware` | Middleware | Locale detection |
 | `LocaleConfig` | Dataclass | Config |
 | `get_locale` | Function | Get locale |
@@ -293,7 +293,7 @@ from fastmiddleware import (
 ### Routing (12)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `RedirectMiddleware` | Middleware | Redirects |
 | `RedirectConfig` | Dataclass | Config |
 | `RedirectRule` | Dataclass | Redirect rule |
@@ -316,7 +316,7 @@ from fastmiddleware import (
 ### IP & Proxy (4)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `RealIPMiddleware` | Middleware | Real IP |
 | `RealIPConfig` | Dataclass | Config |
 | `get_real_ip` | Function | Get real IP |
@@ -326,7 +326,7 @@ from fastmiddleware import (
 ### Request Processing (15)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `TimeoutMiddleware` | Middleware | Timeout |
 | `TimeoutConfig` | Dataclass | Config |
 | `RequestLimitMiddleware` | Middleware | Body size limit |
@@ -346,7 +346,7 @@ from fastmiddleware import (
 ### Other (10)
 
 | Export | Type | Description |
-|--------|------|-------------|
+| -------- | ------ | ------------- |
 | `IdempotencyMiddleware` | Middleware | Idempotency |
 | `IdempotencyConfig` | Dataclass | Config |
 | `IdempotencyStore` | ABC | Store interface |

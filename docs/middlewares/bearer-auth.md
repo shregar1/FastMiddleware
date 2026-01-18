@@ -42,7 +42,7 @@ middleware.set_validate_func(validate_token)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `tokens` | `Dict[str, Dict]` | `{}` | Token to user info mapping |
 | `header_name` | `str` | `"Authorization"` | Header name |
 | `realm` | `str` | `"API"` | Authentication realm |
@@ -58,7 +58,7 @@ curl -H "Authorization: Bearer token123" https://api.example.com/protected
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 401 | Missing or invalid token |
 
 ## Accessing User in Route

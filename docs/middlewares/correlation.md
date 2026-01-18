@@ -34,7 +34,7 @@ app.add_middleware(CorrelationMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"X-Correlation-ID"` | Header name |
 | `generate_if_missing` | `bool` | `True` | Generate ID if not present |
 | `include_in_response` | `bool` | `True` | Add to response headers |
@@ -96,7 +96,7 @@ formatter = logging.Formatter(
 ## Response Headers
 
 | Header | Value |
-|--------|-------|
+| -------- | ------- |
 | `X-Correlation-ID` | The correlation ID |
 
 ## Client Usage

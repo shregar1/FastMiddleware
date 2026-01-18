@@ -29,7 +29,7 @@ app.add_middleware(ConditionalRequestMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `etag_header` | `str` | `"ETag"` | ETag response header name |
 | `last_modified_header` | `str` | `"Last-Modified"` | Last-Modified header name |
 
@@ -94,7 +94,7 @@ async def get_article(id: str, response: Response):
 
 ### First Request
 
-```
+```text
 Client -> GET /resource
 Server -> 200 OK
          ETag: "v1-hash"
@@ -104,7 +104,7 @@ Server -> 200 OK
 
 ### Subsequent Request (Unchanged)
 
-```
+```text
 Client -> GET /resource
           If-None-Match: "v1-hash"
 Server -> 304 Not Modified
@@ -113,7 +113,7 @@ Server -> 304 Not Modified
 
 ### Subsequent Request (Changed)
 
-```
+```text
 Client -> GET /resource
           If-None-Match: "v1-hash"
 Server -> 200 OK

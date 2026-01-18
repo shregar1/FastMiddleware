@@ -29,14 +29,14 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `routes` | `list[RouteAuth]` | `[]` | Route auth rules |
 | `default_require_auth` | `bool` | `True` | Default auth requirement |
 
 ## RouteAuth Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `path` | `str` | Path pattern |
 | `require_auth` | `bool` | Require authentication |
 | `required_roles` | `list[str]` | Required roles |

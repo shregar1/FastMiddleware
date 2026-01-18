@@ -25,14 +25,14 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `action` | `SlashAction` | `STRIP` | How to handle trailing slashes |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip |
 
 ## SlashAction Options
 
 | Action | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `STRIP` | Remove trailing slash |
 | `ADD` | Add trailing slash |
 | `REDIRECT` | Redirect to canonical URL |
@@ -104,21 +104,21 @@ app.add_middleware(
 
 ### STRIP
 
-```
+```text
 /api/users/ → /api/users (internally rewritten)
 /api/users  → /api/users (unchanged)
 ```
 
 ### ADD
 
-```
+```text
 /api/users  → /api/users/ (internally rewritten)
 /api/users/ → /api/users/ (unchanged)
 ```
 
 ### REDIRECT
 
-```
+```text
 /api/users/ → 301 Redirect to /api/users
 /api/users  → Normal response
 ```

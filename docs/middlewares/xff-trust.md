@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `trusted_proxies` | `list[str]` | `[]` | Trusted proxy IPs/CIDRs |
 | `depth` | `int` | `1` | Number of proxies to skip |
 | `header_name` | `str` | `"X-Forwarded-For"` | Header name |
@@ -34,7 +34,7 @@ app.add_middleware(
 ## How It Works
 
 X-Forwarded-For contains a chain of IPs:
-```
+```http
 X-Forwarded-For: client, proxy1, proxy2
 ```
 
@@ -140,7 +140,7 @@ app.add_middleware(
 ⚠️ **Never trust X-Forwarded-For without validation!**
 
 An attacker can spoof the header:
-```
+```http
 X-Forwarded-For: fake-ip, attacker-ip
 ```
 

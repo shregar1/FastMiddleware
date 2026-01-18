@@ -25,7 +25,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `allowed_types` | `list[str]` | `["application/json"]` | Allowed content types |
 | `methods` | `list[str]` | `["POST", "PUT", "PATCH"]` | Methods to validate |
 | `strict` | `bool` | `True` | Require exact match vs prefix |

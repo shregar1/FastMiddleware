@@ -28,7 +28,7 @@ app.add_middleware(
 ### TrustedHostConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `allowed_hosts` | `Sequence[str]` | `["*"]` | List of allowed host patterns |
 | `www_redirect` | `bool` | `False` | Redirect www to non-www |
 | `redirect_to_primary` | `bool` | `False` | Redirect all hosts to primary |
@@ -37,7 +37,7 @@ app.add_middleware(
 ## Host Patterns
 
 | Pattern | Matches | Example |
-|---------|---------|---------|
+| --------- | --------- | --------- |
 | `example.com` | Exact host | Only `example.com` |
 | `*.example.com` | Subdomains | `api.example.com`, `www.example.com` |
 | `*` | Any host | All hosts (development only) |

@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `wrap_responses` | `bool` | `True` | Wrap all responses |
 | `success_key` | `str` | `"data"` | Key for successful data |
 | `error_key` | `str` | `"error"` | Key for error details |

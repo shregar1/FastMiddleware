@@ -28,20 +28,18 @@ app.add_middleware(
 
 ## Configuration
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `rules` | `list[MaskingRule]` | `[]` | Masking rules to apply |
-| `mask_in_logs` | `bool` | `True` | Mask in log output |
-| `mask_in_response` | `bool` | `False` | Mask in responses |
-
+|Parameter|Type|Default|Description|
+| ----------- | ------ | --------- | ------------- |
+|`rules`|`list[MaskingRule]`|`[]`|Masking rules to apply|
+|`mask_in_logs`|`bool`|`True`|Mask in log output|
+|`mask_in_response`|`bool`|`False`|Mask in responses|
 ## MaskingRule Options
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | `str` | Field name to mask |
-| `mask` | `str` | Mask pattern |
-| `pattern` | `str` | Regex pattern for value matching |
-
+|Field|Type|Description|
+| ------- | ------ | ------------- |
+|`field`|`str`|Field name to mask|
+|`mask`|`str`|Mask pattern|
+|`pattern`|`str`|Regex pattern for value matching|
 ## Examples
 
 ### Basic Field Masking

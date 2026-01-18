@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --------- | ---- | ------- | ----------- |
 | `version` | `str` | Required | Current API version |
 | `min_version` | `str` | `None` | Minimum supported version |
 | `sunset_date` | `str` | `None` | Date when older versions sunset |
@@ -36,7 +36,7 @@ app.add_middleware(
 
 The middleware adds these headers to all responses:
 
-```
+```http
 X-API-Version: 2.1.0
 X-API-Min-Version: 1.5.0
 Sunset: Sat, 31 Dec 2025 23:59:59 GMT

@@ -25,19 +25,19 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `default_retry_after` | `int` | `60` | Default retry seconds |
 | `status_codes` | `set[int]` | `{429, 503}` | Status codes to add header |
 
 ## Response Headers
 
-```
+```http
 Retry-After: 60
 ```
 
 or with date:
 
-```
+```http
 Retry-After: Sat, 18 Jan 2025 10:30:00 GMT
 ```
 
@@ -131,7 +131,8 @@ if response.status_code == 429:
 
 ```javascript
 if (response.status === 429) {
-    const retryAfter = parseInt(response.headers.get('Retry-After')) || 60;
+    const retryAfter = parseInt(response.headers.get('Retry-After')) |
+| 60;
     await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
     // Retry request
 }

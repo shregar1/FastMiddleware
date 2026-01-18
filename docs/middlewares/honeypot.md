@@ -49,7 +49,7 @@ app.add_middleware(HoneypotMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `honeypot_paths` | `Set[str]` | See below | Trap endpoints |
 | `block_on_access` | `bool` | `True` | Block IPs that access |
 | `block_duration` | `int` | `3600` | Block duration in seconds |
@@ -84,7 +84,7 @@ app.add_middleware(HoneypotMiddleware, config=config)
 
 ## Access Log Format
 
-```
+```text
 WARNING: Honeypot accessed: /.env from 192.168.1.100
 ```
 

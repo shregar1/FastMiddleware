@@ -44,7 +44,7 @@ app.add_middleware(FeatureFlagMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `flags` | `Dict[str, bool]` | `{}` | Feature flag values |
 | `header_overrides` | `bool` | `False` | Allow header overrides |
 | `override_header` | `str` | `"X-Feature-Flags"` | Override header name |

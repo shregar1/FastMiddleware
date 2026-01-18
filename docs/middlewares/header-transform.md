@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `add_request_headers` | `dict[str, str]` | `{}` | Headers to add to requests |
 | `add_response_headers` | `dict[str, str]` | `{}` | Headers to add to responses |
 | `remove_request_headers` | `set[str]` | `set()` | Headers to remove from requests |

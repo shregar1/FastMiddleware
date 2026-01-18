@@ -28,7 +28,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `slas` | `list[ResponseTimeSLA]` | `[]` | SLA definitions |
 | `default_target_ms` | `float` | `1000` | Default target |
 | `log_violations` | `bool` | `True` | Log SLA violations |
@@ -36,7 +36,7 @@ app.add_middleware(
 ## ResponseTimeSLA Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `path` | `str` | Path pattern |
 | `target_ms` | `float` | Target response time |
 | `warning_ms` | `float` | Warning threshold |
@@ -104,21 +104,21 @@ async def sla_metrics():
 
 ## Response Headers
 
-```
+```http
 X-Response-Time-Ms: 145.2
 X-SLA-Status: OK
 ```
 
 or
 
-```
+```http
 X-Response-Time-Ms: 2500.5
 X-SLA-Status: CRITICAL
 ```
 
 ## Violation Logging
 
-```
+```text
 WARNING: SLA violation for /api/search: 1500ms (warning threshold: 1000ms)
 CRITICAL: SLA violation for /api/health: 250ms (critical threshold: 200ms)
 ```

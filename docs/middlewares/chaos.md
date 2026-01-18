@@ -39,7 +39,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `enabled` | `bool` | `False` | Must explicitly enable |
 | `failure_rate` | `float` | `0.1` | Probability of failure (0-1) |
 | `latency_rate` | `float` | `0.2` | Probability of latency (0-1) |

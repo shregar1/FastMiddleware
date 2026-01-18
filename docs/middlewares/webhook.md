@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret_key` | `str` | Required | Webhook secret |
 | `signature_header` | `str` | `"X-Webhook-Signature"` | Signature header |
 | `paths` | `set[str]` | `set()` | Paths to validate |
@@ -143,12 +143,12 @@ app.add_middleware(CustomWebhook, secret_key="...", paths={"/webhooks/custom"})
 ## Signature Verification
 
 Standard format:
-```
+```http
 X-Webhook-Signature: sha256=abc123def456...
 ```
 
 Calculation:
-```
+```text
 HMAC-SHA256(secret, request_body)
 ```
 

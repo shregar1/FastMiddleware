@@ -29,13 +29,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `policies` | `dict[str, list[str]]` | `{}` | Feature policies |
 
 ## Policy Values
 
 | Value | Meaning |
-|-------|---------|
+| ------- | --------- |
 | `[]` | Disabled for all |
 | `["self"]` | Allowed for same origin |
 | `["*"]` | Allowed for all |
@@ -44,7 +44,7 @@ app.add_middleware(
 ## Available Features
 
 | Feature | Description |
-|---------|-------------|
+| --------- | ------------- |
 | `camera` | Camera access |
 | `microphone` | Microphone access |
 | `geolocation` | Geolocation API |
@@ -131,7 +131,7 @@ app.add_middleware(
 
 ## Response Header
 
-```
+```http
 Permissions-Policy: camera=(), microphone=(), geolocation=(self)
 ```
 

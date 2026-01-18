@@ -22,7 +22,7 @@ app.add_middleware(TimingMiddleware)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"X-Process-Time"` | Response header name |
 | `include_unit` | `bool` | `True` | Include "ms" suffix |
 | `precision` | `int` | `2` | Decimal precision |
@@ -180,7 +180,7 @@ app.add_middleware(TimingMiddleware)
 ```
 
 Log output:
-```
+```text
 ← ✓ GET /api/users [200] 12.34ms
   Headers: {"x-process-time": "12.34ms", ...}
 ```

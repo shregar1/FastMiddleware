@@ -24,7 +24,7 @@ app.add_middleware(CacheMiddleware)
 ### CacheConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `default_max_age` | `int` | `0` | Default cache time (seconds) |
 | `enable_etag` | `bool` | `True` | Generate ETag headers |
 | `private` | `bool` | `False` | Use private cache |
@@ -159,7 +159,7 @@ curl -H "If-None-Match: \"abc123\"" https://api.example.com/data
 ## Cache-Control Directives
 
 | Directive | Description |
-|-----------|-------------|
+| ----------- | ------------- |
 | `public` | Can be cached by CDN/proxies |
 | `private` | Only browser can cache |
 | `max-age=N` | Cache for N seconds |

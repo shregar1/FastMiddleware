@@ -28,7 +28,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `enabled` | `bool` | `False` | Enable delays |
 | `min_delay` | `float` | `0.5` | Minimum delay (seconds) |
 | `max_delay` | `float` | `2.0` | Maximum delay (seconds) |
@@ -113,7 +113,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 X-Artificial-Delay-Ms: 1523
 ```
 

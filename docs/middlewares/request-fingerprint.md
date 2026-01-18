@@ -26,7 +26,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `include_ip` | `bool` | `True` | Include client IP |
 | `include_user_agent` | `bool` | `True` | Include User-Agent |
 | `include_headers` | `list[str]` | `[]` | Additional headers |
@@ -146,7 +146,7 @@ app.add_middleware(
 ## Fingerprint Components
 
 | Component | Example |
-|-----------|---------|
+| ----------- | --------- |
 | IP Address | `192.168.1.100` |
 | User-Agent | `Mozilla/5.0...` |
 | Accept-Language | `en-US,en;q=0.9` |

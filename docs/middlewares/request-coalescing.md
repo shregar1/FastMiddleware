@@ -25,7 +25,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `window` | `float` | `0.1` | Coalescing window (seconds) |
 | `include_paths` | `set[str]` | `None` | Paths to coalesce (None = all) |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip |
@@ -115,13 +115,13 @@ Requests are considered identical if:
 ## Performance Benefits
 
 | Scenario | Without Coalescing | With Coalescing |
-|----------|-------------------|-----------------|
+| ---------- | ------------------- | ----------------- |
 | 100 identical requests/100ms | 100 backend calls | 1 backend call |
 | Cache miss thundering herd | DB overload | Single query |
 
 ## Response Headers
 
-```
+```http
 X-Coalesced: true
 X-Coalesced-Count: 15
 ```

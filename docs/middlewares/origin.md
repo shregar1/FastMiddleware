@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `allowed_origins` | `set[str]` | Required | Allowed origin URLs |
 | `block_null_origin` | `bool` | `True` | Block requests with null origin |
 | `allow_no_origin` | `bool` | `True` | Allow requests without Origin header |

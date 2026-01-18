@@ -28,7 +28,7 @@ app.add_middleware(SecurityHeadersMiddleware, enable_hsts=True)
 ### SecurityHeadersConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `enable_hsts` | `bool` | `False` | Enable HTTP Strict Transport Security |
 | `hsts_max_age` | `int` | `31536000` | HSTS max-age in seconds (1 year) |
 | `hsts_preload` | `bool` | `False` | Add preload directive for HSTS preload list |
@@ -44,7 +44,7 @@ app.add_middleware(SecurityHeadersMiddleware, enable_hsts=True)
 ## Headers Added
 
 | Header | Default Value | Purpose |
-|--------|---------------|---------|
+| -------- | --------------- | --------- |
 | `X-Content-Type-Options` | `nosniff` | Prevents MIME type sniffing |
 | `X-Frame-Options` | `DENY` | Prevents clickjacking attacks |
 | `X-XSS-Protection` | `1; mode=block` | Legacy XSS filter (for older browsers) |
@@ -64,7 +64,7 @@ app.add_middleware(SecurityHeadersMiddleware)
 ```
 
 Response headers:
-```
+```http
 X-Content-Type-Options: nosniff
 X-Frame-Options: DENY
 X-XSS-Protection: 1; mode=block
@@ -85,7 +85,7 @@ app.add_middleware(
 ```
 
 Additional header:
-```
+```http
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 ```
 

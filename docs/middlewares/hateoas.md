@@ -39,7 +39,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `link_generators` | `Dict[str, List[Link]]` | `{}` | Path to links mapping |
 | `link_key` | `str` | `"_links"` | Key for links in response |
 | `self_link` | `bool` | `True` | Auto-add self link |
@@ -48,7 +48,7 @@ app.add_middleware(
 ## Link Options
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| ----------- | ------ | ------------- |
 | `rel` | `str` | Relationship type |
 | `href` | `str` | Link URL |
 | `method` | `str` | HTTP method |
@@ -90,7 +90,7 @@ Array responses are wrapped:
 ## Common Link Relations
 
 | Relation | Description |
-|----------|-------------|
+| ---------- | ------------- |
 | `self` | Current resource |
 | `create` | Create new resource |
 | `update` | Update resource |

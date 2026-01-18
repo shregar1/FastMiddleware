@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `log_request_body` | `bool` | `False` | Log request body content |
 | `log_response_body` | `bool` | `False` | Log response body content |
 | `sensitive_headers` | `set[str]` | `{"Authorization"}` | Headers to redact |

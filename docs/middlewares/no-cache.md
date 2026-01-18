@@ -25,13 +25,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `paths` | `set[str]` | `set()` | Paths to disable caching |
 | `apply_all` | `bool` | `False` | Apply to all responses |
 
 ## Response Headers
 
-```
+```http
 Cache-Control: no-cache, no-store, must-revalidate, private
 Pragma: no-cache
 Expires: 0

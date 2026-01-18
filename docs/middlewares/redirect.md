@@ -28,13 +28,13 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `rules` | `list[RedirectRule]` | `[]` | Redirect rules |
 
 ## RedirectRule Fields
 
 | Field | Type | Default | Description |
-|-------|------|---------|-------------|
+| ------- | ------ | --------- | ------------- |
 | `source` | `str` | Required | Source path pattern |
 | `destination` | `str` | Required | Destination path |
 | `permanent` | `bool` | `False` | 301 (permanent) vs 307 (temporary) |
@@ -139,7 +139,7 @@ app.add_middleware(
 ## Status Codes
 
 | Permanent | Status | Use Case |
-|-----------|--------|----------|
+| ----------- | -------- | ---------- |
 | `True` | 301 | Permanent moves, SEO |
 | `False` | 307 | Temporary moves, A/B tests |
 

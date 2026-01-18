@@ -30,14 +30,14 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `request_hints` | `list[str]` | `[]` | Hints to request from browser |
 | `critical_hints` | `list[str]` | `[]` | Critical hints (blocking) |
 
 ## Available Client Hints
 
 | Hint | Description |
-|------|-------------|
+| ------ | ------------- |
 | `DPR` | Device pixel ratio |
 | `Viewport-Width` | Viewport width in pixels |
 | `Width` | Resource width |
@@ -136,7 +136,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 Accept-CH: DPR, Viewport-Width, Save-Data
 Accept-CH-Lifetime: 86400
 Critical-CH: DPR

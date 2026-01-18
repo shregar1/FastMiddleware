@@ -29,7 +29,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `path_priorities` | `dict[str, Priority]` | `{}` | Priority by path |
 | `default_priority` | `Priority` | `NORMAL` | Default priority |
 | `header_name` | `str` | `"X-Priority"` | Priority header |
@@ -37,7 +37,7 @@ app.add_middleware(
 ## Priority Levels
 
 | Level | Value | Use Case |
-|-------|-------|----------|
+| ------- | ------- | ---------- |
 | `CRITICAL` | 0 | Health checks, monitoring |
 | `HIGH` | 1 | Webhooks, real-time |
 | `NORMAL` | 2 | Regular API calls |
@@ -134,7 +134,7 @@ request.state.priority  # Priority enum value
 
 ## Response Headers
 
-```
+```http
 X-Priority: HIGH
 X-Priority-Value: 1
 ```

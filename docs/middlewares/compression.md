@@ -23,12 +23,11 @@ app.add_middleware(CompressionMiddleware)
 
 ### CompressionConfig
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `minimum_size` | `int` | `500` | Minimum bytes to compress |
-| `compression_level` | `int` | `6` | GZip level (1-9) |
-| `compressible_types` | `tuple` | See below | MIME types to compress |
-
+|Parameter|Type|Default|Description|
+| ----------- | ------ | --------- | ------------- |
+|`minimum_size`|`int`|`500`|Minimum bytes to compress|
+|`compression_level`|`int`|`6`|GZip level (1-9)|
+|`compressible_types`|`tuple`|See below|MIME types to compress|
 ### Default Compressible Types
 
 ```python
@@ -132,13 +131,12 @@ app.add_middleware(CompressionMiddleware, config=config)
 
 ## Compression Levels
 
-| Level | Speed | Ratio | Use Case |
-|-------|-------|-------|----------|
-| 1 | Fastest | ~50% | High-traffic, CPU-limited |
-| 4-5 | Balanced | ~65% | General use |
-| 6 | Default | ~70% | Good balance |
-| 9 | Slowest | ~75% | Bandwidth-critical |
-
+|Level|Speed|Ratio|Use Case|
+| ------- | ------- | ------- | ---------- |
+|1|Fastest|~50%|High-traffic, CPU-limited|
+|4-5|Balanced|~65%|General use|
+|6|Default|~70%|Good balance|
+|9|Slowest|~75%|Bandwidth-critical|
 ## What Gets Compressed
 
 ✅ Compressed:
@@ -193,12 +191,11 @@ app.add_middleware(CORSMiddleware)  # Add last
 
 ### CPU vs Bandwidth Trade-off
 
-| Scenario | Recommendation |
-|----------|----------------|
-| High bandwidth cost | Level 9 |
-| High CPU cost | Level 1-3 |
-| Balanced | Level 5-6 |
-
+|Scenario|Recommendation|
+| ---------- | ---------------- |
+|High bandwidth cost|Level 9|
+|High CPU cost|Level 1-3|
+|Balanced|Level 5-6|
 ### When to Skip Compression
 
 - Pre-compressed static files (use CDN)

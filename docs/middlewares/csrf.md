@@ -41,7 +41,7 @@ app.add_middleware(CSRFMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret_key` | `str` | Required | Secret key for token generation |
 | `cookie_name` | `str` | `"csrf_token"` | Cookie name for CSRF token |
 | `header_name` | `str` | `"X-CSRF-Token"` | Header to check for token |
@@ -80,7 +80,7 @@ fetch('/api/data', {
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 403 | Missing or invalid CSRF token |
 
 ## Related Middlewares

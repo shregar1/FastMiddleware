@@ -38,7 +38,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `headers` | `List[str]` | See below | Headers to check (in order) |
 | `trusted_proxies` | `Set[str]` | `set()` | Trusted proxy IPs |
 | `exclude_paths` | `Set[str]` | `set()` | Paths to exclude |
@@ -70,7 +70,7 @@ async def info(request: Request):
 ## CDN/Proxy Headers
 
 | Provider | Header |
-|----------|--------|
+| ---------- | -------- |
 | Cloudflare | `CF-Connecting-IP` |
 | AWS CloudFront | `CloudFront-Viewer-Address` |
 | Akamai | `True-Client-IP` |
@@ -81,7 +81,7 @@ async def info(request: Request):
 
 X-Forwarded-For can contain multiple IPs:
 
-```
+```http
 X-Forwarded-For: client, proxy1, proxy2
 ```
 

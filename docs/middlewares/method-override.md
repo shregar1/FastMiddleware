@@ -27,12 +27,11 @@ Allows clients to override HTTP methods when they can only send GET/POST:
 
 ## Configuration
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `query_param` | `str` | `"_method"` | Query parameter name |
-| `header_name` | `str` | `"X-HTTP-Method-Override"` | Header name |
-| `allowed_methods` | `set[str]` | `{"PUT", "PATCH", "DELETE"}` | Methods that can be overridden to |
-
+|Parameter|Type|Default|Description|
+| ----------- | ------ | --------- | ------------- |
+|`query_param`|`str`|`"_method"`|Query parameter name|
+|`header_name`|`str`|`"X-HTTP-Method-Override"`|Header name|
+|`allowed_methods`|`set[str]`|`{"PUT", "PATCH", "DELETE"}`|Methods that can be overridden to|
 ## Examples
 
 ### Basic Usage

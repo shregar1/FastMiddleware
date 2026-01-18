@@ -25,7 +25,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `max_size` | `int` | `10485760` | Max body size (10 MB) |
 | `exclude_paths` | `set[str]` | `set()` | Paths to skip |
 

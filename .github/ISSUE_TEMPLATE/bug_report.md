@@ -44,7 +44,7 @@ app.add_middleware(...)
 
 ## Error Message / Traceback
 
-```
+```text
 Paste error message here
 ```
 

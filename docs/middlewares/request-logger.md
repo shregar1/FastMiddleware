@@ -26,7 +26,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `format` | `str` | `"combined"` | Log format |
 | `skip_paths` | `set[str]` | `set()` | Paths to skip logging |
 | `logger` | `Logger` | `None` | Custom logger instance |
@@ -35,13 +35,13 @@ app.add_middleware(
 
 ### Combined (Apache)
 
-```
+```text
 192.168.1.100 - john [18/Jan/2025:10:30:00 +0000] "GET /api/users HTTP/1.1" 200 1234 "https://example.com" "Mozilla/5.0..."
 ```
 
 ### Common (Apache)
 
-```
+```text
 192.168.1.100 - john [18/Jan/2025:10:30:00 +0000] "GET /api/users HTTP/1.1" 200 1234
 ```
 
@@ -137,7 +137,7 @@ app.add_middleware(ErrorOnlyLogger, format="json")
 ## Format Reference
 
 | Token | Description |
-|-------|-------------|
+| ------- | ------------- |
 | `%h` | Remote host |
 | `%l` | Remote logname (always -) |
 | `%u` | Remote user |

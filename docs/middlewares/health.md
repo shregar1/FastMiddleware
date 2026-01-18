@@ -24,7 +24,7 @@ app.add_middleware(HealthCheckMiddleware)
 ### HealthConfig
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `health_path` | `str` | `"/health"` | Health endpoint path |
 | `ready_path` | `str` | `"/ready"` | Readiness endpoint path |
 | `live_path` | `str` | `"/live"` | Liveness endpoint path |
@@ -36,7 +36,7 @@ app.add_middleware(HealthCheckMiddleware)
 ## Endpoints
 
 | Endpoint | Purpose | Returns |
-|----------|---------|---------|
+| ---------- | --------- | --------- |
 | `/health` | Full health status | Detailed health info |
 | `/ready` | Readiness check | Ready/not ready |
 | `/live` | Liveness check | Alive/not alive |
@@ -264,7 +264,7 @@ spec:
 ## Status Codes
 
 | Condition | /health | /ready | /live |
-|-----------|---------|--------|-------|
+| ----------- | --------- | -------- | ------- |
 | All healthy | 200 | 200 | 200 |
 | Some checks failed | 503 | 503 | 200 |
 | Application alive | 200/503 | 200/503 | 200 |

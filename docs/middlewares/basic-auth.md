@@ -38,7 +38,7 @@ app.add_middleware(BasicAuthMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `users` | `Dict[str, str]` | `{}` | Username to password mapping |
 | `realm` | `str` | `"Restricted"` | Authentication realm |
 | `exclude_methods` | `Set[str]` | `{"OPTIONS"}` | Methods that skip auth |
@@ -57,13 +57,13 @@ curl -H "Authorization: Basic YWRtaW46c2VjcmV0MTIz" https://api.example.com/prot
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 401 | Missing or invalid credentials |
 
 ## Response Headers
 
 | Header | Value |
-|--------|-------|
+| -------- | ------- |
 | `WWW-Authenticate` | `Basic realm="Restricted"` |
 
 ## Accessing User in Route

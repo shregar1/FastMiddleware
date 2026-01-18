@@ -41,7 +41,7 @@ app.add_middleware(BulkheadMiddleware, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `max_concurrent` | `int` | `100` | Max concurrent requests |
 | `max_waiting` | `int` | `50` | Max waiting queue size |
 | `timeout` | `float` | `30.0` | Max wait time in seconds |
@@ -51,7 +51,7 @@ app.add_middleware(BulkheadMiddleware, config=config)
 
 ## How It Works
 
-```
+```text
 Incoming Request
       │
       ▼
@@ -68,13 +68,13 @@ Incoming Request
 ## Response Codes
 
 | Code | Description |
-|------|-------------|
+| ------ | ------------- |
 | 503 | Service overloaded (queue full or timeout) |
 
 ## Response Headers
 
 | Header | Value |
-|--------|-------|
+| -------- | ------- |
 | `Retry-After` | Suggested retry time in seconds |
 
 ## Use Cases

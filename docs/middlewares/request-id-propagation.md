@@ -27,7 +27,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `header_name` | `str` | `"X-Request-ID"` | Request ID header |
 | `trace_header` | `str` | `"X-Trace-ID"` | Trace chain header |
 | `separator` | `str` | `","` | ID separator |
@@ -142,7 +142,7 @@ async def traced():
 
 ## Header Flow
 
-```
+```text
 Client → Gateway → Service A → Service B
 
 Client:

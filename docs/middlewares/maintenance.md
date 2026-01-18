@@ -23,7 +23,7 @@ middleware = MaintenanceMiddleware(app, config=config)
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `enabled` | `bool` | `False` | Enable maintenance |
 | `message` | `str` | Default message | Maintenance message |
 | `retry_after` | `int` | `300` | Retry-After seconds |

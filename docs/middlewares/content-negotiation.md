@@ -30,7 +30,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `supported_types` | `list[str]` | `["application/json"]` | Content types you support |
 | `default_type` | `str` | `"application/json"` | Default when no match |
 | `strict` | `bool` | `False` | Return 406 if no match |

@@ -28,7 +28,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `allow_origins` | `list[str]` | `[]` | Allowed origin URLs |
 | `allow_methods` | `list[str]` | `["GET", "POST", ...]` | Allowed HTTP methods |
 | `allow_headers` | `list[str]` | `["*"]` | Allowed request headers |

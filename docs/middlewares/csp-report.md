@@ -27,7 +27,7 @@ csp_reporter = CSPReportMiddleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `report_uri` | `str` | `"/_csp-report"` | Endpoint for CSP reports |
 | `log_reports` | `bool` | `True` | Log reports to console |
 | `store_reports` | `bool` | `False` | Store reports in memory |

@@ -28,14 +28,14 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `global_hints` | `list[EarlyHint]` | `[]` | Hints for all requests |
 | `path_hints` | `dict[str, list[EarlyHint]]` | `{}` | Path-specific hints |
 
 ## EarlyHint Fields
 
 | Field | Type | Description |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | `href` | `str` | Resource URL |
 | `as_type` | `str` | Resource type (style, script, font, image) |
 | `crossorigin` | `str` | Crossorigin attribute |
@@ -118,7 +118,7 @@ app.add_middleware(
 
 ## Response Headers
 
-```
+```http
 Link: </static/css/main.css>; rel=preload; as=style
 Link: </static/js/app.js>; rel=preload; as=script
 Link: </fonts/inter.woff2>; rel=preload; as=font; crossorigin

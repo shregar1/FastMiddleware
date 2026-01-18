@@ -27,7 +27,7 @@ app.add_middleware(
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `secret_key` | `str` | Required | Shared secret key |
 | `signature_header` | `str` | `"X-Signature"` | Header containing signature |
 | `algorithm` | `str` | `"sha256"` | Hash algorithm |
@@ -37,13 +37,13 @@ app.add_middleware(
 
 The signature is computed as:
 
-```
+```text
 HMAC-SHA256(secret, "{timestamp}.{method}.{path}.{body}")
 ```
 
 ## Required Client Headers
 
-```
+```http
 X-Signature: sha256=a1b2c3d4e5f6...
 X-Timestamp: 1705574400
 ```

@@ -31,7 +31,7 @@ async def handler():
 ## Configuration
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| ----------- | ------ | --------- | ------------- |
 | `supported_locales` | `list[str]` | `["en"]` | Supported locale codes |
 | `default_locale` | `str` | `"en"` | Default when no match |
 | `cookie_name` | `str` | `"locale"` | Cookie name for persistence |
